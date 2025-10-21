@@ -34,7 +34,7 @@
    - KPIs executivos (totais, percentuais de expectativa/engajamento).
    - Temas críticos por tipo (resumo das categorias de Dor, Expectativa, Engajamento).
    - Recomendações automáticas baseadas em tags.
-   - Mapa de influência: stakeholders com mais menções (diferenciando dor/expectativa/engajamento).
+   - Mapa de influência: todos os stakeholders ordenados pelo volume de menções (diferenciando dor/expectativa/engajamento).
    - Sem uso do filtro global de time (visão macro).
 
 ## Arquivos importantes

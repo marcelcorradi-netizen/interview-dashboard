@@ -6,7 +6,7 @@
   --navy-500: #2e4063;
   --gray-100: #f4f6fb;
   --gray-300: #dfe6f6;
-  --gray-500: #8a9ab8;
+  --gray-500: #5b6c8f;
   --card-shadow: 0 12px 30px rgba(15, 107, 214, 0.08);
   --radius-large: 24px;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
@@ -467,7 +467,7 @@ body {
 
 .horizontal-bars .bar {
   display: grid;
-  grid-template-columns: minmax(0, 160px) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, clamp(120px, 32%, 220px)) minmax(0, 1fr) minmax(40px, max-content);
   grid-template-areas: 'label track value';
   align-items: center;
   gap: 16px;
@@ -993,6 +993,7 @@ body {
 
   .metric,
   .chart-card,
+  .chart-card.large,
   .highlight {
     grid-column: span 12;
   }
