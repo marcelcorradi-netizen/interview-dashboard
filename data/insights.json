@@ -1,0 +1,5604 @@
+[
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Dor",
+    "descricao": "Produto Expense estava \"bem desleixado\" e pouco priorizado quando Simon chegou",
+    "categoria": "Produto",
+    "tags": [
+      "expense",
+      "qualidade",
+      "priorizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Dor",
+    "descricao": "Algumas jornadas ainda são muito simples e exigem redesign",
+    "categoria": "Experiencia_Usuario",
+    "tags": [
+      "jornada_usuario",
+      "redesign",
+      "simplicidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Necessidade",
+    "descricao": "Necessidade de rever a arquitetura da informação com funcionalidades espalhadas e configurações pouco organizadas",
+    "categoria": "Arquitetura_Informacao",
+    "tags": [
+      "arquitetura",
+      "organizacao",
+      "estrutura"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Dor",
+    "descricao": "Expense trabalha de forma desalinhada em relação ao resto da plataforma (Travel, Common, Approval)",
+    "categoria": "Alinhamento",
+    "tags": [
+      "comunicacao",
+      "integracao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Necessidade",
+    "descricao": "Ausência de uma biblioteca consolidada gera lentidão no desenvolvimento",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "velocidade",
+      "desenvolvimento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Dor",
+    "descricao": "Muitas telas e fluxos ainda precisam ser redesenhados, exemplo: RDV ainda com versão 2020",
+    "categoria": "Interface",
+    "tags": [
+      "redesign",
+      "debito_tecnico",
+      "atualizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Dor",
+    "descricao": "Diferentes frentes da plataforma usam componentes distintos, gerando inconsistência e retrabalho",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "retrabalho",
+      "componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System traria velocidade no desenvolvimento e prototipagem",
+    "categoria": "Design_System",
+    "tags": [
+      "velocidade",
+      "prototipagem",
+      "eficiencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System evitaria retrabalho e desenhos do zero a cada funcionalidade",
+    "categoria": "Design_System",
+    "tags": [
+      "retrabalho",
+      "eficiencia",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System traria mais consistência entre áreas e alinhamento com o restante da plataforma",
+    "categoria": "Design_System",
+    "tags": [
+      "comunicacao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System reduziria dependência de um único designer/front para validações",
+    "categoria": "Design_System",
+    "tags": [
+      "autonomia",
+      "dependencia",
+      "escalabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System permitiria trabalhar de forma mais enxuta e rápida, liberando tempo para inovações",
+    "categoria": "Design_System",
+    "tags": [
+      "inovacao",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Necessidade",
+    "descricao": "Expense deve ser módulo independente mas conectado a touchpoints de Travel",
+    "categoria": "Produto",
+    "tags": [
+      "modularizacao",
+      "integracao",
+      "expense"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Necessidade",
+    "descricao": "Redesign de páginas críticas como RDV",
+    "categoria": "Interface",
+    "tags": [
+      "redesign",
+      "prioridade",
+      "rdv"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Necessidade",
+    "descricao": "Reorganização da arquitetura da informação para dar clareza e padronização",
+    "categoria": "Arquitetura_Informacao",
+    "tags": [
+      "clareza",
+      "padronizacao",
+      "organizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Engajamento",
+    "descricao": "Simon gostaria muito de participar das fases futuras de construção/validação do Design System",
+    "categoria": "Colaboracao",
+    "tags": [
+      "participacao",
+      "validacao",
+      "engajamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 12,
+    "tipo": "Sugestao",
+    "descricao": "Realizar workshops para aproximar o time técnico do tema Design System",
+    "categoria": "Processo",
+    "tags": [
+      "workshop",
+      "engajamento",
+      "capacitacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Dor",
+    "descricao": "Ausência de Design System força designers a criarem componentes do zero, sem library para instanciar rapidamente",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "retrabalho",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Dor",
+    "descricao": "Design lento deixa desenvolvedores ociosos aguardando entregas de UI",
+    "categoria": "Design_System",
+    "tags": [
+      "ociosidade",
+      "dependencia",
+      "fluxo_trabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Observacao",
+    "descricao": "Time gasta mais tempo em regras de negócio do que interface, devido à complexidade de Travel (múltiplos modais e consolidadores)",
+    "categoria": "Processo",
+    "tags": [
+      "regras_negocio",
+      "complexidade",
+      "travel"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Observacao",
+    "descricao": "Alinhamento acontece em dois níveis: refinamento inicial (PM, Design, Tech Leads) e handoff para desenvolvedores",
+    "categoria": "Processo",
+    "tags": [
+      "comunicacao",
+      "refinamento",
+      "handoff"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Necessidade",
+    "descricao": "Envolver desenvolvedores mais cedo no refinamento de produto com time inteiro",
+    "categoria": "Processo",
+    "tags": [
+      "refinamento",
+      "engajamento",
+      "colaboracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Dor",
+    "descricao": "Parte do time de dev ainda tem pouco domínio do negócio",
+    "categoria": "Processo",
+    "tags": [
+      "conhecimento_negocio",
+      "capacitacao",
+      "onboarding"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System aceleraria entregas e recolocaria Produto 1-2 sprints à frente de Tech",
+    "categoria": "Design_System",
+    "tags": [
+      "velocidade",
+      "sprint",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System liberaria tempo para testes de usabilidade e protótipos",
+    "categoria": "Design_System",
+    "tags": [
+      "usabilidade",
+      "prototipagem",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Dor",
+    "descricao": "Transição V2 para V3 gera retrabalho e soluções temporárias pela coexistência de telas antigas",
+    "categoria": "Interface",
+    "tags": [
+      "versao",
+      "debito_tecnico",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Observacao",
+    "descricao": "Gestão de Viajantes terá tela separada de Colaboradores porque Colaboradores ainda está em V2, exigindo fusão futura",
+    "categoria": "Interface",
+    "tags": [
+      "versao",
+      "debito_tecnico",
+      "integracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Necessidade",
+    "descricao": "Priorizar squad Common (Coletinha): cadastros de colaboradores, regras de política, aprovação, tela inicial e dashboard",
+    "categoria": "Produto",
+    "tags": [
+      "priorizacao",
+      "impacto_usuario"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Observacao",
+    "descricao": "Muitas telas do Common ainda estão em V2 com alto impacto ao usuário",
+    "categoria": "Produto",
+    "tags": [
+      "priorizacao",
+      "impacto_usuario"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Necessidade",
+    "descricao": "Priorizar área de Expense/Banking (Simon) que está atrasada e ainda em V2",
+    "categoria": "Produto",
+    "tags": [
+      "priorizacao",
+      "expense",
+      "versao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Observacao",
+    "descricao": "Travel já está em V3 com algum padrão de DS, mas ainda se beneficiaria de melhorias",
+    "categoria": "Produto",
+    "tags": [
+      "travel",
+      "design_system",
+      "maturidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Metrica",
+    "descricao": "Medir impacto do DS por redução do tempo de compra, CSAT e NPS",
+    "categoria": "Design_System",
+    "tags": [
+      "tempo_tarefa",
+      "csat",
+      "nps"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Observacao",
+    "descricao": "Hoje não há medição sistemática de UX; Flavio se dispõe a puxar instrumentação em Travel",
+    "categoria": "Metricas",
+    "tags": [
+      "instrumentacao",
+      "metricas",
+      "travel"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Engajamento",
+    "descricao": "Flavio topa participar ativamente da construção e validação do DS",
+    "categoria": "Colaboracao",
+    "tags": [
+      "participacao",
+      "validacao",
+      "engajamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Engajamento",
+    "descricao": "Pode colaborar especialmente em métricas/telemetria e regras de negócio",
+    "categoria": "Colaboracao",
+    "tags": [
+      "metricas",
+      "regras_negocio",
+      "telemetria"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Sugestao",
+    "descricao": "Criar DS voltado a dados para substituir embeds tipo Power BI por padrões de visualização dedicados",
+    "categoria": "Design_System",
+    "tags": [
+      "dados",
+      "padronizacao",
+      "qualidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Dor",
+    "descricao": "Header sem ownership está desorganizado com itens de viagem/gestão/expense misturados",
+    "categoria": "Interface",
+    "tags": [
+      "navegacao",
+      "organizacao",
+      "header"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Sugestao",
+    "descricao": "Header é bom candidato a piloto do DS por alto impacto e aparecer em todas as telas",
+    "categoria": "Design_System",
+    "tags": [
+      "header",
+      "piloto",
+      "impacto_usuario"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 11,
+    "tipo": "Duvida",
+    "descricao": "Questionamento sobre tempo de construção e estratégia de rollout do DS (faseado vs big-bang)",
+    "categoria": "Estrategia",
+    "tags": [
+      "rollout",
+      "planejamento",
+      "implementacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Mistura de componentes antigos com novos gera incerteza sobre qual usar",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "debito_tecnico",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Design system anterior foi abandonado",
+    "categoria": "Design_System",
+    "tags": [
+      "abandono",
+      "historico",
+      "descontinuidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Falta de alinhamento entre times: alguns usam Vue 3 + Quasar, outros React ou Vue 2",
+    "categoria": "Tecnologia",
+    "tags": [
+      "stack_tecnologica",
+      "padronizacao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Alguns projetos como FinHub não utilizam biblioteca por desconhecimento ou stack diferente",
+    "categoria": "Tecnologia",
+    "tags": [
+      "adocao",
+      "conhecimento",
+      "finhub"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Observacao",
+    "descricao": "Framework ajuda a reduzir retrabalho mas precisa de manutenção e atenção",
+    "categoria": "Tecnologia",
+    "tags": [
+      "framework",
+      "manutencao",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Observacao",
+    "descricao": "Existe repositório do framework como plugin em Quasar",
+    "categoria": "Tecnologia",
+    "tags": [
+      "repositorio",
+      "framework",
+      "quasar"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Documentação parcial, manual, hospedada em BitLab e não acessível sem VPN",
+    "categoria": "Documentacao",
+    "tags": [
+      "acessibilidade",
+      "vpn",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Componentes compatíveis apenas com Vue 3, limitando compatibilidade",
+    "categoria": "Tecnologia",
+    "tags": [
+      "compatibilidade",
+      "vue",
+      "limitacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Necessidade",
+    "descricao": "Não existe exportação em HTML + CSS puro, o que limita compatibilidade",
+    "categoria": "Tecnologia",
+    "tags": [
+      "exportacao",
+      "frontend",
+      "compatibilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Arquivo Components Onfly no Figma está inconsistente e desatualizado",
+    "categoria": "Design_System",
+    "tags": [
+      "figma",
+      "desatualizacao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Observacao",
+    "descricao": "Cores, tipografia e sombras ainda fazem sentido, mas alguns componentes foram abandonados ou estão incorretos",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "desatualizacao",
+      "abandono"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Algumas variáveis CSS foram definidas mas falta padronização e consistência de uso",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "frontend",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Não há estrutura clara de tokens no Figma",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "figma",
+      "estrutura"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Inconsistências frequentes de fonte entre designers",
+    "categoria": "Design_System",
+    "tags": [
+      "tipografia",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System reduziria retrabalho e padronizaria fluxos e componentes",
+    "categoria": "Design_System",
+    "tags": [
+      "retrabalho",
+      "padronizacao",
+      "eficiencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System traria clareza sobre o que pode ser compartilhado entre módulos Travel, Expenses e Approval",
+    "categoria": "Design_System",
+    "tags": [
+      "compartilhamento",
+      "clareza",
+      "modularizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Possibilidade de pensar em componentes genéricos com variações por módulo",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "variacao",
+      "modularizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Observacao",
+    "descricao": "Design é visto como time transversal, um designer pode atender mais de um time",
+    "categoria": "Processo",
+    "tags": [
+      "time_transversal",
+      "alocacao",
+      "estrutura"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Participação em rituais é opcional",
+    "categoria": "Processo",
+    "tags": [
+      "rituais",
+      "participacao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Hand-off não é processo formalizado, geralmente ocorre via PM com designer e só depois envolve o time",
+    "categoria": "Processo",
+    "tags": [
+      "handoff",
+      "formalizacao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Quando há telas grandes ocorre interação direta mas não existe rito fixo",
+    "categoria": "Processo",
+    "tags": [
+      "rituais",
+      "formalizacao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Incompatibilidade de versões Vue 2 vs Vue 3 e Quasar",
+    "categoria": "Tecnologia",
+    "tags": [
+      "compatibilidade",
+      "versao",
+      "vue"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Dependência de stacks diferentes: React, backend em Go no FinHub",
+    "categoria": "Tecnologia",
+    "tags": [
+      "stack_tecnologica",
+      "diversidade",
+      "finhub"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Dor",
+    "descricao": "Necessidade de refatoração grande se DS for refeito para múltiplos frameworks",
+    "categoria": "Design_System",
+    "tags": [
+      "refatoracao",
+      "framework",
+      "complexidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Sugestao",
+    "descricao": "Reconstruir DS com práticas modernas exportando em HTML/CSS como alternativa viável",
+    "categoria": "Design_System",
+    "tags": [
+      "frontend",
+      "exportacao",
+      "modernizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 18,
+    "tipo": "Engajamento",
+    "descricao": "Luiz gostaria de acompanhar opcionalmente como ouvinte",
+    "categoria": "Colaboracao",
+    "tags": [
+      "participacao",
+      "acompanhamento",
+      "engajamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 23,
+    "tipo": "Dor",
+    "descricao": "Insegurança sobre o que é padrão e o que pode ser compartilhado entre squads",
+    "categoria": "Processo",
+    "tags": [
+      "padronizacao",
+      "compartilhamento",
+      "incerteza"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 23,
+    "tipo": "Dor",
+    "descricao": "Retrabalho ocorre quando designers pedem algo que difere do padrão atual, implementando temporariamente e depois refatorando",
+    "categoria": "Processo",
+    "tags": [
+      "retrabalho",
+      "padronizacao",
+      "refatoracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 23,
+    "tipo": "Dor",
+    "descricao": "Retrabalho quando dois times implementam versões diferentes do mesmo componente por falta de padronização",
+    "categoria": "Processo",
+    "tags": [
+      "retrabalho",
+      "duplicacao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 23,
+    "tipo": "Engajamento",
+    "descricao": "Lucas vê muito valor em participar ativamente para contribuir tecnicamente e aprender práticas novas como tokens",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "aprendizado",
+      "tokens"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Dor",
+    "descricao": "Desorganização geral dos materiais no Figma com muitos links soltos e dificuldade para localizar fluxos",
+    "categoria": "Processo",
+    "tags": [
+      "organizacao",
+      "figma",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Dor",
+    "descricao": "Inconsistência visual com uso de imagens/ilustrações do Freepik que destoam da identidade da marca",
+    "categoria": "Design_System",
+    "tags": [
+      "tipografia",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Dor",
+    "descricao": "Mini-facelifts em pontos específicos quebram coerência com outras telas (ex: botões replicados na home)",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Dor",
+    "descricao": "PM assume papel indevido de \"guardião do visual\" quando o esperado é a área de Design segurar esse padrão",
+    "categoria": "Processo",
+    "tags": [
+      "responsabilidade",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Observacao",
+    "descricao": "App é majoritariamente WebView (60-70%) e replica a Web, com backend compartilhado que limita criação de regras novas",
+    "categoria": "Tecnologia",
+    "tags": [
+      "webview",
+      "integracao",
+      "dependencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Observacao",
+    "descricao": "Alinhamentos historicamente desorganizados com modelo \"desenha e entrega\"",
+    "categoria": "Processo",
+    "tags": [
+      "comunicacao",
+      "colaboracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Observacao",
+    "descricao": "Caso positivo recente com Lagares: desenho validado com PM e Tech Lead antes do repasse para dev",
+    "categoria": "Colaboracao",
+    "tags": [
+      "validacao",
+      "comunicacao",
+      "processo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Observacao",
+    "descricao": "Devs seguem designs à risca, diferenças comuns são tamanhos/escala corrigidas com feedback",
+    "categoria": "Colaboracao",
+    "tags": [
+      "execucao",
+      "qualidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System reduziria retrabalho e discussões sobre padrões de ativos (imagens, ícones, botões)",
+    "categoria": "Design_System",
+    "tags": [
+      "retrabalho",
+      "padronizacao",
+      "eficiencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System tornaria referência acessível acelerando handoff e QA visual",
+    "categoria": "Design_System",
+    "tags": [
+      "documentacao",
+      "velocidade",
+      "eficiencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Dor",
+    "descricao": "Dependência de outros times (backend) para qualquer novidade atrasa lançamentos",
+    "categoria": "Tecnologia",
+    "tags": [
+      "dependencia",
+      "backend",
+      "gargalo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Observacao",
+    "descricao": "Capacity de Design já foi gargalo no passado por falta de dedicados, melhorou com crescimento do time e chegada do Brian",
+    "categoria": "Processo",
+    "tags": [
+      "capacity",
+      "time_design",
+      "crescimento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Observacao",
+    "descricao": "Maior risco atual é capacidade/priorização mais do que qualidade de execução",
+    "categoria": "Processo",
+    "tags": [
+      "capacity",
+      "priorizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Sugestao",
+    "descricao": "Priorizar Expense como piloto do Design System por necessidade de refatoração técnica e grandes oportunidades de melhoria de UX",
+    "categoria": "Design_System",
+    "tags": [
+      "expense",
+      "priorizacao",
+      "refatoracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Observacao",
+    "descricao": "Travel acabou de migrar para V3 (web e app), menos indicado mexer agora",
+    "categoria": "Produto",
+    "tags": [
+      "travel",
+      "versao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Metrica",
+    "descricao": "Medir impacto do DS por indicador subjetivo de \"paz\": menos chamadas/ruídos e fluxo mais autônomo",
+    "categoria": "Design_System",
+    "tags": [
+      "autonomia",
+      "eficiencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Metrica",
+    "descricao": "Sinais objetivos sugeridos: redução de retrabalho, tempo de execução, reclamações, variância visual e melhores avaliações nas lojas",
+    "categoria": "Design_System",
+    "tags": [
+      "retrabalho",
+      "velocidade",
+      "qualidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Engajamento",
+    "descricao": "Quer participar ativamente de criação e validação do Design System",
+    "categoria": "Colaboracao",
+    "tags": [
+      "participacao",
+      "engajamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Engajamento",
+    "descricao": "Perfil visual que observa tendências e traz referências de fora do domínio (ex: \"sacudir para reportar bug\" do Instagram)",
+    "categoria": "Colaboracao",
+    "tags": [
+      "referencia",
+      "inovacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 10,
+    "tipo": "Observacao",
+    "descricao": "Últimos 6 meses mostram profissionalização de Produto e Design com \"luz no fim do túnel\"",
+    "categoria": "Estrategia",
+    "tags": [
+      "evolucao",
+      "maturidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Observacao",
+    "descricao": "Time de Jader focado em arquitetura, qualidade e devops, sem ninguém trabalhando diretamente com interface",
+    "categoria": "Processo",
+    "tags": [
+      "time",
+      "arquitetura",
+      "devops"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Dor",
+    "descricao": "Time de qualidade pequeno com 4 QAs que não consegue atender toda a demanda",
+    "categoria": "Processo",
+    "tags": [
+      "capacity",
+      "qualidade",
+      "gargalo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Observacao",
+    "descricao": "Ideia de implementar testes automatizados existe mas ainda não saiu do papel devido ao tamanho do time",
+    "categoria": "Tecnologia",
+    "tags": [
+      "testes_automatizados",
+      "capacity"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Dor",
+    "descricao": "Existe divisão com o front em relação à consistência visual",
+    "categoria": "Colaboracao",
+    "tags": [
+      "padronizacao",
+      "frontend",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Dor",
+    "descricao": "Problemas de usabilidade recorrentes principalmente ligados ao fluxo de aprovação",
+    "categoria": "Experiencia_Usuario",
+    "tags": [
+      "usabilidade",
+      "fluxo_aprovacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Dor",
+    "descricao": "Muitas dúvidas e chamados chegam ao suporte interno por falta de clareza no sistema",
+    "categoria": "Produto",
+    "tags": [
+      "clareza",
+      "suporte",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Dor",
+    "descricao": "Retrabalho por erros de entendimento em fluxos de aprovação gera chamados desnecessários ao time de desenvolvimento",
+    "categoria": "Processo",
+    "tags": [
+      "retrabalho",
+      "fluxo_aprovacao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Dor",
+    "descricao": "Falta clareza nos fluxos e diretrizes o que gera atritos e inconsistência",
+    "categoria": "Design_System",
+    "tags": [
+      "clareza",
+      "padronizacao",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Dor",
+    "descricao": "Contato atual com o time de design é zero, essa foi a primeira conversa com alguém do design",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao",
+      "isolamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Necessidade",
+    "descricao": "Reconhece necessidade de maior alinhamento com design para melhorar experiência geral",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao",
+      "melhoria"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System tornaria sistema mais intuitivo com componentes reutilizáveis",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "usabilidade",
+      "reutilizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System reduziria atritos de entendimento e problemas de usabilidade",
+    "categoria": "Design_System",
+    "tags": [
+      "usabilidade",
+      "clareza"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System facilitaria trabalho do time de qualidade e traria agilidade para criação de testes automatizados",
+    "categoria": "Design_System",
+    "tags": [
+      "qualidade",
+      "testes_automatizados",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System apoiaria cobertura completa da jornada do cliente",
+    "categoria": "Design_System",
+    "tags": [
+      "jornada_usuario",
+      "cobertura"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Observacao",
+    "descricao": "Não há contato estabelecido com design, espera aproximação a partir do Design System",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao",
+      "expectativa"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Engajamento",
+    "descricao": "Participação através do time de arquitetura com Wanderson como pessoa capacitada para contribuir",
+    "categoria": "Colaboracao",
+    "tags": [
+      "participacao",
+      "arquitetura",
+      "engajamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Engajamento",
+    "descricao": "Jader se vê como facilitador removendo impedimentos e garantindo apoio estratégico",
+    "categoria": "Colaboracao",
+    "tags": [
+      "lideranca",
+      "facilitacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 17,
+    "tipo": "Engajamento",
+    "descricao": "Aberto a discutir recursos adicionais se necessário como reforço no front ou arquitetura",
+    "categoria": "Colaboracao",
+    "tags": [
+      "recursos",
+      "apoio_estrategico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Dor",
+    "descricao": "Percebe diferenças de consistência entre versões V2 e V3 e entre experiências desktop, mobile e webview",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "versao",
+      "multiplataforma"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Dor",
+    "descricao": "Em transições entre produtos (ex: Expense para Travel) há quebras de consistência visual",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "expense",
+      "travel"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Observacao",
+    "descricao": "No passado com templates prontos havia pseudo Design System \"na marra\" que funcionava por reutilização forçada",
+    "categoria": "Design_System",
+    "tags": [
+      "historico",
+      "reutilizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Dor",
+    "descricao": "Com crescimento o sistema se perdeu e virou \"Frankenstein\"",
+    "categoria": "Design_System",
+    "tags": [
+      "debito_tecnico",
+      "crescimento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Observacao",
+    "descricao": "V3 está trazendo mais organização e deve resolver parte dos problemas de consistência",
+    "categoria": "Produto",
+    "tags": [
+      "versao",
+      "organizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Observacao",
+    "descricao": "Padronização de elementos é importante mas Onfly não precisa inventar padrões novos",
+    "categoria": "Estrategia",
+    "tags": [
+      "padronizacao",
+      "referencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Sugestao",
+    "descricao": "Seguir referências de mercado como Airbnb e ClickBus em vez de criar soluções inéditas",
+    "categoria": "Estrategia",
+    "tags": [
+      "referencia",
+      "benchmarking"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Observacao",
+    "descricao": "Cita livro \"Don't Make Me Think\" como guia: simplicidade e familiaridade são essenciais",
+    "categoria": "Estrategia",
+    "tags": [
+      "usabilidade",
+      "simplicidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Observacao",
+    "descricao": "Consistência de botões e componentes melhorou e está em nível mais maduro atualmente",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "evolucao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Design System deve padronizar e acelerar desenvolvimento com reuso natural de componentes",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "velocidade",
+      "reutilizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Sistema deve eliminar dúvidas e tornar escolhas óbvias inspirado em Material Design",
+    "categoria": "Design_System",
+    "tags": [
+      "clareza",
+      "decisao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Metrica",
+    "descricao": "Principal métrica de ROI é velocidade e throughput em produção com menos necessidade de redesign",
+    "categoria": "Design_System",
+    "tags": [
+      "velocidade",
+      "redesign"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Observacao",
+    "descricao": "Reconhece que medir ROI é difícil mas acredita ser o indicador mais tangível de valor",
+    "categoria": "Design_System",
+    "tags": [
+      "roi",
+      "metricas"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Dor",
+    "descricao": "Preocupação com adoção interna: no passado membros quebravam padrões e não seguiam diretrizes",
+    "categoria": "Design_System",
+    "tags": [
+      "adocao",
+      "governanca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Necessidade",
+    "descricao": "Preocupação central que Design System seja respeitado e de fato seguido pelos times",
+    "categoria": "Design_System",
+    "tags": [
+      "adocao",
+      "compliance"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Sugestao",
+    "descricao": "Usar referências existentes como Conta Azul e Locaweb como inspiração",
+    "categoria": "Estrategia",
+    "tags": [
+      "referencia",
+      "benchmarking"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Sugestao",
+    "descricao": "Reforça necessidade de simplicidade e evitar \"reinventar a roda\"",
+    "categoria": "Estrategia",
+    "tags": [
+      "simplicidade",
+      "pragmatismo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Observacao",
+    "descricao": "Não vê áreas específicas que resistiriam mas admite não estar próximo da operação",
+    "categoria": "Alinhamento",
+    "tags": [
+      "distanciamento",
+      "visibilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Sugestao",
+    "descricao": "Começar pequeno com entregas incrementais e reutilização de componentes já conhecidos",
+    "categoria": "Estrategia",
+    "tags": [
+      "incremental",
+      "mvp"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Sugestao",
+    "descricao": "Mostrar evolução contínua ao invés de buscar projeto grande de uma vez",
+    "categoria": "Estrategia",
+    "tags": [
+      "incremental",
+      "iteracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 20,
+    "tipo": "Sugestao",
+    "descricao": "Usar padrões familiares para facilitar adoção como seleção de datas padrão em dois cliques",
+    "categoria": "Design_System",
+    "tags": [
+      "usabilidade",
+      "familiaridade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Biblioteca de componentes web limitada sem exemplos de aplicação",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Ausência de regras claras de uso: boas práticas, o que fazer e não fazer",
+    "categoria": "Design_System",
+    "tags": [
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Falta cenários documentados como telas de erro, carregamento e vazio",
+    "categoria": "Design_System",
+    "tags": [
+      "documentacao",
+      "estado_vazio"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Modais inconsistentes sem guidelines de quando usar lateral ou central",
+    "categoria": "Design_System",
+    "tags": [
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Toasts sem padronização de tempo, estilo e posição",
+    "categoria": "Design_System",
+    "tags": [
+      "toast",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Navegação com muitas variações sem guideline definido gera frustração",
+    "categoria": "Design_System",
+    "tags": [
+      "navegacao",
+      "padronizacao",
+      "frustracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Falta biblioteca única de ícones com diferença entre Figma e TI",
+    "categoria": "Design_System",
+    "tags": [
+      "icones",
+      "biblioteca_componentes",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Falta biblioteca de ilustrações no Figma, uso descentralizado com visual infantil e detalhado demais",
+    "categoria": "Design_System",
+    "tags": [
+      "ilustracoes",
+      "biblioteca_componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Componentes app espalhados sem centralização dificulta localização e manutenção",
+    "categoria": "Design_System",
+    "tags": [
+      "organizacao",
+      "componentes",
+      "app"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Inconsistência visual entre app e web em cores, componentes e estilos",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "multiplataforma",
+      "app"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Cores diferentes entre app e web com baixo contraste afeta acessibilidade",
+    "categoria": "Design_System",
+    "tags": [
+      "acessibilidade",
+      "contraste",
+      "cores"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Componentes app com visual desatualizado",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "app",
+      "debito_tecnico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Falta regras e documentação no app, cada designer cria de forma diferente",
+    "categoria": "Design_System",
+    "tags": [
+      "documentacao",
+      "padronizacao",
+      "app"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Ausência de semântica clara no uso de cores para títulos e descrições",
+    "categoria": "Design_System",
+    "tags": [
+      "cores",
+      "semantica",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Não há roadmap de evolução do design, cada pessoa resolve do seu jeito",
+    "categoria": "Processo",
+    "tags": [
+      "governanca",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Retrabalho e aumento de complexidade no dia a dia",
+    "categoria": "Processo",
+    "tags": [
+      "retrabalho",
+      "eficiencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Necessidade",
+    "descricao": "Templates prontos para acelerar fluxos e garantir aplicação consistente",
+    "categoria": "Design_System",
+    "tags": [
+      "template",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Baixo contraste de cores em web e app",
+    "categoria": "Design_System",
+    "tags": [
+      "acessibilidade",
+      "contraste"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Excesso de variação de azuis confunde links, botões e textos",
+    "categoria": "Design_System",
+    "tags": [
+      "cores",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Impacto em usuários com baixa visão ou ambientes de baixa iluminação",
+    "categoria": "Experiencia_Usuario",
+    "tags": [
+      "acessibilidade",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Inputs são componentes mais inconsistentes: diferentes entre app/web e entre V2/V3",
+    "categoria": "Design_System",
+    "tags": [
+      "input",
+      "padronizacao",
+      "versao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Componentes mais problemáticos: inputs, títulos, tooltips, modais, botões, tags, tabelas",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Dores principais não são do Figma mas da falta de organização e padronização",
+    "categoria": "Processo",
+    "tags": [
+      "organizacao",
+      "padronizacao",
+      "figma"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Observacao",
+    "descricao": "Arquivos antes bagunçados, hoje há esforço de organização com novos padrões",
+    "categoria": "Processo",
+    "tags": [
+      "organizacao",
+      "evolucao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Necessidade",
+    "descricao": "Importância de ter guardião do DS para garantir aplicação consistente",
+    "categoria": "Processo",
+    "tags": [
+      "governanca",
+      "responsabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Sugestao",
+    "descricao": "Incluir guidelines de estruturação de telas e uso de auto-layout nos templates",
+    "categoria": "Design_System",
+    "tags": [
+      "documentacao",
+      "template",
+      "layout"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Dor",
+    "descricao": "Antes havia pouca interação, devs recebiam fluxos e se viravam sozinhos",
+    "categoria": "Colaboracao",
+    "tags": [
+      "isolamento",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Observacao",
+    "descricao": "Hoje há esforço de aproximação e cocriação envolvendo devs desde o início",
+    "categoria": "Colaboracao",
+    "tags": [
+      "cocriacao",
+      "comunicacao",
+      "evolucao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Observacao",
+    "descricao": "Aproximação com devs ainda não é comum na empresa mas está em evolução",
+    "categoria": "Colaboracao",
+    "tags": [
+      "maturidade",
+      "evolucao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Reduzir gap visual trazendo algo moderno, inovador e consistente",
+    "categoria": "Design_System",
+    "tags": [
+      "modernizacao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Garantir durabilidade do conceito visual para evitar redesigns frequentes",
+    "categoria": "Design_System",
+    "tags": [
+      "durabilidade",
+      "redesign"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Necessidade",
+    "descricao": "Criar bibliotecas centralizadas de componentes, ícones e ilustrações",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "centralizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Necessidade",
+    "descricao": "Garantir acessibilidade com paleta de cores revisada e contrastes adequados",
+    "categoria": "Design_System",
+    "tags": [
+      "acessibilidade",
+      "cores",
+      "contraste"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Necessidade",
+    "descricao": "Padronizar navegação, modais e toasts com guidelines claras",
+    "categoria": "Design_System",
+    "tags": [
+      "navegacao",
+      "modal",
+      "toast",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Necessidade",
+    "descricao": "Criar templates aplicados em cenários reais para acelerar entregas",
+    "categoria": "Design_System",
+    "tags": [
+      "template",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 6,
+    "tipo": "Necessidade",
+    "descricao": "Manter processo de evolução contínua do Design System",
+    "categoria": "Design_System",
+    "tags": [
+      "evolucao",
+      "melhoria"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Dor",
+    "descricao": "Falta de processos claros gera inconsistência e retrabalho",
+    "categoria": "Processo",
+    "tags": [
+      "processo",
+      "padronizacao",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Dor",
+    "descricao": "Design desatualizado não reflete porte e posicionamento da Onfly como líder de mercado",
+    "categoria": "Design_System",
+    "tags": [
+      "identidade_visual",
+      "debito_tecnico",
+      "marca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Dor",
+    "descricao": "Designers prototipam em V3 mas desenvolvimento acontece em V2 causando divergências e perda de visibilidade",
+    "categoria": "Processo",
+    "tags": [
+      "versao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Dor",
+    "descricao": "Ausência de UI kit centralizado para V2 e V3, há apenas arquivos soltos",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "centralizacao",
+      "organizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Dor",
+    "descricao": "50% do tempo gasto redesenhando componentes para web/app por falta de padronização",
+    "categoria": "Design_System",
+    "tags": [
+      "retrabalho",
+      "padronizacao",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "Antes havia problemas de desorganização no Figma sem hierarquia ou padrão de handoff",
+    "categoria": "Processo",
+    "tags": [
+      "figma",
+      "organizacao",
+      "historico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "Hoje cenário melhorou bastante com processos e padrões já definidos",
+    "categoria": "Processo",
+    "tags": [
+      "evolucao",
+      "organizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Dor",
+    "descricao": "Falta proximidade do designer com desenvolvimento no pós-handoff, designer \"passa o bastão\" sem acompanhar implementação",
+    "categoria": "Colaboracao",
+    "tags": [
+      "handoff",
+      "acompanhamento",
+      "isolamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "QA cobre bugs e fluxos quebrados mas não valida aspectos de design",
+    "categoria": "Processo",
+    "tags": [
+      "qualidade",
+      "validacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Necessidade",
+    "descricao": "Necessidade de presença ativa do designer no downstream após handoff",
+    "categoria": "Colaboracao",
+    "tags": [
+      "acompanhamento",
+      "responsabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "Inputs, botões, ícones e cores de background são frequentemente refeitos",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Dor",
+    "descricao": "Falta biblioteca compartilhada entre web e app: devs têm lib em Flutter mas não existe no Figma",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "multiplataforma",
+      "flutter"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "Antigamente pouco contato entre designers e devs, hoje melhorou mas ainda há desafios",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao",
+      "evolucao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Dor",
+    "descricao": "Devs direcionam dúvidas ao PM e não ao PD",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Necessidade",
+    "descricao": "Product Designers precisam assumir protagonismo como responsáveis pela experiência",
+    "categoria": "Colaboracao",
+    "tags": [
+      "responsabilidade",
+      "protagonismo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "Importância da tríade PM/PD/Dev e até visão de quarteto com Dados",
+    "categoria": "Colaboracao",
+    "tags": [
+      "triade",
+      "dados",
+      "integracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "PD precisa lidar melhor com métricas e análises",
+    "categoria": "Colaboracao",
+    "tags": [
+      "metricas",
+      "capacitacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "Comunicação é skill crucial para papel de PD",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao",
+      "capacitacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Expectativa de engajamento e adoção ampla do DS dentro da companhia",
+    "categoria": "Design_System",
+    "tags": [
+      "adocao",
+      "engajamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS deve garantir consistência e padronização",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS deve reforçar sinergia com marca Onfly",
+    "categoria": "Design_System",
+    "tags": [
+      "marca",
+      "identidade_visual"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS deve representar o que empresa é hoje como produto líder de mercado e inovadora",
+    "categoria": "Design_System",
+    "tags": [
+      "posicionamento",
+      "inovacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS deve suportar experiências cross-devices olhando jornada completa do usuário",
+    "categoria": "Design_System",
+    "tags": [
+      "cross_device",
+      "jornada_usuario"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "DS visto como peça-chave para transformar experiência e alinhar produto à ambição da Onfly",
+    "categoria": "Design_System",
+    "tags": [
+      "transformacao",
+      "valor_estrategico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "Vê design system como construção contínua sem final",
+    "categoria": "Design_System",
+    "tags": [
+      "evolucao",
+      "melhoria"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "Destaca importância de sinergia entre áreas e fortalecer discurso sobre valor estratégico do DS",
+    "categoria": "Design_System",
+    "tags": [
+      "sinergia",
+      "valor_estrategico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 4,
+    "tipo": "Engajamento",
+    "descricao": "Time está engajado e motivado o que facilita adoção",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "motivacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Dor",
+    "descricao": "Maior desafio está no time de Expense V2 com muitos problemas de padronização",
+    "categoria": "Produto",
+    "tags": [
+      "expense",
+      "versao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Dor",
+    "descricao": "Cada tela do Expense tem comportamentos e componentes diferentes obrigando devs a recriar soluções constantemente",
+    "categoria": "Design_System",
+    "tags": [
+      "expense",
+      "padronizacao",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Dor",
+    "descricao": "Falta de consistência e retrabalho frequente no Expense",
+    "categoria": "Design_System",
+    "tags": [
+      "expense",
+      "padronizacao",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Dor",
+    "descricao": "Telas do Expense não têm similaridade entre si forçando reimplementações e ajustes recorrentes",
+    "categoria": "Design_System",
+    "tags": [
+      "expense",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Dor",
+    "descricao": "Drawer de despesas é um dos pontos mais trabalhosos",
+    "categoria": "Design_System",
+    "tags": [
+      "expense",
+      "componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Dor",
+    "descricao": "Impacto no tempo de carregamento por falta de padronização de componentes",
+    "categoria": "Design_System",
+    "tags": [
+      "velocidade",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Desafio_Tecnico",
+    "descricao": "Problemas vêm de requisições pesadas e diferenças na forma como cada dev implementou soluções no frontend",
+    "categoria": "Tecnologia",
+    "tags": [
+      "velocidade",
+      "padronizacao",
+      "frontend"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Observacao",
+    "descricao": "Mobile internacional tem entregas fiéis ao design pois foi refeito recentemente",
+    "categoria": "Produto",
+    "tags": [
+      "app",
+      "qualidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Observacao",
+    "descricao": "Expense e Banking sempre precisam adaptar design por questões de performance, não é possível implementar exatamente como no design",
+    "categoria": "Tecnologia",
+    "tags": [
+      "expense",
+      "velocidade",
+      "adaptacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Observacao",
+    "descricao": "Documentação feita por Lagares tem sido muito útil e está em bom nível",
+    "categoria": "Documentacao",
+    "tags": [
+      "documentacao",
+      "qualidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Observacao",
+    "descricao": "No passado havia falta de referência mas atualmente entrega está atendendo bem",
+    "categoria": "Documentacao",
+    "tags": [
+      "documentacao",
+      "evolucao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Maior impacto do DS será velocidade de desenvolvimento",
+    "categoria": "Design_System",
+    "tags": [
+      "velocidade",
+      "produtividade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Devs não precisariam recriar componentes do zero apenas reaproveitar e herdar comportamentos",
+    "categoria": "Design_System",
+    "tags": [
+      "reutilizacao",
+      "componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS reduziria tempo de entrega e aumentaria consistência",
+    "categoria": "Design_System",
+    "tags": [
+      "velocidade",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Observacao",
+    "descricao": "Comunicação entre design e engenharia está boa",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Observacao",
+    "descricao": "Trabalho com Lagares é elogiado: ele entende contexto antes de propor soluções e traz boas ideias",
+    "categoria": "Colaboracao",
+    "tags": [
+      "lagares",
+      "comunicacao",
+      "qualidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Observacao",
+    "descricao": "Adaptação dos designers ao time tem sido positiva",
+    "categoria": "Colaboracao",
+    "tags": [
+      "integracao",
+      "evolucao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Engajamento",
+    "descricao": "Time tem interesse em participar do Design System",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "participacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 14,
+    "tipo": "Engajamento",
+    "descricao": "Luan Rocha deve ser ponto focal por ser referência em frontend e conhecer profundamente dores do V2 e V3",
+    "categoria": "Colaboracao",
+    "tags": [
+      "frontend",
+      "referencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Baixa maturidade em produto e design de produto",
+    "categoria": "Processo",
+    "tags": [
+      "maturidade",
+      "produto"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Processos de criação pouco definidos",
+    "categoria": "Design_System",
+    "tags": [
+      "processo",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Retrabalho após handoff com necessidade de rediscutir trabalho",
+    "categoria": "Processo",
+    "tags": [
+      "retrabalho",
+      "handoff"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Dificuldade em identificar pessoas certas para suporte em projetos",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "UI kit muito novo (2 meses) não foi pensado dentro do escopo de desenvolvimento",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Resistência e falta de força do time de design com argumento que mudanças dão muito trabalho",
+    "categoria": "Colaboracao",
+    "tags": [
+      "resistencia",
+      "adocao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Produto às vezes só quer lançar features preocupado com backend e esquece usabilidade",
+    "categoria": "Processo",
+    "tags": [
+      "priorizacao",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Falta direção de arte clara",
+    "categoria": "Design_System",
+    "tags": [
+      "direcao_arte",
+      "identidade_visual"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "V3 nasceu com inconsistências e precisa amadurecimento da consistência visual",
+    "categoria": "Design_System",
+    "tags": [
+      "versao",
+      "padronizacao",
+      "maturidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Devs só olham Figma no olho tirando prints e tentando recriar",
+    "categoria": "Colaboracao",
+    "tags": [
+      "handoff",
+      "implementacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Devs usam outros ícones diferentes dos propostos pelo time de design",
+    "categoria": "Design_System",
+    "tags": [
+      "icones",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Ausência de steppers e grids na implementação",
+    "categoria": "Design_System",
+    "tags": [
+      "stepper",
+      "grid",
+      "componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Dev implementa da cabeça sem seguir especificações",
+    "categoria": "Colaboracao",
+    "tags": [
+      "implementacao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Botões do mesmo tipo (confirmar) ora à direita ora à esquerda por falta de padrões",
+    "categoria": "Design_System",
+    "tags": [
+      "botoes",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Espaçamento de botões inconsistente",
+    "categoria": "Design_System",
+    "tags": [
+      "botoes",
+      "espacamento",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "UX Writing ruim",
+    "categoria": "Experiencia_Usuario",
+    "tags": [
+      "ux_writing",
+      "conteudo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Uso excessivo de drawers",
+    "categoria": "Experiencia_Usuario",
+    "tags": [
+      "drawer",
+      "navegacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Texto em imagens sem alt text adequado afeta acessibilidade",
+    "categoria": "Experiencia_Usuario",
+    "tags": [
+      "acessibilidade",
+      "alt_text"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Problemas com tamanhos de fonte: muito pequenas ou muito grandes",
+    "categoria": "Design_System",
+    "tags": [
+      "tipografia",
+      "acessibilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Falta processos e guias claros para uso de ferramentas e plugins",
+    "categoria": "Processo",
+    "tags": [
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Ausência de orientação clara para handoff consistente",
+    "categoria": "Processo",
+    "tags": [
+      "handoff",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Observacao",
+    "descricao": "Colaboração varia entre times com relacionamento bom mas falta maturidade",
+    "categoria": "Colaboracao",
+    "tags": [
+      "variacao",
+      "maturidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Falta clareza sobre importância dos processos e estratégias do negócio",
+    "categoria": "Processo",
+    "tags": [
+      "clareza",
+      "estrategia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Dor",
+    "descricao": "Specs não respeitadas consistentemente com interpretações diferentes de UI",
+    "categoria": "Colaboracao",
+    "tags": [
+      "especificacao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS deve trazer direção de arte e linguagem visual",
+    "categoria": "Design_System",
+    "tags": [
+      "direcao_arte",
+      "identidade_visual"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS deve facilitar prototipagem com componentes prontos",
+    "categoria": "Design_System",
+    "tags": [
+      "prototipagem",
+      "componentes",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS deve trazer estabilidade e constância dos componentes evitando reinvenções",
+    "categoria": "Design_System",
+    "tags": [
+      "estabilidade",
+      "componentes",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Engajamento",
+    "descricao": "Disposição clara para participar da criação e validação do DS",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "participacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 2,
+    "tipo": "Engajamento",
+    "descricao": "Pode aportar contexto da empresa e ajudar a explicar os porquês por conhecer a história",
+    "categoria": "Colaboracao",
+    "tags": [
+      "contexto",
+      "conhecimento_historico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Observacao",
+    "descricao": "Tentativa de seguir parâmetros de cor e tipografia mas com diferenças perceptíveis entre produtos",
+    "categoria": "Design_System",
+    "tags": [
+      "cores",
+      "tipografia",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Dor",
+    "descricao": "Grande diferença de experiência entre momentos nativos e web no app",
+    "categoria": "Produto",
+    "tags": [
+      "app",
+      "webview",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Dor",
+    "descricao": "Ao navegar para relatório em webview e voltar para despesa todos os dados são perdidos",
+    "categoria": "Produto",
+    "tags": [
+      "webview",
+      "perda_dados",
+      "experiencia_usuario"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Dor",
+    "descricao": "Estética, organização e semiótica variam entre produtos",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "organizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Observacao",
+    "descricao": "Indícios de UI Kits no Figma mas descentralizados com vários kits separados",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "descentralizacao",
+      "figma"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Observacao",
+    "descricao": "Time de dev do app tem biblioteca de componentes",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "app"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Dor",
+    "descricao": "Falta padronização entre experiências nativo vs web",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "multiplataforma"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Dor",
+    "descricao": "Dificuldade em entender origem de componentes por falta de taxonomia clara",
+    "categoria": "Design_System",
+    "tags": [
+      "taxonomia",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Dor",
+    "descricao": "Timeline apenas com bullet points sem clareza visual",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Observacao",
+    "descricao": "Teve que improvisar recorrendo a referências externas como Material Design",
+    "categoria": "Processo",
+    "tags": [
+      "referencia_externa",
+      "improvisacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Observacao",
+    "descricao": "Tokens eram fundamentais em experiências anteriores permitindo switch entre temas",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "temas"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Observacao",
+    "descricao": "Análise de acessibilidade nível AA integrada à criação de componentes em experiências anteriores",
+    "categoria": "Design_System",
+    "tags": [
+      "acessibilidade",
+      "processo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Observacao",
+    "descricao": "Taxonomia clara em experiências anteriores: sabiam de onde cada componente vinha",
+    "categoria": "Design_System",
+    "tags": [
+      "taxonomia",
+      "organizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Necessidade",
+    "descricao": "Tokens de design como base do DS",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "fundacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Necessidade",
+    "descricao": "Controle de temas (light/dark mode)",
+    "categoria": "Design_System",
+    "tags": [
+      "temas",
+      "acessibilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Necessidade",
+    "descricao": "Definição clara de taxonomia de componentes",
+    "categoria": "Design_System",
+    "tags": [
+      "taxonomia",
+      "componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Metrica",
+    "descricao": "Métricas de adesão para mensurar uso e eficiência do DS",
+    "categoria": "Design_System",
+    "tags": [
+      "adocao",
+      "metricas"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Engajamento",
+    "descricao": "Gostaria de participar ativamente da construção do DS",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "participacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 3,
+    "tipo": "Sugestao",
+    "descricao": "Criar fóruns de discussão para validar atualizações e decisões do DS",
+    "categoria": "Design_System",
+    "tags": [
+      "forum",
+      "validacao",
+      "governanca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Desafio_Tecnico",
+    "descricao": "Principal desafio é tradução de componentes para internacionalização com textos hardcoded sem chave de tradução",
+    "categoria": "Design_System",
+    "tags": [
+      "i18n",
+      "traducao",
+      "hardcoded"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Desafio_Tecnico",
+    "descricao": "Trabalho manual de localizar e substituir textos por padrões de i18n",
+    "categoria": "Design_System",
+    "tags": [
+      "traducao",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Necessidade",
+    "descricao": "Onfly precisa atender português, inglês e espanhol com variações regionais (México, Argentina, Espanha)",
+    "categoria": "Produto",
+    "tags": [
+      "traducao",
+      "internacional"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Observacao",
+    "descricao": "Processo atual usa tradução via IA e revisão pelo time comercial",
+    "categoria": "Processo",
+    "tags": [
+      "i18n",
+      "traducao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Dor",
+    "descricao": "V2 tinha bastante despadronização",
+    "categoria": "Produto",
+    "tags": [
+      "versao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Observacao",
+    "descricao": "V3 já percebe mais coesão apesar de ainda estar em processo de migração",
+    "categoria": "Produto",
+    "tags": [
+      "versao",
+      "evolucao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Observacao",
+    "descricao": "Atualmente não há perda significativa de tempo por falta de referências de UI pois não estão criando telas novas",
+    "categoria": "Processo",
+    "tags": [
+      "manutencao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Necessidade",
+    "descricao": "Casos de exceção bem mapeados com fluxo de todos os cenários possíveis",
+    "categoria": "Documentacao",
+    "tags": [
+      "documentacao",
+      "edge_case"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Dor",
+    "descricao": "Muitas vezes só se documenta fluxo feliz sem detalhar falhas ou caminhos alternativos",
+    "categoria": "Documentacao",
+    "tags": [
+      "documentacao",
+      "edge_case"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS pode criar linguagem comum entre design e dev reduzindo ruídos de interpretação",
+    "categoria": "Design_System",
+    "tags": [
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS deve garantir padronização como linha de base para cenários não especificados",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "comportamento_padrao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS contribui para consistência entre produtos e squads",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Duvida",
+    "descricao": "Receio de DS ser construído de forma viciada focado em parte específica e não funcionar em outros contextos",
+    "categoria": "Design_System",
+    "tags": [
+      "escopo",
+      "adaptabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Necessidade",
+    "descricao": "Importante que DS seja abrangente e adaptável a diferentes produtos e plataformas",
+    "categoria": "Design_System",
+    "tags": [
+      "abrangencia",
+      "flexibilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Engajamento",
+    "descricao": "Aberto a participar mas não sabe como contribuir por não conhecer fases de construção de DS",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "incerteza"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Observacao",
+    "descricao": "Times Internacional e Mobile trazem contextos diferentes: desafios culturais, idioma e experiência imersiva",
+    "categoria": "Produto",
+    "tags": [
+      "traducao",
+      "mobile",
+      "contexto"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-23",
+    "stakeholder_id": 15,
+    "tipo": "Engajamento",
+    "descricao": "Compartilhar vivências de Internacional e Mobile pode ser principal contribuição",
+    "categoria": "Colaboracao",
+    "tags": [
+      "contexto",
+      "conhecimento_especifico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Dor",
+    "descricao": "Baixo reaproveitamento: times e repositórios separam soluções e reimplementam componentes",
+    "categoria": "Tecnologia",
+    "tags": [
+      "reutilizacao",
+      "retrabalho",
+      "isolamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Dor",
+    "descricao": "Copy-paste gera divergência: correções em um lugar não chegam aos demais",
+    "categoria": "Tecnologia",
+    "tags": [
+      "copy_paste",
+      "padronizacao",
+      "manutencao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Dor",
+    "descricao": "Governança de versões: manter todos atualizados é trabalhoso e versões diferentes entregam comportamentos distintos",
+    "categoria": "Tecnologia",
+    "tags": [
+      "versioning",
+      "governanca",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Dor",
+    "descricao": "Atualizações manuais e repetidas após correções em componentes copiados",
+    "categoria": "Processo",
+    "tags": [
+      "retrabalho",
+      "manutencao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Dor",
+    "descricao": "Falta repositório central como única fonte de verdade para componentes",
+    "categoria": "Tecnologia",
+    "tags": [
+      "repositorio",
+      "centralizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Observacao",
+    "descricao": "Dev Mode do Figma ajuda mas código gerado automático raramente atende mundo real",
+    "categoria": "Processo",
+    "tags": [
+      "figma",
+      "dev_mode",
+      "code_generation"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Observacao",
+    "descricao": "Métricas do Figma úteis para precisão visual apesar de pequenas diferenças",
+    "categoria": "Processo",
+    "tags": [
+      "figma",
+      "precisao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Observacao",
+    "descricao": "Teve acesso limitado aos arquivos Figma na Onfly com alguns bloqueados",
+    "categoria": "Processo",
+    "tags": [
+      "acesso",
+      "figma"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Observacao",
+    "descricao": "Preferência por design orientado ao produto evitando criar telas só por criar interface",
+    "categoria": "Estrategia",
+    "tags": [
+      "produto",
+      "proposito"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS pode padronizar feedbacks claros e antecipar validações no front reduzindo idas ao backend",
+    "categoria": "Design_System",
+    "tags": [
+      "validacao",
+      "velocidade",
+      "experiencia_usuario"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Consistência reduz carga cognitiva e facilita suporte",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "carga_cognitiva",
+      "suporte"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Desafio_Tecnico",
+    "descricao": "Adoção do Storybook: alguns devs têm menor afinidade em desenvolver componentes isolados",
+    "categoria": "Design_System",
+    "tags": [
+      "storybook",
+      "adocao",
+      "capacitacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Desafio_Tecnico",
+    "descricao": "Manutenção e atualização contínua do pacote/mono-repo do DS",
+    "categoria": "Design_System",
+    "tags": [
+      "manutencao",
+      "monorepo",
+      "governanca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Desafio_Tecnico",
+    "descricao": "Risco de comportamentos distintos entre produtos por versões divergentes",
+    "categoria": "Tecnologia",
+    "tags": [
+      "versioning",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Observacao",
+    "descricao": "Micro front-ends mostraram benefícios em experiência anterior mas conceito difícil de absorver e talvez não faça sentido no cenário atual",
+    "categoria": "Tecnologia",
+    "tags": [
+      "frontend",
+      "complexidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Engajamento",
+    "descricao": "Interesse em participar e quer visibilidade contínua do que está sendo feito para planejar melhor",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "transparencia",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Observacao",
+    "descricao": "Atua como ponte entre desenvolvimento e devops aproximando times",
+    "categoria": "Colaboracao",
+    "tags": [
+      "ponte",
+      "devops",
+      "integracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 19,
+    "tipo": "Observacao",
+    "descricao": "Experiência anterior com duas tentativas de DS: primeira mais robusta, segunda sob demanda usando Storybook",
+    "categoria": "Design_System",
+    "tags": [
+      "experiencia_anterior",
+      "storybook",
+      "estrategia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Time de App criou camada de \"DS\" interno desde o início do projeto (fim/2023) com package em Dart/Flutter contendo cores, tipografias, botões, campos de texto e badges",
+    "categoria": "Design_System",
+    "tags": [
+      "flutter",
+      "componentes",
+      "biblioteca_componentes",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Existe área com componentes no Figma que o app segue, ainda que não seja um DS formal",
+    "categoria": "Design_System",
+    "tags": [
+      "figma",
+      "componentes",
+      "estrutura"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Retrabalho técnico é baixo porque o app é recente e os épicos são planejados com cautela",
+    "categoria": "Eficiencia",
+    "tags": [
+      "planejamento",
+      "retrabalho",
+      "app"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Mudanças no DS (ex: borda/tipografia do primary button) propagam automaticamente para o app inteiro",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "padronizacao",
+      "escalabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Time percebe impacto de DS formal como muito positivo e tem expectativa alta com sua chegada",
+    "categoria": "Design_System",
+    "tags": [
+      "expectativa",
+      "valor_estrategico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS formal facilitaria manutenção e desenvolvimento do produto",
+    "categoria": "Design_System",
+    "tags": [
+      "manutencao",
+      "desenvolvimento",
+      "produtividade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Sugestao",
+    "descricao": "Criar Storybook junto ao novo DS para dar referência visual a quem não é dev e acelerar montagem de telas",
+    "categoria": "Design_System",
+    "tags": [
+      "storybook",
+      "documentacao",
+      "colaboracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Camada atual do \"DS\" pode ser extraída para repositório dedicado sem grande esforço",
+    "categoria": "Design_System",
+    "tags": [
+      "repositorio",
+      "versao",
+      "escalabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Até recentemente não havia designer dedicado para mobile, mas comunicação era fluida e opinativa",
+    "categoria": "Colaboracao",
+    "tags": [
+      "mobile",
+      "comunicacao",
+      "alocacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Com Brian no mobile, expectativa é de colaboração ainda melhor",
+    "categoria": "Colaboracao",
+    "tags": [
+      "mobile",
+      "expectativa",
+      "engajamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Materiais entregues por design têm sido compatíveis com o que o time consegue implementar",
+    "categoria": "Colaboracao",
+    "tags": [
+      "handoff",
+      "implementacao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Time segue guidelines/bibliotecas definidos (Flutter; Material/Cupertino quando especificado)",
+    "categoria": "Tecnologia",
+    "tags": [
+      "flutter",
+      "documentacao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "App foi arquitetado visando escalabilidade; adoção de novo DS exigiria apenas ajustes graduais",
+    "categoria": "Design_System",
+    "tags": [
+      "escalabilidade",
+      "arquitetura",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Projeto é pensado \"para frente\" (offline-first, troca de API, etc) e não enxergam grandes barreiras técnicas",
+    "categoria": "Tecnologia",
+    "tags": [
+      "arquitetura",
+      "flexibilidade",
+      "app"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Sugestao",
+    "descricao": "Estratégia gradual: criar novo repo e ir movendo/adicionando componentes aos poucos",
+    "categoria": "Design_System",
+    "tags": [
+      "repositorio",
+      "incremental",
+      "versao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Sugestao",
+    "descricao": "Estratégia paralela: manter DS atual para sustentar o app e importar o novo como package, trocando componentes conforme evolui",
+    "categoria": "Design_System",
+    "tags": [
+      "versao",
+      "incremental",
+      "reutilizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Não pretendem consumir export direto do Figma (JSON → Flutter) por questões de clean code e arquitetura; preferem criar/gerir tokens no código",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "figma",
+      "arquitetura",
+      "flutter"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Dor",
+    "descricao": "Não há tokens de espaçamento formais; usam espaçamentos manualmente no componente",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "espacamento",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Hoje já possuem cores/tipografia/temas definidos",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "cores",
+      "tipografia",
+      "temas"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Engajamento",
+    "descricao": "Mozart, Lívia e Mateus demonstraram alto interesse em participar de fases futuras do DS",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "participacao",
+      "mobile"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Engajamento",
+    "descricao": "Podem colaborar criando Storybook e repositório para o DS (possivelmente expor para consumo/visualização)",
+    "categoria": "Colaboracao",
+    "tags": [
+      "storybook",
+      "repositorio",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Sugestao",
+    "descricao": "Levar componentes para ambiente de backoffice para visualização dos estados (ex: \"quero ver o botão X\")",
+    "categoria": "Design_System",
+    "tags": [
+      "dados",
+      "componentes",
+      "storybook"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Explicação sobre camadas de tokens (primitivos → semânticos → por componente) foi bem recebida",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "semantica",
+      "organizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 16,
+    "tipo": "Observacao",
+    "descricao": "Time já usa paletas (ex: blue, red) e primary; vê valor em evoluir para camadas e controle de visibilidade (primitivos privados; semânticos públicos)",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "cores",
+      "organizacao",
+      "governanca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Existiu time Core Front com objetivo de criar framework de componentes e lidar com questões técnicas de front-end, menos ligadas a produto",
+    "categoria": "Design_System",
+    "tags": [
+      "framework",
+      "time",
+      "componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Primeira entrega do Core Front foi criação do projeto V3, começando pela tela de detalhes da reserva",
+    "categoria": "Produto",
+    "tags": [
+      "mvp",
+      "travel",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Framework foi projetado para ser genérico, de modo que vários times pudessem utilizá-lo",
+    "categoria": "Design_System",
+    "tags": [
+      "framework",
+      "reutilizacao",
+      "escalabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "V3, backoffice e outros times utilizam esse framework atualmente",
+    "categoria": "Design_System",
+    "tags": [
+      "framework",
+      "abrangencia",
+      "adocao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Core Front deixou de existir e framework passou a ser mantido em formato \"open source interno\", com contribuições revisadas por Luan, Patric e Lucas",
+    "categoria": "Design_System",
+    "tags": [
+      "framework",
+      "governanca",
+      "manutencao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Framework inclui componentes (inputs, datas, navegação), módulos específicos por time, funções utilitárias e documentação com exemplos de uso",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "documentacao",
+      "biblioteca_componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Framework contempla cores, tokens e semânticas alinhadas ao Figma, embora às vezes desatualizadas",
+    "categoria": "Design_System",
+    "tags": [
+      "tokens",
+      "cores",
+      "figma",
+      "desatualizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Framework baseado no Quasar, mas com sobreposição/reescrita de estilos e desenvolvimento do zero em alguns casos",
+    "categoria": "Tecnologia",
+    "tags": [
+      "quasar",
+      "framework",
+      "customizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Dor",
+    "descricao": "Houve dificuldade para sobrescrever componentes do Quasar, especialmente para customizações mais profundas",
+    "categoria": "Tecnologia",
+    "tags": [
+      "quasar",
+      "limitacao",
+      "customizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Dor",
+    "descricao": "Atrito com time de design: havia dois Figma diferentes (produto e componentes do Core Front), gerando divergências, inconsistências e retrabalho",
+    "categoria": "Design_System",
+    "tags": [
+      "figma",
+      "padronizacao",
+      "retrabalho",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Dor",
+    "descricao": "Muitas vezes designers não utilizavam os próprios componentes criados, o que gerava conflitos e desgaste",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "adocao",
+      "frustracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Dor",
+    "descricao": "Alguns componentes foram desenvolvidos mas nunca chegaram a ser usados",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "desperdicio",
+      "prioridade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Necessidade de acelerar entrega da V3 levou à realocação dos devs do Core Front para outros times (Travel, Expense)",
+    "categoria": "Estrategia",
+    "tags": [
+      "alocacao",
+      "prioridade",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Após entrega dos componentes básicos para MVP da V3, não havia novas demandas relevantes para o Core Front",
+    "categoria": "Estrategia",
+    "tags": [
+      "mvp",
+      "escopo",
+      "prioridade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Empréstimo dos devs para outros times acabou se tornando permanente, levando à dissolução do Core Front",
+    "categoria": "Estrategia",
+    "tags": [
+      "alocacao",
+      "descontinuidade",
+      "time"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Dor",
+    "descricao": "Framework foi construído em Quasar 2 + Vue 3, o que inviabiliza uso em projetos antigos baseados em Quasar 1 + Vue 2 (como Expense)",
+    "categoria": "Tecnologia",
+    "tags": [
+      "quasar",
+      "vue",
+      "compatibilidade",
+      "expense"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Dor",
+    "descricao": "Migrar telas inteiras para V3 exige reescrita completa, o que nem sempre é viável",
+    "categoria": "Tecnologia",
+    "tags": [
+      "versao",
+      "refatoracao",
+      "viabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Travel migrou para V3, mas Expense continua em V2 sem perspectiva de mudança a curto prazo",
+    "categoria": "Tecnologia",
+    "tags": [
+      "repositorio",
+      "versao",
+      "escalabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Havia intenção inicial de criar algo agnóstico de framework, mas o esforço seria muito maior",
+    "categoria": "Tecnologia",
+    "tags": [
+      "framework",
+      "viabilidade",
+      "escopo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Uso de Atomic Design (átomos, moléculas, organismos) ajudou na organização",
+    "categoria": "Design_System",
+    "tags": [
+      "organizacao",
+      "metodologia",
+      "estrutura"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Dores aprendidas no dia a dia: multimoeda, internacionalização, máscaras, formatação de valores e datas — aspectos que só ficam claros na prática",
+    "categoria": "Tecnologia",
+    "tags": [
+      "traducao",
+      "complexidade",
+      "aprendizado"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Dor",
+    "descricao": "Inconsistência entre plataformas (web, mobile, diferentes times) ainda é desafio para Onfly, comparado a benchmarks como Spotify",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "multiplataforma",
+      "benchmarking"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Engajamento",
+    "descricao": "Demonstrou interesse em contribuir com DS no futuro, especialmente na parte técnica (framework, arquitetura)",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "participacao",
+      "framework"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Engajamento",
+    "descricao": "Aberto a dar feedbacks e validar ideias, trazendo visão prática dos desafios já enfrentados",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "validacao",
+      "experiencia_anterior"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-26",
+    "stakeholder_id": 24,
+    "tipo": "Observacao",
+    "descricao": "Reconhece que empresa teria dificuldade em aprovar framework 100% agnóstico agora, mas vê valor nessa discussão",
+    "categoria": "Estrategia",
+    "tags": [
+      "framework",
+      "viabilidade",
+      "realismo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 9,
+    "tipo": "Dor",
+    "descricao": "Marketing possui assets organizados mas nem sempre são seguidos pelo time de tecnologia",
+    "categoria": "Colaboracao",
+    "tags": [
+      "organizacao",
+      "adocao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 9,
+    "tipo": "Dor",
+    "descricao": "Inconsistências aparecem entre campanhas, redes sociais e produto",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "multiplataforma",
+      "marca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 9,
+    "tipo": "Observacao",
+    "descricao": "Origem do problema já começa na marca - logo pouco funcional desde o início, exigindo adaptações constantes",
+    "categoria": "Design_System",
+    "tags": [
+      "marca",
+      "limitacao",
+      "identidade_visual"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 9,
+    "tipo": "Engajamento",
+    "descricao": "Demonstra interesse pessoal em participar diretamente da construção do DS; está estudando sobre design system",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "participacao",
+      "aprendizado"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 7,
+    "tipo": "Dor",
+    "descricao": "Brandbook é simples e limitado, não cobre bem desdobramentos digitais",
+    "categoria": "Documentacao",
+    "tags": [
+      "documentacao",
+      "limitacao",
+      "produto"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 7,
+    "tipo": "Dor",
+    "descricao": "Muitas mudanças visuais recentes sem uma base sólida (aprimoramento visual sem rebranding formal)",
+    "categoria": "Design_System",
+    "tags": [
+      "identidade_visual",
+      "evolucao",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 7,
+    "tipo": "Dor",
+    "descricao": "Arquitetura de marca frágil: funcionalidades recebem nomes/logos sem conexão clara com identidade principal",
+    "categoria": "Design_System",
+    "tags": [
+      "arquitetura",
+      "marca",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 7,
+    "tipo": "Dor",
+    "descricao": "Falta de ritos de comunicação consistentes entre branding e tecnologia",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao",
+      "rituais",
+      "ponte"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 7,
+    "tipo": "Dor",
+    "descricao": "Tom de voz da plataforma é inconsistente, muitas vezes produzido por devs, gerando experiência fragmentada",
+    "categoria": "Design_System",
+    "tags": [
+      "ux_writing",
+      "padronizacao",
+      "fragmentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 7,
+    "tipo": "Dor",
+    "descricao": "Iconografia e ilustrações não seguem padrão único (produção própria + agência)",
+    "categoria": "Design_System",
+    "tags": [
+      "icones",
+      "ilustracoes",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 7,
+    "tipo": "Engajamento",
+    "descricao": "Quer envolvimento ativo em todas as etapas do DS; sugere incluir Cecília (ilustradora) e Pedro",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "participacao",
+      "ilustracoes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 8,
+    "tipo": "Dor",
+    "descricao": "Plataforma web é o maior desafio - aspecto visual datado e inconsistente entre diferentes partes",
+    "categoria": "Design_System",
+    "tags": [
+      "frontend",
+      "padronizacao",
+      "debito_tecnico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 8,
+    "tipo": "Dor",
+    "descricao": "Problema de consistência também ocorre dentro do próprio marketing (campanhas novas vs. identidade anterior)",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "marca",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 8,
+    "tipo": "Dor",
+    "descricao": "Falta de paleta de cores robusta; necessidade de base mínima para estados do sistema (erro, sucesso, etc.)",
+    "categoria": "Design_System",
+    "tags": [
+      "cores",
+      "tokens",
+      "limitacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 8,
+    "tipo": "Sugestao",
+    "descricao": "Importante construir em paralelo identidade visual + DS para evitar novos \"Frankensteins\"",
+    "categoria": "Estrategia",
+    "tags": [
+      "planejamento",
+      "comunicacao",
+      "marca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 4,
+    "tipo": "Necessidade",
+    "descricao": "Reforça necessidade de evoluir brandbook junto com o design system",
+    "categoria": "Documentacao",
+    "tags": [
+      "documentacao",
+      "evolucao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-22",
+    "stakeholder_id": 4,
+    "tipo": "Observacao",
+    "descricao": "Destaca relevância de mostrar integração branding + DS também no discurso para stakeholders e liderança",
+    "categoria": "Estrategia",
+    "tags": [
+      "comunicacao",
+      "lideranca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Falta de consistência geral no produto",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Diferenças gritantes entre V2 e V3, parecendo dois sistemas diferentes",
+    "categoria": "Produto",
+    "tags": [
+      "padronizacao",
+      "versao",
+      "fragmentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Botões com mesma cor/estilo executando ações diferentes (ex: Voltar e Limpar com mesmo aspecto)",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "padronizacao",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Tipografia sem padrão (12/14/16 px misturados)",
+    "categoria": "Design_System",
+    "tags": [
+      "tipografia",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Grids desalinhados (telas esticadas até a borda vs. centralizadas)",
+    "categoria": "Design_System",
+    "tags": [
+      "grid",
+      "padronizacao",
+      "layout"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Arquitetura da informação confusa - itens em menus/lugares inesperados (ex: categoria de despesa dentro de dados da empresa)",
+    "categoria": "Arquitetura_Informacao",
+    "tags": [
+      "organizacao",
+      "navegacao",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Baixa reutilização de componentes; design sem princípios/coesão",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "reutilizacao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Inconsistência entre plataformas (web, app nativo e webview)",
+    "categoria": "Produto",
+    "tags": [
+      "padronizacao",
+      "multiplataforma",
+      "webview"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Time Core Front criou lib/catálogo de componentes (framework/UI docs), porém uso é parcial",
+    "categoria": "Design_System",
+    "tags": [
+      "framework",
+      "biblioteca_componentes",
+      "adocao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Muitos designs chegam com componentes novos não previstos na lib, aumentando esforço e prazo",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "retrabalho",
+      "prazo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Tela de aprovação cara de V3 mas feita em V2 (CSS) por necessidades de integração entre áreas, gerando grande esforço de interface",
+    "categoria": "Tecnologia",
+    "tags": [
+      "versao",
+      "integracao",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Principal front com muito contexto está no time e conhece lib de componentes existente, o que reduz tempo gasto em interface",
+    "categoria": "Eficiencia",
+    "tags": [
+      "conhecimento_historico",
+      "produtividade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Consegue gastar mais tempo em regras/cenários devido ao conhecimento do front sobre componentes",
+    "categoria": "Eficiencia",
+    "tags": [
+      "regras_negocio",
+      "produtividade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Sem pessoa especializada em front (como vivenciado em Travel), interface seria bem mais custosa",
+    "categoria": "Processo",
+    "tags": [
+      "capacitacao",
+      "conhecimento_especifico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Reunião semanal com Igor (Design) às segundas para acompanhamento",
+    "categoria": "Colaboracao",
+    "tags": [
+      "rituais",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Reunião semanal com Lucas (Dev) às quintas para temas estratégicos",
+    "categoria": "Colaboracao",
+    "tags": [
+      "rituais",
+      "comunicacao",
+      "estrategia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Refinamento/Planning quinzenais com o time; designers entram em refinamento e planning",
+    "categoria": "Processo",
+    "tags": [
+      "rituais",
+      "planejamento",
+      "colaboracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Sprints de 15 dias (padrão da empresa)",
+    "categoria": "Processo",
+    "tags": [
+      "sprint",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Principal impacto do DS seria aumentar velocidade de entrega (menos criação de componente do zero; montagem tipo lego)",
+    "categoria": "Design_System",
+    "tags": [
+      "velocidade",
+      "produtividade",
+      "componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Impacto_Esperado",
+    "descricao": "DS possibilita focar devs em iniciativas mais escaláveis (ex: builder de telas no futuro, similar ao usado na MaxMilhas)",
+    "categoria": "Design_System",
+    "tags": [
+      "escalabilidade",
+      "inovacao",
+      "benchmarking"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Componentes não padronizados chegando do design",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "padronizacao",
+      "handoff"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Divergência entre o que design propõe e o que existe na lib (precisa criar/ajustar, gerando mais prazo)",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "retrabalho",
+      "prazo"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Dor",
+    "descricao": "Inconsistência V2/V3 e entre plataformas exige adaptações e retrabalho",
+    "categoria": "Produto",
+    "tags": [
+      "padronizacao",
+      "versao",
+      "retrabalho",
+      "timeline"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Sugestao",
+    "descricao": "Não começar DS por Travel (já está mais em V3 e é mais consistente que V2)",
+    "categoria": "Design_System",
+    "tags": [
+      "prioridade",
+      "travel",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Sugestao",
+    "descricao": "Approval também não priorizar agora (tela com CESAT bom e já passou por projeto mais recente)",
+    "categoria": "Design_System",
+    "tags": [
+      "prioridade",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Políticas & Regras terá reforma - Transcrição final outubro/início novembro; Anotações início outubro",
+    "categoria": "Produto",
+    "tags": [
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Sugestao",
+    "descricao": "Prioridade sugerida: Expense (ex: em RDV, valor total aparece com fonte muito pequena)",
+    "categoria": "Estrategia",
+    "tags": [
+      "prioridade",
+      "expense",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Metrica",
+    "descricao": "Foco em medir tempo de entrega (lead time/cycle time) como métrica de impacto do DS",
+    "categoria": "Design_System",
+    "tags": [
+      "tempo_tarefa",
+      "metricas"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Jira: desde agosto começaram a medir de forma mais confiável; ainda em adoção/cultura, mas já dá para criar baseline",
+    "categoria": "Metricas",
+    "tags": [
+      "metricas",
+      "baseline",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Sugestao",
+    "descricao": "Marcar milestone no Jira para início do uso do DS e comparar por tamanho de feature (P/M/G)",
+    "categoria": "Design_System",
+    "tags": [
+      "metricas",
+      "baseline",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Engajamento",
+    "descricao": "Alto interesse pessoal em participar ativamente do DS",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "participacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Sugestao",
+    "descricao": "Sugere envolver devs referência de front: Luan (Approval), Patrick e Lucas (criaram base da UI/lib)",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "frontend"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Oferece ajuda para conectar com outras áreas (vendas, implementação, etc)",
+    "categoria": "Colaboracao",
+    "tags": [
+      "ponte",
+      "facilitacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Acesso às UI docs/framework internos exige Twingate (VPN) via Cyber",
+    "categoria": "Tecnologia",
+    "tags": [
+      "acesso",
+      "vpn",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "Cultura da liderança/CEO: \"faça direito\" > \"faça rápido\"; priorizar qualidade mesmo que demore mais",
+    "categoria": "Estrategia",
+    "tags": [
+      "qualidade",
+      "lideranca",
+      "valor_estrategico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-24",
+    "stakeholder_id": 13,
+    "tipo": "Observacao",
+    "descricao": "App mistura webview e nativo, aumentando diferenças de UI/UX",
+    "categoria": "Tecnologia",
+    "tags": [
+      "webview",
+      "mobile",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Centralização inexistente do DS - há biblioteca de componentes reutilizados, porém dispersa por arquivos individuais; atende só ao básico",
+    "categoria": "Design_System",
+    "tags": [
+      "centralizacao",
+      "biblioteca_componentes",
+      "organizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Sente falta de guias de comunicação e tom de voz da marca; usa material de Marketing e apoio de IA para redigir textos de interface sem adoção consistente",
+    "categoria": "Design_System",
+    "tags": [
+      "ux_writing",
+      "comunicacao",
+      "marca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Acessibilidade praticamente inexistente; exemplos de contraste insuficiente (tooltip azul com texto branco 12px)",
+    "categoria": "Design_System",
+    "tags": [
+      "acessibilidade",
+      "contraste",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Tipografia inclui tamanhos até 10px (evitado); 12px muito usado até para informações relevantes; falta baseline e indicação de uso",
+    "categoria": "Design_System",
+    "tags": [
+      "tipografia",
+      "padronizacao",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Falta biblioteca oficial de ícones; usa Material Symbols/ícones da comunidade; problemas de conversão/estilos ao trocar ícones em componentes",
+    "categoria": "Design_System",
+    "tags": [
+      "icones",
+      "biblioteca_componentes",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Biblioteca de cores existe mas sem direcionamento de uso (ex: quais tons para títulos/corpo/estados)",
+    "categoria": "Design_System",
+    "tags": [
+      "cores",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Ausência de orientações claras de adaptação entre breakpoints (desktop ↔ mobile)",
+    "categoria": "Design_System",
+    "tags": [
+      "cross_device",
+      "responsividade",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Participou anteriormente da construção de DS com forte ênfase em documentação (GitBook) e rastreabilidade/qualidade de biblioteca de ícones",
+    "categoria": "Design_System",
+    "tags": [
+      "experiencia_anterior",
+      "documentacao",
+      "icones"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Botões apresentam variações de raio, tamanhos e estados distintos entre plataformas (web/app); mau uso do text button",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "padronizacao",
+      "multiplataforma"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Forms usam cinzas muito claros, impactando legibilidade/contraste",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "contraste",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Cards: inexistência de componente padrão - cada tela resolve na mão",
+    "categoria": "Design_System",
+    "tags": [
+      "componentes",
+      "padronizacao",
+      "improvisacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Cores apresentam inconsistência por falta de direcionamento",
+    "categoria": "Design_System",
+    "tags": [
+      "cores",
+      "padronizacao",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Contraste insuficiente em componentes (ex: tooltip azul)",
+    "categoria": "Design_System",
+    "tags": [
+      "contraste",
+      "acessibilidade",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Tamanhos de fonte pequenos (12px em conteúdos relevantes)",
+    "categoria": "Design_System",
+    "tags": [
+      "tipografia",
+      "acessibilidade",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Área de clique inadequada em text button usado como botão transparente (sem hit area)",
+    "categoria": "Design_System",
+    "tags": [
+      "usabilidade",
+      "acessibilidade",
+      "componentes"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Necessidade",
+    "descricao": "Definir baseline tipográfico (ex: corpo ≥14/16px), tokens/escala de cor com contraste mínimo, regramento de tamanho/área de toque e estados focáveis/teclado",
+    "categoria": "Design_System",
+    "tags": [
+      "acessibilidade",
+      "tipografia",
+      "tokens",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Necessidade",
+    "descricao": "Incorporar critérios WCAG básicos desde o início do DS",
+    "categoria": "Design_System",
+    "tags": [
+      "acessibilidade",
+      "compliance",
+      "documentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Usa Figma (estilos básicos; variáveis pouco usadas, sem dark mode)",
+    "categoria": "Tecnologia",
+    "tags": [
+      "figma",
+      "limitacao",
+      "temas"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Usa Figma Make para prototipação/animações",
+    "categoria": "Tecnologia",
+    "tags": [
+      "figma",
+      "prototipagem"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Usa Miro para co-criação (PMs sem FigJam)",
+    "categoria": "Processo",
+    "tags": [
+      "colaboracao",
+      "ferramenta"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Usa IA (ChatGPT e outras) para apoio em microcópia/ideação",
+    "categoria": "Processo",
+    "tags": [
+      "ux_writing",
+      "ferramenta"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Dor",
+    "descricao": "Dor principal: documentação insuficiente e espalhada; prefere GitBook pela busca e navegação",
+    "categoria": "Documentacao",
+    "tags": [
+      "documentacao",
+      "organizacao",
+      "ferramenta"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Dores decorrem mais de falta de processo/diretrizes do que de limitação da ferramenta",
+    "categoria": "Processo",
+    "tags": [
+      "documentacao",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Pipeline claro: kickoff com PM/Tech Leads → design reviews → handoff (assíncrono para casos simples; reunião com Front para complexos)",
+    "categoria": "Processo",
+    "tags": [
+      "rituais",
+      "handoff",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Colaboração positiva e contínua: comunicação fluida, feedbacks pertinentes (técnicos/fluxo), sem debates estéticos supérfluos",
+    "categoria": "Colaboracao",
+    "tags": [
+      "comunicacao",
+      "eficiencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Percepção de que com padrões claros, o Front adere bem",
+    "categoria": "Colaboracao",
+    "tags": [
+      "adocao",
+      "padronizacao",
+      "handoff"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Specs são em geral respeitadas quando bem documentadas e discutidas nos reviews; falta do DS formal aumenta riscos de interpretações",
+    "categoria": "Colaboracao",
+    "tags": [
+      "especificacao",
+      "documentacao",
+      "handoff"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Sugestao",
+    "descricao": "Começar pelo essencial: centralização, diretrizes de tipografia/cores/estados, acessibilidade básica, iconografia, cards e botões",
+    "categoria": "Estrategia",
+    "tags": [
+      "prioridade",
+      "fundacao",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Sugestao",
+    "descricao": "Tapa visual incremental ao construir componentes (especialmente sombras e polimento visual)",
+    "categoria": "Design_System",
+    "tags": [
+      "identidade_visual",
+      "evolucao",
+      "qualidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Sugestao",
+    "descricao": "Documentação robusta (ideal em GitBook) com busca, exemplos e quando usar",
+    "categoria": "Design_System",
+    "tags": [
+      "documentacao",
+      "referencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Sugestao",
+    "descricao": "Mapeamento desktop↔mobile desde o início",
+    "categoria": "Design_System",
+    "tags": [
+      "cross_device",
+      "responsividade",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Engajamento",
+    "descricao": "Quer participar ativamente do DS",
+    "categoria": "Colaboracao",
+    "tags": [
+      "engajamento",
+      "participacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Engajamento",
+    "descricao": "Como colaborar: documentação (forte experiência), validação de diretrizes/comportamentos, replicação/edição de componentes, testes de biblioteca de ícones e revisão de acessibilidade",
+    "categoria": "Colaboracao",
+    "tags": [
+      "documentacao",
+      "validacao",
+      "acessibilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-19",
+    "stakeholder_id": 5,
+    "tipo": "Observacao",
+    "descricao": "Se sente enferrujada para construção avançada de componentes no Figma (muitas condicionais), mas confortável com básico/booleans e com documentar profundamente",
+    "categoria": "Colaboracao",
+    "tags": [
+      "capacitacao",
+      "documentacao",
+      "limitacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Dor",
+    "descricao": "Inconsistência visual e de padrões: variações de botões, uso misto de modais/drawers/expansões; ausência de história clara ao entrar na tela",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "componentes",
+      "jornada_usuario"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Dor",
+    "descricao": "Design novo simples demais, perdeu funcionalidades/qualidades antigas (desde 2018)",
+    "categoria": "Produto",
+    "tags": [
+      "simplicidade",
+      "descontinuidade",
+      "historico"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Dor",
+    "descricao": "Dependência excessiva do design para itens simples; times esperando desenho para elementos básicos",
+    "categoria": "Colaboracao",
+    "tags": [
+      "dependencia",
+      "autonomia",
+      "produtividade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Dor",
+    "descricao": "Pouca entrega em produto: muito Figma e pouca tela no ar",
+    "categoria": "Eficiencia",
+    "tags": [
+      "execucao",
+      "velocidade",
+      "frustracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Sugestao",
+    "descricao": "Revisar announce kit (histórico de lançamentos) desde 2018 para resgatar boas ideias e perceber o que se perdeu",
+    "categoria": "Estrategia",
+    "tags": [
+      "conhecimento_historico",
+      "referencia",
+      "aprendizado"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Dor",
+    "descricao": "Retrabalho: refazer o que acabou de lançar por falta de cuidado com a jornada/escopo",
+    "categoria": "Eficiencia",
+    "tags": [
+      "retrabalho",
+      "planejamento",
+      "qualidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Dor",
+    "descricao": "Iniciativas começam pelo pedido de um cliente sem pesquisa/entrevista; falta de entendimento de uso real e casos de uso diversos",
+    "categoria": "Processo",
+    "tags": [
+      "produto",
+      "validacao",
+      "conhecimento_negocio"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Observacao",
+    "descricao": "Uso de feature toggles para liberar gradualmente e evitar impacto negativo imediato",
+    "categoria": "Tecnologia",
+    "tags": [
+      "rollout",
+      "mitigacao",
+      "estrategia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Observacao",
+    "descricao": "Exemplo multiquarto: lançamento exigiu ajustes pós-go-live por não considerar fluxos existentes; faltou ouvir CS e Operações",
+    "categoria": "Processo",
+    "tags": [
+      "retrabalho",
+      "validacao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Visual moderno + identidade de marca perceptível; evitar cara de Delphi",
+    "categoria": "Design_System",
+    "tags": [
+      "identidade_visual",
+      "modernizacao",
+      "marca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Consistência entre jornadas (travel, expense e plataforma): componentes e padrões alinhados",
+    "categoria": "Design_System",
+    "tags": [
+      "padronizacao",
+      "multiplataforma"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Necessidade",
+    "descricao": "Cores/brand dos clientes: necessidade de estratégia para personalização controlada (tokens/paletas neutras ou white-label com diretrizes)",
+    "categoria": "Design_System",
+    "tags": [
+      "cores",
+      "tokens",
+      "personalizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Necessidade",
+    "descricao": "Organização da plataforma: especial atenção a login, home, cadastros, orçamentos (partes fora de módulos), hoje soltas",
+    "categoria": "Produto",
+    "tags": [
+      "organizacao",
+      "prioridade",
+      "estrutura"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Dor",
+    "descricao": "Ajuste a múltiplas resoluções: calibrar comportamento responsivo/escala; hoje a UI pega só o miolo, desperdício de espaço em telas grandes",
+    "categoria": "Interface",
+    "tags": [
+      "responsividade",
+      "layout",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Observacao",
+    "descricao": "Métricas ainda não monitoradas",
+    "categoria": "Metricas",
+    "tags": [
+      "metricas",
+      "baseline",
+      "lacuna"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Metrica",
+    "descricao": "Satisfação do cliente sem atrito (mudanças sentidas como fluídas, quase invisíveis)",
+    "categoria": "Metricas",
+    "tags": [
+      "csat",
+      "impacto_usuario",
+      "experiencia_usuario"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Metrica",
+    "descricao": "Produtividade do time: designers focando em jornada/pesquisa (menos desenho do zero) e devs reusando componentes; menos retrabalho",
+    "categoria": "Metricas",
+    "tags": [
+      "produtividade",
+      "eficiencia",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Metrica",
+    "descricao": "NPS menos contraditório: reduzir comentário gosto mas é confuso",
+    "categoria": "Metricas",
+    "tags": [
+      "nps",
+      "clareza",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Metrica",
+    "descricao": "Consistência/adoção de componentes: catálogo enxuto; remover/ajustar componentes pouco usados",
+    "categoria": "Metricas",
+    "tags": [
+      "adocao",
+      "componentes",
+      "governanca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Observacao",
+    "descricao": "Não há baseline atual; necessidade de definir e instrumentar métricas",
+    "categoria": "Metricas",
+    "tags": [
+      "baseline",
+      "metricas",
+      "instrumentacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Sugestao",
+    "descricao": "Prioridade 1 - Plataforma fora de módulos (impacto maior): login, home (com personalização por perfil), cadastros, orçamentos, páginas estruturais",
+    "categoria": "Design_System",
+    "tags": [
+      "prioridade",
+      "escopo",
+      "planejamento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Sugestao",
+    "descricao": "Prioridade 2 - Consolidação de componentes transversais: botões, inputs, listas/tabelas, cards, relatórios (evitar duplicatas)",
+    "categoria": "Design_System",
+    "tags": [
+      "prioridade",
+      "componentes",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Observacao",
+    "descricao": "Menor urgência imediata: travel e expense têm times ativos e já passam por renovações",
+    "categoria": "Estrategia",
+    "tags": [
+      "prioridade",
+      "travel",
+      "expense"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Sugestao",
+    "descricao": "Ter plano de evolução pós-go-live (ex: testar versão mínima e escalar se houver uso), resgatando essência de 2019",
+    "categoria": "Estrategia",
+    "tags": [
+      "rollout",
+      "iteracao",
+      "mvp"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Observacao",
+    "descricao": "Concorrentes nacionais parecem mais orgânicos (experiência única); Onfly transmite sensação de módulos separados",
+    "categoria": "Produto",
+    "tags": [
+      "benchmarking",
+      "padronizacao",
+      "experiencia_usuario"
+    ]
+  },
+  {
+    "data_entrevista": "2025-09-18",
+    "stakeholder_id": 22,
+    "tipo": "Necessidade",
+    "descricao": "Evitar barras de rolagem desnecessárias e zonas mortas; usar melhor largura disponível",
+    "categoria": "Interface",
+    "tags": [
+      "layout",
+      "usabilidade",
+      "responsividade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Dor",
+    "descricao": "Ausência de biblioteca de componentes reusáveis gera retrabalho e discussões repetitivas",
+    "categoria": "Design_System",
+    "tags": [
+      "biblioteca_componentes",
+      "retrabalho",
+      "eficiencia"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Dor",
+    "descricao": "Experiência pouco padronizada com múltiplos modais e excesso de funcionalidades em tela deixando navegação confusa",
+    "categoria": "Experiencia_Usuario",
+    "tags": [
+      "padronizacao",
+      "navegacao",
+      "usabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Dor",
+    "descricao": "Velocidade de desenvolvimento comprometida pela falta de consistência",
+    "categoria": "Eficiencia",
+    "tags": [
+      "velocidade",
+      "padronizacao",
+      "desenvolvimento"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Dor",
+    "descricao": "Mudanças frequentes de liderança levaram a descontinuidade nos esforços de padronização",
+    "categoria": "Processo",
+    "tags": [
+      "lideranca",
+      "descontinuidade",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Observacao",
+    "descricao": "Fragmentação histórica com coexistência de Vue 2, Vue 3, Quasar e React; V3 do web é predominante atualmente",
+    "categoria": "Tecnologia",
+    "tags": [
+      "padronizacao",
+      "vue",
+      "quasar",
+      "versao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Observacao",
+    "descricao": "Refatorar tudo para o padrão não é viável, evolução deve ser incremental",
+    "categoria": "Estrategia",
+    "tags": [
+      "refatoracao",
+      "incremental",
+      "viabilidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Observacao",
+    "descricao": "Há registros de pelo menos três tentativas anteriores de padronização sem continuidade",
+    "categoria": "Processo",
+    "tags": [
+      "historico",
+      "descontinuidade",
+      "padronizacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Sugestao",
+    "descricao": "Aplicar Design System diretamente no produto ajudaria unificação",
+    "categoria": "Design_System",
+    "tags": [
+      "aplicacao",
+      "produto",
+      "unificacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Sugestao",
+    "descricao": "Avaliar repositório de componentes agnóstico a frameworks (HTML, CSS e JS puros) como objetivo secundário",
+    "categoria": "Design_System",
+    "tags": [
+      "repositorio",
+      "framework",
+      "frontend"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Necessidade",
+    "descricao": "Prioridade é aplicação rápida do DS na stack da V3",
+    "categoria": "Design_System",
+    "tags": [
+      "prioridade",
+      "velocidade",
+      "versao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Impacto_Esperado",
+    "descricao": "Implantar DS o quanto antes para evitar retrabalhos em futuros redesigns",
+    "categoria": "Design_System",
+    "tags": [
+      "velocidade",
+      "retrabalho",
+      "redesign"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Necessidade",
+    "descricao": "Preparar DS para evoluções ligadas à IA (interfaces baseadas em chat)",
+    "categoria": "Design_System",
+    "tags": [
+      "ia",
+      "evolucao",
+      "futuro"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Sugestao",
+    "descricao": "Evitar ciclos longos com foco em entregas incrementais e experimentais",
+    "categoria": "Estrategia",
+    "tags": [
+      "padronizacao",
+      "versao",
+      "retrabalho"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Sugestao",
+    "descricao": "Benchmarking em plataformas B2C (Booking, Airbnb) para trazer padrões de experiência familiar aos usuários mesmo no contexto B2B",
+    "categoria": "Estrategia",
+    "tags": [
+      "benchmarking",
+      "referencia",
+      "b2c"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Sugestao",
+    "descricao": "Modelo descentralizado com squads contribuindo para biblioteca de componentes",
+    "categoria": "Estrategia",
+    "tags": [
+      "descentralizacao",
+      "time",
+      "colaboracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Sugestao",
+    "descricao": "Devs seniores participam de forma colaborativa formando squad virtual do chapter de design system",
+    "categoria": "Colaboracao",
+    "tags": [
+      "time",
+      "chapter",
+      "governanca"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Sugestao",
+    "descricao": "Arquiteto de front como figura consultiva para direcionar e validar",
+    "categoria": "Colaboracao",
+    "tags": [
+      "arquitetura",
+      "validacao",
+      "frontend"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Observacao",
+    "descricao": "Centralização (time dedicado) é vista como inviável para realidade atual",
+    "categoria": "Estrategia",
+    "tags": [
+      "descentralizacao",
+      "viabilidade",
+      "time"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Necessidade",
+    "descricao": "Governança colaborativa entre squads",
+    "categoria": "Processo",
+    "tags": [
+      "governanca",
+      "colaboracao",
+      "squads"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Necessidade",
+    "descricao": "Validação técnica com suporte do arquiteto de front",
+    "categoria": "Processo",
+    "tags": [
+      "validacao",
+      "arquitetura",
+      "frontend"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Necessidade",
+    "descricao": "Documentação clara para garantir consistência e onboarding de novos devs",
+    "categoria": "Design_System",
+    "tags": [
+      "documentacao",
+      "padronizacao",
+      "onboarding"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Observacao",
+    "descricao": "Adoção não é vista como risco pois equipe está engajada e consciente da importância do DS",
+    "categoria": "Design_System",
+    "tags": [
+      "adocao",
+      "engajamento",
+      "cultura"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Observacao",
+    "descricao": "Cultura da Onfly (startup) favorece experimentação e alinhamento natural",
+    "categoria": "Estrategia",
+    "tags": [
+      "cultura",
+      "experimentacao",
+      "comunicacao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Sugestao",
+    "descricao": "Importância de pequenas entregas contínuas (MVPs) para evitar projetos que travam em ciclos longos",
+    "categoria": "Estrategia",
+    "tags": [
+      "mvp",
+      "incremental",
+      "velocidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Observacao",
+    "descricao": "B2B tem restrições de negócio mas experiência deve se aproximar da simplicidade do B2C",
+    "categoria": "Estrategia",
+    "tags": [
+      "b2b",
+      "b2c",
+      "simplicidade"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Observacao",
+    "descricao": "Funcionalidade multiquarto foi inspirada em soluções de plataformas B2C",
+    "categoria": "Estrategia",
+    "tags": [
+      "referencia",
+      "b2c",
+      "inspiracao"
+    ]
+  },
+  {
+    "data_entrevista": "2025-10-01",
+    "stakeholder_id": 21,
+    "tipo": "Observacao",
+    "descricao": "Cultura colaborativa e autonomia da equipe são ativos que devem ser aproveitados no projeto",
+    "categoria": "Colaboracao",
+    "tags": [
+      "cultura",
+      "autonomia",
+      "valor_estrategico"
+    ]
+  }
+]
