@@ -169,7 +169,6 @@
           <article class="card highlight" id="card-top-insight">
             <div class="highlight-header">
               <h2>Tipo de insight mais frequente</h2>
-              <span class="highlight-icon">›</span>
             </div>
             <p class="highlight-value" id="top-insight-type">--</p>
             <p class="highlight-subtitle" id="top-insight-percent">--</p>
@@ -205,7 +204,7 @@
               <h2>Principais menções</h2>
             </header>
             <div class="table-container overflow-x-auto">
-              <table>
+              <table class="mention-table">
                 <thead>
                   <tr>
                     <th>Menção</th>
@@ -221,7 +220,7 @@
               <h2 id="dimension-tags-title">Tags relacionadas</h2>
             </header>
             <div class="table-container overflow-x-auto">
-              <table>
+              <table class="tag-table">
                 <thead>
                   <tr>
                     <th>Tag</th>
@@ -238,6 +237,7 @@
           <article class="card metric" id="expect-metric-stakeholders">
             <h2>Stakeholders com expectativas</h2>
             <p class="metric-value" id="expectation-stakeholders">--</p>
+            <span class="metric-caption" id="expectation-stakeholders-caption"></span>
           </article>
 
           <article class="card metric" id="expect-metric-insights">
@@ -248,6 +248,7 @@
           <article class="card metric" id="engage-metric-stakeholders">
             <h2>Stakeholders engajados</h2>
             <p class="metric-value" id="engagement-stakeholders">--</p>
+            <span class="metric-caption" id="engagement-stakeholders-caption"></span>
           </article>
 
           <article class="card metric" id="engage-metric-insights">
@@ -283,7 +284,7 @@
               <h2>Todas as expectativas registradas</h2>
             </header>
             <div class="table-container overflow-x-auto">
-              <table>
+              <table class="highlight-table">
                 <thead>
                   <tr>
                     <th>Expectativa</th>
@@ -309,7 +310,7 @@
               <h2>Tags de expectativas</h2>
             </header>
             <div class="table-container overflow-x-auto">
-              <table>
+              <table class="tag-table">
                 <thead>
                   <tr>
                     <th>Tag</th>
@@ -363,13 +364,12 @@
               </div>
             </div>
           </div>
-
           <article class="card table-card detail-table" id="detail-table-card">
             <header>
               <h2>Todos os insights</h2>
             </header>
             <div class="table-container overflow-x-auto">
-              <table>
+              <table class="detail-main-table">
                 <thead>
                   <tr>
                     <th>Data</th>
@@ -408,7 +408,7 @@
               <h2>Tags no contexto atual</h2>
             </header>
             <div class="table-container overflow-x-auto">
-              <table>
+              <table class="tag-table">
                 <thead>
                   <tr>
                     <th>Tag</th>
@@ -453,12 +453,12 @@
             </div>
           </article>
 
-          <article class="card table-card" id="final-actions-card">
+          <article class="card table-card table-fill" id="final-actions-card">
             <header>
               <h2>Resumo de próximos passos</h2>
             </header>
             <div class="table-container overflow-x-auto">
-              <table>
+              <table class="actions-table">
                 <thead>
                   <tr>
                     <th>Recomendação</th>
@@ -475,7 +475,7 @@
               <h2>Mapa de influência</h2>
             </header>
             <div class="table-container overflow-x-auto">
-              <table>
+              <table class="influence-table">
                 <thead>
                   <tr>
                     <th>Stakeholder</th>

@@ -56,8 +56,10 @@ const elements = {
   expectations: {
     metrics: {
       expectationStakeholders: document.getElementById('expectation-stakeholders'),
+      expectationStakeholdersCaption: document.getElementById('expectation-stakeholders-caption'),
       expectationCount: document.getElementById('expectation-count'),
       engagementStakeholders: document.getElementById('engagement-stakeholders'),
+      engagementStakeholdersCaption: document.getElementById('engagement-stakeholders-caption'),
       engagementCount: document.getElementById('engagement-count'),
     },
     categoryChart: document.getElementById('expectation-category-chart'),
@@ -93,12 +95,14 @@ const elements = {
 };
 
 let navOverflowController = null;
+let tooltipController = null;
 
 setupNavigation();
 navOverflowController = setupNavOverflow();
 if (navOverflowController) {
   window.addEventListener('load', () => navOverflowController.update());
 }
+tooltipController = initTooltip();
 updateNavigation();
 updateViewVisibility();
 
@@ -463,6 +467,7 @@ function renderExpectations(_stakeholders, insights) {
   const expectations = elements.expectations;
   if (!expectations.categoryChart) return;
 
+  const totalStakeholders = _stakeholders.length;
   const expectationTypes = ['Impacto_Esperado', 'Necessidade', 'Sugestao'];
   const expectationInsights = insights.filter((insight) =>
     expectationTypes.includes(insight.tipo || ''),
@@ -479,13 +484,31 @@ function renderExpectations(_stakeholders, insights) {
   );
 
   if (expectations.metrics.expectationStakeholders) {
-    expectations.metrics.expectationStakeholders.textContent = expectationStakeholders.size.toString();
+    expectations.metrics.expectationStakeholders.textContent = formatPercentage(
+      expectationStakeholders.size,
+      totalStakeholders,
+    );
+  }
+  if (expectations.metrics.expectationStakeholdersCaption) {
+    expectations.metrics.expectationStakeholdersCaption.textContent =
+      totalStakeholders > 0
+        ? `${expectationStakeholders.size} de ${totalStakeholders} stakeholders`
+        : 'Nenhum stakeholder disponível';
   }
   if (expectations.metrics.expectationCount) {
     expectations.metrics.expectationCount.textContent = expectationInsights.length.toString();
   }
   if (expectations.metrics.engagementStakeholders) {
-    expectations.metrics.engagementStakeholders.textContent = engagementStakeholders.size.toString();
+    expectations.metrics.engagementStakeholders.textContent = formatPercentage(
+      engagementStakeholders.size,
+      totalStakeholders,
+    );
+  }
+  if (expectations.metrics.engagementStakeholdersCaption) {
+    expectations.metrics.engagementStakeholdersCaption.textContent =
+      totalStakeholders > 0
+        ? `${engagementStakeholders.size} de ${totalStakeholders} stakeholders`
+        : 'Nenhum stakeholder disponível';
   }
   if (expectations.metrics.engagementCount) {
     expectations.metrics.engagementCount.textContent = engagementInsights.length.toString();
@@ -946,7 +969,7 @@ function renderDetailProfile(filteredInsights) {
   const container = elements.detail.profileContent;
   if (!container) return;
 
-  if (!state.selectedDetailId) {
+  if (state.selectedDetailId === null || state.selectedDetailId === undefined) {
     container.innerHTML = '<p class="chart-placeholder">Selecione um insight para ver detalhes do stakeholder.</p>';
     return;
   }
@@ -1162,27 +1185,37 @@ function renderFinalThemes() {
   container.innerHTML = '';
 
   const expectationTypes = ['Impacto_Esperado', 'Necessidade', 'Sugestao'];
-  const themeConfigs = [
-    {
-      label: 'Dores',
-      insights: state.insights.filter((insight) => (insight.tipo || '').toLowerCase() === 'dor'),
-    },
-    {
-      label: 'Expectativas',
-      insights: state.insights.filter((insight) => expectationTypes.includes(insight.tipo || '')),
-    },
-    {
-      label: 'Engajamento',
-      insights: state.insights.filter((insight) => (insight.tipo || '') === 'Engajamento'),
-    },
-  ];
+  const normalizeLabel = (text = '') =>
+    text
+      .split(/[_\s]+/g)
+      .filter(Boolean)
+      .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1).toLowerCase())
+      .join(' ');
 
-  const blocks = themeConfigs
-    .map(({ label, insights }) => {
+  const getGroupLabel = (type) => {
+    if (expectationTypes.includes(type || '')) return 'Expectativas';
+    const normalized = (type || '').trim();
+    if (!normalized) return 'Não classificado';
+    if (normalized.toLowerCase() === 'dor') return 'Dores';
+    if (normalized === 'Engajamento') return 'Engajamento';
+    return normalizeLabel(normalized);
+  };
+
+  const groupedInsights = state.insights.reduce((acc, insight) => {
+    const label = getGroupLabel(insight.tipo);
+    const bucket = acc.get(label) || [];
+    bucket.push(insight);
+    acc.set(label, bucket);
+    return acc;
+  }, new Map());
+
+  const blocks = Array.from(groupedInsights.entries())
+    .map(([label, insights]) => {
       if (!insights.length) {
         return {
           label,
           description: 'Nenhuma menção registrada.',
+          total: 0,
         };
       }
       const counts = insights.reduce((acc, insight) => {
@@ -1191,7 +1224,7 @@ function renderFinalThemes() {
         return acc;
       }, new Map());
       const [primary, secondary] = Array.from(counts.entries())
-        .sort((a, b) => b[1] - a[1])
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'))
         .slice(0, 2);
 
       const primaryText = primary
@@ -1203,9 +1236,10 @@ function renderFinalThemes() {
         label,
         primaryText,
         secondaryText,
+        total: insights.length,
       };
     })
-    .filter(Boolean);
+    .sort((a, b) => b.total - a.total || a.label.localeCompare(b.label, 'pt-BR'));
 
   if (!blocks.length) {
     container.appendChild(createPlaceholder('Nenhum dado disponível para a síntese.'));
@@ -1297,8 +1331,7 @@ function renderFinalInfluence() {
       return { stakeholderId, data, total };
     })
     .filter((entry) => entry.total > 0)
-    .sort((a, b) => b.total - a.total)
-    .slice(0, 8);
+    .sort((a, b) => b.total - a.total);
 
   if (!ranking.length) {
     const row = document.createElement('tr');
@@ -1752,6 +1785,62 @@ function setupNavOverflow() {
   };
 }
 
+function initTooltip() {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'tooltip-bubble';
+  tooltip.hidden = true;
+  document.body.appendChild(tooltip);
+
+  let activeTarget = null;
+
+  const showTooltip = (target, x, y) => {
+    const text = target.dataset.tooltip;
+    if (!text) return;
+    tooltip.textContent = text;
+    tooltip.style.top = `${Math.max(12, y - 28)}px`;
+    tooltip.style.left = `${x + 16}px`;
+    tooltip.hidden = false;
+    tooltip.classList.add('visible');
+  };
+
+  const hideTooltip = () => {
+    tooltip.hidden = true;
+    tooltip.classList.remove('visible');
+    activeTarget = null;
+  };
+
+  document.addEventListener('pointerover', (event) => {
+    const target = event.target.closest('[data-tooltip]');
+    if (!target || !target.dataset.tooltip) {
+      return;
+    }
+    activeTarget = target;
+    showTooltip(target, event.clientX, event.clientY);
+  });
+
+  document.addEventListener('pointermove', (event) => {
+    if (!activeTarget) return;
+    if (!event.target.closest('[data-tooltip]')) {
+      hideTooltip();
+      return;
+    }
+    showTooltip(activeTarget, event.clientX, event.clientY);
+  });
+
+  document.addEventListener('pointerout', (event) => {
+    if (!activeTarget) return;
+    const nextTarget = event.relatedTarget?.closest('[data-tooltip]');
+    if (nextTarget === activeTarget) return;
+    hideTooltip();
+  });
+
+  document.addEventListener('scroll', hideTooltip, true);
+
+  return {
+    hide: hideTooltip,
+  };
+}
+
 function updateNavigation() {
   elements.navItems.forEach((item) => {
     if (item.dataset.page === state.currentView) {
@@ -1835,9 +1924,11 @@ function applyTooltip(element, text) {
   const value = text ?? '';
   const normalized = typeof value === 'string' ? value.trim() : String(value).trim();
   if (normalized && normalized !== '—') {
-    element.setAttribute('title', normalized);
+    element.removeAttribute('title');
+    element.dataset.tooltip = normalized;
   } else {
     element.removeAttribute('title');
+    delete element.dataset.tooltip;
   }
 }
 
