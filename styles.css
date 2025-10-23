@@ -317,6 +317,13 @@ body {
   background: rgba(15, 107, 214, 0.14);
 }
 
+.filters .export-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
 .metric {
   grid-column: span 4;
   justify-content: flex-start;

@@ -53,6 +53,7 @@ const elements = {
   typeFilter: document.getElementById('type-filter'),
   typeFilterGroup: document.getElementById('type-filter-group'),
   teamFilterGroup: document.getElementById('team-filter-group'),
+  exportButton: document.getElementById('export-button'),
   expectations: {
     metrics: {
       expectationStakeholders: document.getElementById('expectation-stakeholders'),
@@ -124,6 +125,10 @@ if (elements.typeFilter) {
     state.selections.category = null;
     renderDashboard();
   });
+}
+
+if (elements.exportButton) {
+  elements.exportButton.addEventListener('click', handleExportSnapshot);
 }
 
 if (elements.dimension.clearFilter) {
@@ -1963,4 +1968,604 @@ function getInitials(name = '') {
     .slice(0, 2)
     .map((segment) => segment[0]?.toUpperCase() || '')
     .join('');
+}
+
+function handleExportSnapshot() {
+  try {
+    const snapshot = collectDashboardSnapshot();
+    const contents = JSON.stringify(snapshot, null, 2);
+    const blob = new Blob([contents], { type: 'application/json' });
+    const timestamp = new Date().toISOString().replace(/[:]/g, '-');
+    const filename = `dashboard-stakeholders-${timestamp}.json`;
+    triggerDownload(blob, filename);
+  } catch (error) {
+    console.error('Erro ao exportar os dados do dashboard:', error);
+    if (typeof window !== 'undefined' && typeof window.alert === 'function') {
+      window.alert('Não foi possível exportar os dados. Verifique o console para mais detalhes.');
+    }
+  }
+}
+
+function collectDashboardSnapshot() {
+  const { stakeholders, insights } = getFilteredData();
+  const detailInsights = applyDetailFilters(insights);
+  return {
+    generatedAt: new Date().toISOString(),
+    filters: {
+      global: { ...state.filters },
+      detail: { ...state.detailFilters },
+      selections: { ...state.selections },
+      currentView: state.currentView,
+    },
+    overview: buildOverviewSection(stakeholders, insights),
+    dimension: buildDimensionSection(),
+    expectations: buildExpectationsSection(stakeholders, insights),
+    detail: buildDetailSection(detailInsights),
+    final: buildFinalSection(),
+    rawData: {
+      stakeholders: stakeholders.map((stakeholder) => ({ ...stakeholder })),
+      insights: insights.map((insight) => ({ ...insight })),
+    },
+  };
+}
+
+function buildOverviewSection(stakeholders, insights) {
+  const totalStakeholders = stakeholders.length;
+  const totalInsights = insights.length;
+
+  const averageTenure =
+    totalStakeholders === 0
+      ? 0
+      : stakeholders.reduce((sum, stakeholder) => sum + (stakeholder.tempo_meses || 0), 0) /
+        totalStakeholders;
+
+  const teamCounts = stakeholders.reduce((acc, stakeholder) => {
+    const team = stakeholder.time || 'Sem time';
+    acc.set(team, (acc.get(team) || 0) + 1);
+    return acc;
+  }, new Map());
+
+  const insightTypeCounts = insights.reduce((acc, insight) => {
+    const type = insight.tipo || 'Não classificado';
+    acc.set(type, (acc.get(type) || 0) + 1);
+    return acc;
+  }, new Map());
+
+  const teamDistribution = mapCountsToArray(teamCounts, totalStakeholders, 'team');
+  const insightDistribution = mapCountsToArray(insightTypeCounts, totalInsights, 'type');
+
+  const topInsight = insightDistribution[0] || null;
+  const topInsightType = topInsight
+    ? {
+        type: topInsight.type,
+        count: topInsight.count,
+        percentage: topInsight.percentage,
+      }
+    : null;
+
+  return {
+    metrics: {
+      totalStakeholders,
+      totalInsights,
+      averageTenureMonths: Math.round(averageTenure),
+    },
+    teamDistribution,
+    insightDistribution,
+    topInsightType,
+  };
+}
+
+function buildDimensionSection() {
+  const { team, insightType } = state.filters;
+
+  const typeFilteredInsights =
+    insightType === 'all'
+      ? state.insights
+      : state.insights.filter((insight) => (insight.tipo || '') === insightType);
+
+  const eligibleStakeholders =
+    team === 'all'
+      ? state.stakeholders
+      : state.stakeholders.filter((stakeholder) => stakeholder.time === team);
+
+  const allowedIds = new Set(eligibleStakeholders.map((stakeholder) => stakeholder.id));
+  const filteredInsights = typeFilteredInsights.filter((insight) =>
+    allowedIds.has(insight.stakeholder_id),
+  );
+
+  const categoryCounts = filteredInsights.reduce((acc, insight) => {
+    const category = insight.categoria || 'Não classificado';
+    acc.set(category, (acc.get(category) || 0) + 1);
+    return acc;
+  }, new Map());
+
+  const categories = mapCountsToArray(categoryCounts, filteredInsights.length, 'category');
+
+  const selectedCategory = state.selections.category;
+  const categoryInsights =
+    selectedCategory === null
+      ? filteredInsights
+      : filteredInsights.filter(
+          (insight) => (insight.categoria || 'Não classificado') === selectedCategory,
+        );
+
+  const teamCounts = categoryInsights.reduce((acc, insight) => {
+    const label = state.stakeholderMap.get(insight.stakeholder_id) || 'Sem time';
+    acc.set(label, (acc.get(label) || 0) + 1);
+    return acc;
+  }, new Map());
+  const teamDistribution = mapCountsToArray(teamCounts, categoryInsights.length, 'team');
+
+  const tagsCounts = categoryInsights.reduce((acc, insight) => {
+    (insight.tags || []).forEach((tag) => {
+      const normalized = tag?.trim();
+      if (!normalized) return;
+      acc.set(normalized, (acc.get(normalized) || 0) + 1);
+    });
+    return acc;
+  }, new Map());
+  const tagTotal = Array.from(tagsCounts.values()).reduce((sum, value) => sum + value, 0);
+  const tags = mapCountsToArray(tagsCounts, tagTotal, 'tag');
+
+  const mentions = categoryInsights.map((insight) => {
+    const stakeholder = state.stakeholderDetails.get(insight.stakeholder_id);
+    return {
+      id: insight._id,
+      stakeholderId: insight.stakeholder_id ?? null,
+      stakeholder: stakeholder ? buildStakeholderReference(stakeholder) : null,
+      descricao: insight.descricao || null,
+      categoria: insight.categoria || 'Não classificado',
+      tipo: insight.tipo || 'Não classificado',
+      dataEntrevista: insight.data_entrevista || null,
+      tags: (insight.tags || []).filter(Boolean),
+    };
+  });
+
+  return {
+    filters: { team, insightType, selectedCategory },
+    totals: {
+      availableInsights: filteredInsights.length,
+      selectedCategoryInsights: categoryInsights.length,
+    },
+    categories,
+    teamDistribution,
+    tags,
+    mentions,
+  };
+}
+
+function buildExpectationsSection(stakeholders, insights) {
+  const totalStakeholders = stakeholders.length;
+  const expectationTypes = ['Impacto_Esperado', 'Necessidade', 'Sugestao'];
+
+  const expectationInsights = insights.filter((insight) =>
+    expectationTypes.includes(insight.tipo || ''),
+  );
+  const engagementInsights = insights.filter(
+    (insight) => (insight.tipo || '') === 'Engajamento',
+  );
+
+  const expectationStakeholders = new Set(
+    expectationInsights.map((insight) => insight.stakeholder_id).filter(Boolean),
+  );
+  const engagementStakeholders = new Set(
+    engagementInsights.map((insight) => insight.stakeholder_id).filter(Boolean),
+  );
+
+  const categoriesCounts = expectationInsights.reduce((acc, insight) => {
+    const category = insight.categoria || 'Não classificado';
+    acc.set(category, (acc.get(category) || 0) + 1);
+    return acc;
+  }, new Map());
+  const categories = mapCountsToArray(
+    categoriesCounts,
+    expectationInsights.length,
+    'category',
+  );
+
+  const selectedCategory = state.selections.expectationCategory;
+  const filteredExpectations =
+    selectedCategory === null
+      ? expectationInsights
+      : expectationInsights.filter(
+          (insight) => (insight.categoria || 'Não classificado') === selectedCategory,
+        );
+
+  const highlights = filteredExpectations
+    .slice()
+    .sort(
+      (a, b) =>
+        new Date(b.data_entrevista || '1970-01-01').getTime() -
+        new Date(a.data_entrevista || '1970-01-01').getTime(),
+    )
+    .map((insight) => {
+      const stakeholder = state.stakeholderDetails.get(insight.stakeholder_id);
+      return {
+        id: insight._id,
+        stakeholderId: insight.stakeholder_id ?? null,
+        stakeholder: stakeholder ? buildStakeholderReference(stakeholder) : null,
+        descricao: insight.descricao || null,
+        categoria: insight.categoria || 'Não classificado',
+        tipo: insight.tipo || 'Não classificado',
+        dataEntrevista: insight.data_entrevista || null,
+        tags: (insight.tags || []).filter(Boolean),
+      };
+    });
+
+  const tagsCounts = filteredExpectations.reduce((acc, insight) => {
+    (insight.tags || []).forEach((tag) => {
+      const normalized = tag?.trim();
+      if (!normalized) return;
+      acc.set(normalized, (acc.get(normalized) || 0) + 1);
+    });
+    return acc;
+  }, new Map());
+  const tagTotal = Array.from(tagsCounts.values()).reduce((sum, value) => sum + value, 0);
+  const tags = mapCountsToArray(tagsCounts, tagTotal, 'tag');
+
+  const engagementTeamCounts = engagementInsights.reduce((acc, insight) => {
+    const teamLabel = state.stakeholderMap.get(insight.stakeholder_id) || 'Sem time';
+    acc.set(teamLabel, (acc.get(teamLabel) || 0) + 1);
+    return acc;
+  }, new Map());
+  const engagementTeam = mapCountsToArray(
+    engagementTeamCounts,
+    engagementInsights.length,
+    'team',
+  );
+
+  const rankingMap = engagementInsights.reduce((acc, insight) => {
+    const id = insight.stakeholder_id;
+    if (!id) return acc;
+    const record = acc.get(id) || { count: 0, tags: new Map() };
+    record.count += 1;
+    (insight.tags || []).forEach((tag) => {
+      const normalized = tag?.trim();
+      if (!normalized) return;
+      record.tags.set(normalized, (record.tags.get(normalized) || 0) + 1);
+    });
+    acc.set(id, record);
+    return acc;
+  }, new Map());
+
+  const rankingEntries = Array.from(rankingMap.entries()).sort(
+    (a, b) => b[1].count - a[1].count,
+  );
+  const maxMentions = rankingEntries[0]?.[1].count || 0;
+
+  const ranking = rankingEntries.map(([stakeholderId, data]) => {
+    const stakeholder = state.stakeholderDetails.get(stakeholderId);
+    const topTags = Array.from(data.tags.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'))
+      .slice(0, 5)
+      .map(([tag, count]) => ({ tag, count }));
+    return {
+      stakeholderId,
+      stakeholder: stakeholder ? buildStakeholderReference(stakeholder) : null,
+      mentions: data.count,
+      relativeScore: maxMentions ? Number(((data.count / maxMentions) * 100).toFixed(2)) : 0,
+      topTags,
+    };
+  });
+
+  return {
+    filters: {
+      selectedCategory,
+    },
+    metrics: {
+      totalStakeholders,
+      expectationStakeholders: {
+        count: expectationStakeholders.size,
+        percentage: percentageOf(expectationStakeholders.size, totalStakeholders),
+      },
+      expectationInsights: expectationInsights.length,
+      engagementStakeholders: {
+        count: engagementStakeholders.size,
+        percentage: percentageOf(engagementStakeholders.size, totalStakeholders),
+      },
+      engagementInsights: engagementInsights.length,
+    },
+    categories,
+    highlights,
+    tags,
+    engagementTeam,
+    ranking,
+  };
+}
+
+function buildDetailSection(detailInsights) {
+  const timelineCounts = detailInsights.reduce((acc, insight) => {
+    const key = insight.data_entrevista ? insight.data_entrevista.slice(0, 7) : 'Sem data';
+    acc.set(key, (acc.get(key) || 0) + 1);
+    return acc;
+  }, new Map());
+
+  const timeline = Array.from(timelineCounts.entries())
+    .sort((a, b) => {
+      if (a[0] === 'Sem data') return 1;
+      if (b[0] === 'Sem data') return -1;
+      return a[0].localeCompare(b[0]);
+    })
+    .map(([key, count]) => ({
+      key,
+      label: key === 'Sem data' ? 'Sem data' : formatMonthLabel(key),
+      count,
+    }));
+
+  const tagsCounts = detailInsights.reduce((acc, insight) => {
+    (insight.tags || []).forEach((tag) => {
+      const normalized = tag?.trim();
+      if (!normalized) return;
+      acc.set(normalized, (acc.get(normalized) || 0) + 1);
+    });
+    return acc;
+  }, new Map());
+  const totalTagMentions = Array.from(tagsCounts.values()).reduce((sum, value) => sum + value, 0);
+  const tags = mapCountsToArray(tagsCounts, totalTagMentions, 'tag');
+
+  const insightsData = detailInsights.map((insight) => {
+    const stakeholder = state.stakeholderDetails.get(insight.stakeholder_id);
+    return {
+      id: insight._id,
+      dataEntrevista: insight.data_entrevista || null,
+      tipo: insight.tipo || 'Não classificado',
+      categoria: insight.categoria || 'Não classificado',
+      descricao: insight.descricao || null,
+      tags: (insight.tags || []).filter(Boolean),
+      stakeholder: stakeholder ? buildStakeholderReference(stakeholder) : null,
+    };
+  });
+
+  let selectedSummary = null;
+  if (state.selectedDetailId !== null && state.selectedDetailId !== undefined) {
+    const selectedInsight =
+      detailInsights.find((insight) => insight._id === state.selectedDetailId) ||
+      state.insights.find((insight) => insight._id === state.selectedDetailId);
+
+    if (selectedInsight) {
+      const stakeholderDetails = state.stakeholderDetails.get(selectedInsight.stakeholder_id);
+      if (stakeholderDetails) {
+        const stakeholderInsights = state.insights.filter(
+          (insight) => insight.stakeholder_id === selectedInsight.stakeholder_id,
+        );
+        const typeCounts = stakeholderInsights.reduce((acc, insight) => {
+          const type = insight.tipo || 'Não classificado';
+          acc.set(type, (acc.get(type) || 0) + 1);
+          return acc;
+        }, new Map());
+        const tagsCountsProfile = stakeholderInsights.reduce((acc, insight) => {
+          (insight.tags || []).forEach((tag) => {
+            const normalized = tag?.trim();
+            if (!normalized) return;
+            acc.set(normalized, (acc.get(normalized) || 0) + 1);
+          });
+          return acc;
+        }, new Map());
+        const totalProfileTags = Array.from(tagsCountsProfile.values()).reduce(
+          (sum, value) => sum + value,
+          0,
+        );
+
+        selectedSummary = {
+          stakeholder: buildStakeholderReference(stakeholderDetails),
+          totalInsights: stakeholderInsights.length,
+          dores: typeCounts.get('Dor') || 0,
+          engajamento: typeCounts.get('Engajamento') || 0,
+          tempoMeses: stakeholderDetails.tempo_meses ?? null,
+          selectedInsight: {
+            id: selectedInsight._id,
+            categoria: selectedInsight.categoria || 'Não classificado',
+            dataEntrevista: selectedInsight.data_entrevista || null,
+          },
+          topTipos: mapCountsToArray(typeCounts, stakeholderInsights.length, 'type').slice(0, 3),
+          topTags: mapCountsToArray(tagsCountsProfile, totalProfileTags, 'tag').slice(0, 5),
+        };
+      }
+    }
+  }
+
+  return {
+    filters: { ...state.detailFilters },
+    totalInsights: detailInsights.length,
+    selectedDetailId: state.selectedDetailId,
+    insights: insightsData,
+    timeline,
+    tags,
+    selectedSummary,
+  };
+}
+
+function buildFinalSection() {
+  const totalStakeholders = state.stakeholders.length;
+  const totalInsights = state.insights.length;
+  const expectationTypes = ['Impacto_Esperado', 'Necessidade', 'Sugestao'];
+
+  const expectationStakeholders = new Set(
+    state.insights
+      .filter((insight) => expectationTypes.includes(insight.tipo || ''))
+      .map((insight) => insight.stakeholder_id)
+      .filter(Boolean),
+  );
+
+  const engagementStakeholders = new Set(
+    state.insights
+      .filter((insight) => (insight.tipo || '') === 'Engajamento')
+      .map((insight) => insight.stakeholder_id)
+      .filter(Boolean),
+  );
+
+  const normalizeLabel = (text = '') =>
+    text
+      .split(/[_\s]+/g)
+      .filter(Boolean)
+      .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1).toLowerCase())
+      .join(' ');
+
+  const getGroupLabel = (type) => {
+    if (expectationTypes.includes(type || '')) return 'Expectativas';
+    const normalized = (type || '').trim();
+    if (!normalized) return 'Não classificado';
+    if (normalized.toLowerCase() === 'dor') return 'Dores';
+    if (normalized === 'Engajamento') return 'Engajamento';
+    return normalizeLabel(normalized);
+  };
+
+  const groupedInsights = state.insights.reduce((acc, insight) => {
+    const label = getGroupLabel(insight.tipo);
+    const bucket = acc.get(label) || [];
+    bucket.push(insight);
+    acc.set(label, bucket);
+    return acc;
+  }, new Map());
+
+  const themes = Array.from(groupedInsights.entries())
+    .map(([label, insights]) => {
+      if (!insights.length) {
+        return { label, total: 0, destaque: null, secundario: null };
+      }
+      const counts = insights.reduce((acc, insight) => {
+        const category = insight.categoria || 'Não classificado';
+        acc.set(category, (acc.get(category) || 0) + 1);
+        return acc;
+      }, new Map());
+      const ordered = Array.from(counts.entries()).sort(
+        (a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'),
+      );
+      const primary = ordered[0] || null;
+      const secondary = ordered[1] || null;
+      return {
+        label,
+        total: insights.length,
+        destaque: primary
+          ? { category: primary[0], count: primary[1] }
+          : null,
+        secundario: secondary ? { category: secondary[0], count: secondary[1] } : null,
+      };
+    })
+    .sort((a, b) => b.total - a.total || a.label.localeCompare(b.label, 'pt-BR'));
+
+  const actionTags = state.insights.reduce((acc, insight) => {
+    (insight.tags || []).forEach((tag) => {
+      const normalized = tag?.trim();
+      if (!normalized) return;
+      acc.set(normalized, (acc.get(normalized) || 0) + 1);
+    });
+    return acc;
+  }, new Map());
+
+  const actions = Array.from(actionTags.entries())
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'))
+    .slice(0, 6)
+    .map(([tag, count]) => ({
+      tag,
+      recommendation: `Priorizar iniciativas relacionadas a ${tag}.`,
+      supportCount: count,
+    }));
+
+  const influenceMap = new Map();
+  state.insights.forEach((insight) => {
+    const id = insight.stakeholder_id;
+    if (!id) return;
+    const entry =
+      influenceMap.get(id) || {
+        dores: 0,
+        expectativas: 0,
+        engajamento: 0,
+        tags: new Map(),
+      };
+    const tipo = insight.tipo || '';
+    if ((tipo || '').toLowerCase() === 'dor') entry.dores += 1;
+    if (expectationTypes.includes(tipo)) entry.expectativas += 1;
+    if (tipo === 'Engajamento') entry.engajamento += 1;
+    (insight.tags || []).forEach((tag) => {
+      const label = tag?.trim();
+      if (!label) return;
+      entry.tags.set(label, (entry.tags.get(label) || 0) + 1);
+    });
+    influenceMap.set(id, entry);
+  });
+
+  const influence = Array.from(influenceMap.entries())
+    .map(([stakeholderId, data]) => {
+      const total = data.dores + data.expectativas + data.engajamento;
+      if (total === 0) return null;
+      const stakeholder = state.stakeholderDetails.get(stakeholderId);
+      const topTags = Array.from(data.tags.entries())
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'))
+        .slice(0, 5)
+        .map(([tag, count]) => ({ tag, count }));
+      return {
+        stakeholderId,
+        stakeholder: stakeholder ? buildStakeholderReference(stakeholder) : null,
+        totals: {
+          dores: data.dores,
+          expectativas: data.expectativas,
+          engajamento: data.engajamento,
+        },
+        totalMentions: total,
+        topTags,
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.totalMentions - a.totalMentions);
+
+  return {
+    metrics: {
+      totalStakeholders,
+      totalInsights,
+      expectationStakeholders: {
+        count: expectationStakeholders.size,
+        percentage: percentageOf(expectationStakeholders.size, totalStakeholders),
+      },
+      engagementStakeholders: {
+        count: engagementStakeholders.size,
+        percentage: percentageOf(engagementStakeholders.size, totalStakeholders),
+      },
+    },
+    themes,
+    actions,
+    influence,
+  };
+}
+
+function triggerDownload(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+function mapCountsToArray(map, total, labelKey) {
+  return Array.from(map.entries())
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'))
+    .map(([label, count]) => {
+      const entry = {
+        count,
+        percentage: total ? Number(((count / total) * 100).toFixed(2)) : 0,
+      };
+      entry[labelKey] = label;
+      return entry;
+    });
+}
+
+function buildStakeholderReference(stakeholder) {
+  if (!stakeholder) return null;
+  return {
+    id: stakeholder.id ?? null,
+    nome: stakeholder.nome || null,
+    cargo: stakeholder.cargo || null,
+    time: stakeholder.time || null,
+    area: stakeholder.area || null,
+    senioridade: stakeholder.senioridade || null,
+    tempo_meses: stakeholder.tempo_meses ?? null,
+  };
+}
+
+function percentageOf(part, total) {
+  if (!total || total === 0) return 0;
+  return Number(((part / total) * 100).toFixed(2));
 }
