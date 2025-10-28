@@ -1,1 +1,23 @@
-{}
+{
+  "_info": "Defina gravidade/urgencia/tendencia (1-5). Exemplo: \"gut-padronizacao\": { \"gravidade\": 5 }",
+  "_themes": {
+    "gut-padronizacao": "Falta de padronização consistente entre produtos e experiências",
+    "gut-componentes": "Componentes essenciais incompletos ou inconsistentes",
+    "gut-documentacao": "Documentação do design system desatualizada ou inacessível",
+    "gut-comunicacao": "Comunicação fragmentada entre squads e Design System",
+    "gut-retrabalho": "Retrabalho recorrente para reconstruir interfaces",
+    "gut-priorizacao": "Baixa priorização do Design System nas entregas de produto",
+    "gut-navegacao": "Fluxos de navegação confusos e pouco orientados",
+    "gut-usabilidade": "Experiência difícil de usar e pouco intuitiva",
+    "gut-webview": "Dependência de webviews comprometendo a experiência",
+    "gut-acessibilidade": "Pontos críticos de acessibilidade sem cobertura",
+    "gut-colaboracao": "Colaboração fraca entre times de produto e DS",
+    "gut-tecnologia": "Padrões técnicos incompatíveis com o design system",
+    "gut-processo": "Processos e ritos desalinhados com o Design System",
+    "gut-outros": "Questões diversas sem tema dominante"
+  },
+
+  "gut-acessibilidade": {"tendencia": 3},
+  "gut-tecnologia": {"tendencia": 1}
+
+}
