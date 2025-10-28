@@ -69,6 +69,16 @@
               </span>
               <span class="nav-label">Expectativas &amp; Engajamento</span>
             </li>
+            <li class="nav-item" data-page="gut">
+              <span class="nav-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                  <rect x="3.75" y="4.5" width="6.5" height="6.5" rx="1.4" />
+                  <rect x="13.75" y="4.5" width="6.5" height="6.5" rx="1.4" />
+                  <rect x="3.75" y="13.25" width="16.5" height="6.5" rx="1.4" />
+                </svg>
+              </span>
+              <span class="nav-label">Matriz GUT</span>
+            </li>
             <li class="nav-item" data-page="detail">
               <span class="nav-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
@@ -321,6 +331,77 @@
                   </tr>
                 </thead>
                 <tbody id="expectation-tags-body"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <section class="cards-grid gut-grid is-hidden" data-view="gut">
+          <article class="card gut-legend-card">
+            <div class="card-header">
+              <div>
+                <h2>Como ler as notas GUT</h2>
+                <p class="card-subtitle">Critérios utilizados para gravidade, urgência e tendência.</p>
+              </div>
+            </div>
+            <div class="gut-legend">
+              <div class="gut-legend-item">
+                <h3>Gravidade</h3>
+                <ul class="gut-scale">
+                  <li><span class="gut-scale-label">5</span><span>Bloqueia entregas críticas ou quebra padrões essenciais do Design System.</span></li>
+                  <li><span class="gut-scale-label">4</span><span>Gera retrabalho intenso e compromete fluxos principais.</span></li>
+                  <li><span class="gut-scale-label">3</span><span>Impacto moderado com alternativas de contorno.</span></li>
+                  <li><span class="gut-scale-label">2</span><span>Incômodo leve que não trava entregas principais.</span></li>
+                  <li><span class="gut-scale-label">1</span><span>Ajuste pontual ou percepção estética.</span></li>
+                </ul>
+              </div>
+              <div class="gut-legend-item">
+                <h3>Urgência</h3>
+                <ul class="gut-scale">
+                  <li><span class="gut-scale-label">5</span><span>Trava algo que precisa sair agora ou impede entregas imediatas.</span></li>
+                  <li><span class="gut-scale-label">4</span><span>Necessário para releases ou ciclos muito próximos.</span></li>
+                  <li><span class="gut-scale-label">3</span><span>Requer atenção em breve para evitar escalada.</span></li>
+                  <li><span class="gut-scale-label">2</span><span>Pode ser planejado sem pressionar o curto prazo.</span></li>
+                  <li><span class="gut-scale-label">1</span><span>Monitoramento futuro sem prazo definido.</span></li>
+                </ul>
+              </div>
+              <div class="gut-legend-item">
+                <h3>Tendência</h3>
+                <ul class="gut-scale">
+                  <li><span class="gut-scale-label">5</span><span>Dor citada por vários stakeholders e times distintos, espalhando-se rapidamente.</span></li>
+                  <li><span class="gut-scale-label">4</span><span>Ganho consistente de novos stakeholders ou times.</span></li>
+                  <li><span class="gut-scale-label">3</span><span>Aparece em mais de um stakeholder ou time, ganhando força.</span></li>
+                  <li><span class="gut-scale-label">2</span><span>Menções recorrentes porém concentradas em poucas pessoas.</span></li>
+                  <li><span class="gut-scale-label">1</span><span>Ocorrência isolada sem sinais de propagação.</span></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="card table-card table-fill gut-table-card">
+            <div class="card-header">
+              <div>
+                <h2>Dores priorizadas (GUT)</h2>
+                <p class="card-subtitle">Principais problemas das dores mais citadas entre os stakeholders.</p>
+              </div>
+              <span class="gut-table-hint">* indica nota ajustada manualmente</span>
+            </div>
+            <div class="table-container">
+              <table class="gut-table">
+                <thead>
+                  <tr>
+                    <th>Tema</th>
+                    <th>G</th>
+                    <th>U</th>
+                    <th>T</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="gut-table-body">
+                  <tr>
+                    <td class="gut-empty-cell" colspan="5">Carregando matriz GUT...</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </article>

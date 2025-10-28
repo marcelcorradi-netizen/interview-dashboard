@@ -426,6 +426,14 @@ body {
   grid-column: span 5;
 }
 
+.cards-grid.gut-grid .gut-legend-card {
+  grid-column: span 12;
+}
+
+.cards-grid.gut-grid .gut-table-card {
+  grid-column: span 12;
+}
+
 .cards-grid.detail-grid .detail-table {
   grid-column: span 8;
 }
@@ -682,6 +690,153 @@ body {
 
 .table-container thead th {
   white-space: nowrap;
+}
+
+.gut-legend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.gut-legend-item h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy-700);
+}
+
+.gut-scale {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gut-scale li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.4;
+}
+
+.gut-scale-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  background: rgba(15, 107, 214, 0.12);
+  color: var(--blue-500);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.gut-table-card .table-container {
+  max-height: none;
+}
+
+.gut-table-hint {
+  font-size: 12px;
+  color: var(--gray-500);
+  align-self: flex-end;
+}
+
+.gut-table thead th:first-child {
+  min-width: 260px;
+}
+
+.gut-table thead th:not(:first-child),
+.gut-table tbody td:not(:first-child) {
+  text-align: center;
+  width: 80px;
+}
+
+.gut-topic-cell {
+  min-width: 260px;
+}
+
+.gut-topic {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gut-topic-category {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(15, 107, 214, 0.12);
+  color: var(--blue-500);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.gut-topic-summary {
+  margin: 0;
+  font-size: 15px;
+  color: var(--navy-700);
+  font-weight: 500;
+}
+
+.gut-topic-meta {
+  display: block;
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+.gut-topic-keywords {
+  display: block;
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+.gut-score-cell {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy-700);
+}
+
+.gut-score-cell.is-overridden {
+  color: var(--blue-500);
+}
+
+.gut-score-cell.is-overridden::after {
+  content: '*';
+  font-size: 11px;
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.gut-score-total {
+  text-align: center;
+}
+
+.gut-total-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(15, 107, 214, 0.12);
+  color: var(--blue-500);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.gut-empty-cell {
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--gray-500);
 }
 
 .tag-table th:first-child,
@@ -1018,6 +1173,8 @@ body {
   .cards-grid.expectations-grid #expectation-highlights-card,
   .cards-grid.expectations-grid #engagement-ranking-card,
   .cards-grid.expectations-grid #expectation-tags-card,
+  .cards-grid.gut-grid .gut-legend-card,
+  .cards-grid.gut-grid .gut-table-card,
   .cards-grid.detail-grid .detail-table,
   .cards-grid.detail-grid .profile-card,
   .cards-grid.detail-grid .detail-timeline,
@@ -1096,6 +1253,10 @@ body {
 
   .table-container table {
     min-width: 0;
+  }
+
+  .gut-legend {
+    grid-template-columns: 1fr;
   }
 
   .tag-table th:last-child,

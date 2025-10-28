@@ -19,6 +19,9 @@ const state = {
     stakeholder: 'all',
   },
   selectedDetailId: null,
+  gut: {
+    overrides: {},
+  },
 };
 
 const elements = {
@@ -93,7 +96,274 @@ const elements = {
     actionsBody: document.getElementById('final-actions-body'),
     influenceBody: document.getElementById('final-influence-body'),
   },
+  gut: {
+    tableBody: document.getElementById('gut-table-body'),
+  },
 };
+
+const GUT_STOPWORDS = new Set([
+  'a',
+  'agora',
+  'ainda',
+  'alguem',
+  'algum',
+  'alguma',
+  'alguns',
+  'algumas',
+  'ali',
+  'ao',
+  'aos',
+  'as',
+  'assim',
+  'ate',
+  'bem',
+  'cada',
+  'coisa',
+  'coisas',
+  'como',
+  'com',
+  'contra',
+  'da',
+  'das',
+  'de',
+  'depois',
+  'desde',
+  'dentro',
+  'desse',
+  'dessa',
+  'do',
+  'dos',
+  'e',
+  'ela',
+  'elas',
+  'ele',
+  'eles',
+  'em',
+  'entre',
+  'era',
+  'esse',
+  'essa',
+  'essas',
+  'esses',
+  'eu',
+  'faz',
+  'fazer',
+  'fez',
+  'foi',
+  'fora',
+  'gente',
+  'ha',
+  'isso',
+  'isto',
+  'ja',
+  'lhe',
+  'logo',
+  'maior',
+  'mais',
+  'mas',
+  'mesmo',
+  'mesma',
+  'mesmos',
+  'mesmas',
+  'menos',
+  'muito',
+  'muita',
+  'muitas',
+  'muitos',
+  'na',
+  'nas',
+  'nao',
+  'ne',
+  'nem',
+  'no',
+  'nos',
+  'nossa',
+  'nossas',
+  'nosso',
+  'nossos',
+  'nunca',
+  'o',
+  'os',
+  'ou',
+  'outra',
+  'outras',
+  'outro',
+  'outros',
+  'para',
+  'perto',
+  'pode',
+  'podem',
+  'poder',
+  'por',
+  'porque',
+  'pra',
+  'quais',
+  'quando',
+  'que',
+  'quem',
+  'se',
+  'sem',
+  'sera',
+  'seria',
+  'seu',
+  'seus',
+  'sob',
+  'sobre',
+  'sua',
+  'suas',
+  'tal',
+  'tambem',
+  'tem',
+  'tenho',
+  'tendo',
+  'ter',
+  'todo',
+  'toda',
+  'todas',
+  'todos',
+  'uma',
+  'umas',
+  'um',
+  'uns',
+  'vai',
+  'vendo',
+  'vez',
+  'vezes',
+  'voce',
+  'design',
+  'system',
+  'ds',
+  'simples',
+]);
+
+const GUT_TEXT_KEYWORDS = {
+  gravidade: {
+    5: [
+      'bloque',
+      'trav',
+      'parad',
+      'imposs',
+      'sem padrao',
+      'sem guideline',
+      'sem biblioteca',
+      'sem componentes',
+      'refazer',
+      'refazendo',
+      'nao consegue',
+      'inviavel',
+      'quebra geral',
+      'erro critico',
+      'falha critica',
+    ],
+    4: [
+      'retrabalho',
+      'inconsist',
+      'compromete',
+      'impacta',
+      'dificulta',
+      'quebra fluxo',
+      'sem suporte',
+      'sem visibilidade',
+      'manual demais',
+      'trabalho manual',
+      'cansativo',
+      'demora muito',
+      'recriar',
+    ],
+    2: [
+      'melhoria',
+      'melhorar',
+      'poderia',
+      'seria bom',
+      'seria legal',
+      'ajuste',
+      'ajustes',
+      'otimizar',
+      'otimizacao',
+    ],
+    1: ['estetica', 'estetico', 'visual', 'color', 'icone', 'cosmetico'],
+  },
+  urgencia: {
+    5: [
+      'bloque',
+      'trav',
+      'parad',
+      'urgente',
+      'urgencia',
+      'precisa agora',
+      'imediat',
+      'pra ontem',
+      'nao consegue entregar',
+      'sem conseguir entregar',
+      'sem conseguir usar',
+    ],
+    4: [
+      'precisa antes',
+      'proxima release',
+      'release',
+      'proxima sprint',
+      'precisamos logo',
+      'curto prazo',
+      'logo',
+      'pra proxima',
+    ],
+    2: ['planejar', 'planejamento', 'monitorar', 'avaliar depois'],
+    1: ['quando der', 'no futuro', 'eventual', 'visao futura', 'nice to have'],
+  },
+};
+
+const GUT_TAG_WEIGHTS = {
+  gravidade: {
+    padronizacao: 4,
+    biblioteca_componentes: 5,
+    componentes: 4,
+    retrabalho: 4,
+    acessibilidade: 4,
+    navegacao: 3,
+    usabilidade: 3,
+    webview: 4,
+    documentacao: 3,
+    comunicacao: 3,
+    arquitetura: 4,
+  },
+  urgencia: {
+    retrabalho: 4,
+    handoff: 4,
+    comunicacao: 3,
+    padronizacao: 4,
+    componentes: 4,
+    webview: 4,
+    versao: 4,
+  },
+};
+
+const GUT_DISPLAY_OVERRIDES = {
+  padronizacao: 'padronização',
+  biblioteca_componentes: 'biblioteca de componentes',
+  componentes: 'componentes',
+  retrabalho: 'retrabalho',
+  acessibilidade: 'acessibilidade',
+  navegacao: 'navegação',
+  usabilidade: 'usabilidade',
+  documentacao: 'documentação',
+  comunicacao: 'comunicação',
+  webview: 'webview',
+  arquitetura: 'arquitetura',
+  tecnologia: 'tecnologia',
+  processo: 'processo',
+  produto: 'produto',
+  colaboracao: 'colaboração',
+  eficiencia: 'eficiência',
+  interface: 'interface',
+  experiencia_usuario: 'experiência do usuário',
+  design_system: 'design system',
+  alinhamento: 'alinhamento',
+  documentacao_categoria: 'documentação',
+};
+
+const GUT_THEME_DEFINITIONS = createGutThemeDefinitions();
+const GUT_THEME_BY_ID = new Map(GUT_THEME_DEFINITIONS.map((theme) => [theme.id, theme]));
+const GUT_THEME_TAG_LOOKUP = buildGutThemeTagLookup(GUT_THEME_DEFINITIONS);
 
 let navOverflowController = null;
 let tooltipController = null;
@@ -225,9 +495,11 @@ function setView(view) {
 
 async function loadData() {
   try {
-    const [stakeholdersResponse, insightsResponse] = await Promise.all([
+    const overridesPromise = fetch('data/gut_overrides.json').catch(() => null);
+    const [stakeholdersResponse, insightsResponse, overridesResponse] = await Promise.all([
       fetch('data/stakeholders.json'),
       fetch('data/insights.json'),
+      overridesPromise,
     ]);
 
     if (!stakeholdersResponse.ok || !insightsResponse.ok) {
@@ -243,6 +515,16 @@ async function loadData() {
     state.stakeholderDetails = new Map(
       state.stakeholders.map((stakeholder) => [stakeholder.id, stakeholder]),
     );
+    let overrides = {};
+    if (overridesResponse && overridesResponse.ok) {
+      try {
+        const parsed = await overridesResponse.json();
+        overrides = parsed && typeof parsed === 'object' ? parsed : {};
+      } catch (overridesError) {
+        console.warn('Não foi possível interpretar data/gut_overrides.json', overridesError);
+      }
+    }
+    state.gut.overrides = overrides;
 
     populateTeamFilter();
     populateTypeFilter();
@@ -317,6 +599,7 @@ function renderDashboard() {
   renderOverview(stakeholders, insights);
   renderDimension(stakeholders, insights);
   renderExpectations(stakeholders, insights);
+  renderGut(stakeholders, insights);
   renderDetail(insights);
   renderFinalView();
 }
@@ -814,6 +1097,574 @@ function updateExpectationCaption(selectedCategory, total, filtered) {
     clearButton.classList.add('is-hidden');
   }
 }
+
+function renderGut(_stakeholders, insights) {
+  const tableBody = elements.gut.tableBody;
+  if (!tableBody) return;
+
+  const dorInsights = insights.filter((insight) => (insight.tipo || '').toLowerCase() === 'dor');
+
+  tableBody.innerHTML = '';
+
+  if (dorInsights.length === 0) {
+    tableBody.appendChild(createGutPlaceholderRow('Nenhuma dor disponível para o filtro atual.', 5));
+    return;
+  }
+
+  const gutItems = buildGutItems(dorInsights);
+
+  if (gutItems.length === 0) {
+    tableBody.appendChild(
+      createGutPlaceholderRow('Nenhum agrupamento de dor foi identificado para gerar a matriz GUT.', 5),
+    );
+    return;
+  }
+
+  gutItems
+    .sort((a, b) => {
+      if (b.final.total !== a.final.total) return b.final.total - a.final.total;
+      if (b.final.gravidade !== a.final.gravidade) return b.final.gravidade - a.final.gravidade;
+      return b.mentionCount - a.mentionCount;
+    })
+    .forEach((item) => {
+      const row = document.createElement('tr');
+      row.dataset.gutId = item.id;
+      row.title = `ID: ${item.id}`;
+
+      const topicCell = document.createElement('td');
+      topicCell.className = 'gut-topic-cell';
+
+      const topicWrapper = document.createElement('div');
+      topicWrapper.className = 'gut-topic';
+
+      const summary = document.createElement('p');
+      summary.className = 'gut-topic-summary';
+      summary.textContent = item.summary;
+
+      const meta = document.createElement('span');
+      meta.className = 'gut-topic-meta';
+      const metaParts = [
+        `${item.mentionCount} ${item.mentionCount === 1 ? 'menção' : 'menções'}`,
+        `${item.stakeholderCount} ${item.stakeholderCount === 1 ? 'stakeholder' : 'stakeholders'}`,
+      ];
+      if (item.teamCount > 0) {
+        metaParts.push(`${item.teamCount} ${item.teamCount === 1 ? 'time' : 'times'}`);
+      }
+      meta.textContent = metaParts.join(' · ');
+
+      if (item.categoriesSummary) {
+        const categoriesBadge = document.createElement('span');
+        categoriesBadge.className = 'gut-topic-category';
+        categoriesBadge.textContent = item.categoriesSummary;
+        topicWrapper.appendChild(categoriesBadge);
+      }
+
+      topicWrapper.append(summary, meta);
+
+      if (item.keywords && item.keywords.length > 0) {
+        const keywordHint = document.createElement('span');
+        keywordHint.className = 'gut-topic-keywords';
+        keywordHint.textContent = `Principais termos: ${item.keywords
+          .slice(0, 3)
+          .map((word) => word.toLowerCase().replace(/_/g, ' '))
+          .join(', ')}`;
+        topicWrapper.appendChild(keywordHint);
+      }
+
+      topicCell.appendChild(topicWrapper);
+      row.appendChild(topicCell);
+
+      ['gravidade', 'urgencia', 'tendencia'].forEach((dimension) => {
+        const cell = document.createElement('td');
+        cell.className = 'gut-score-cell';
+        const value = item.final[dimension];
+        const autoValue = item.auto[dimension];
+        cell.textContent = value.toString();
+        if (value !== autoValue) {
+          cell.classList.add('is-overridden');
+          cell.title = `Valor ajustado manualmente (auto: ${autoValue})`;
+        } else {
+          cell.title = 'Valor automático';
+        }
+        row.appendChild(cell);
+      });
+
+      const totalCell = document.createElement('td');
+      totalCell.className = 'gut-score-total';
+      const totalBadge = document.createElement('span');
+      totalBadge.className = 'gut-total-badge';
+      totalBadge.textContent = item.final.total.toString();
+      totalCell.appendChild(totalBadge);
+      if (item.final.total !== item.auto.total) {
+        totalCell.title = `Produto GUT ajustado (auto: ${item.auto.total})`;
+      } else {
+        totalCell.title = 'Produto GUT automático';
+      }
+      row.appendChild(totalCell);
+
+      tableBody.appendChild(row);
+    });
+}
+
+function createGutPlaceholderRow(message, colSpan) {
+  const row = document.createElement('tr');
+  const cell = document.createElement('td');
+  cell.colSpan = colSpan;
+  cell.className = 'gut-empty-cell';
+  cell.textContent = message;
+  row.appendChild(cell);
+  return row;
+}
+
+function buildGutItems(dorInsights) {
+  const themes = aggregateGutThemes(dorInsights);
+  const items = [];
+
+  themes.forEach((entry) => {
+    if (!entry.mentionCount) return;
+    const autoScores = computeGutScores(entry);
+    const override = state.gut.overrides[entry.id] || {};
+    const overrideValues = {
+      gravidade: parseOverrideScore(override.gravidade),
+      urgencia: parseOverrideScore(override.urgencia),
+      tendencia: parseOverrideScore(override.tendencia),
+    };
+    const finalScores = {
+      gravidade: clampGutScore(
+        overrideValues.gravidade !== null ? overrideValues.gravidade : autoScores.gravidade,
+      ),
+      urgencia: clampGutScore(
+        overrideValues.urgencia !== null ? overrideValues.urgencia : autoScores.urgencia,
+      ),
+      tendencia: clampGutScore(
+        overrideValues.tendencia !== null ? overrideValues.tendencia : autoScores.tendencia,
+      ),
+    };
+    items.push({
+      id: entry.id,
+      themeId: entry.themeId,
+      summary: entry.summary,
+      mentionCount: entry.mentionCount,
+      stakeholderCount: entry.stakeholderCount,
+      teamNames: entry.teamNames,
+      teamCount: entry.teamCount,
+      categoriesSummary: entry.categoriesSummary,
+      topCategories: entry.topCategories,
+      keywords: entry.keywords,
+      auto: {
+        gravidade: autoScores.gravidade,
+        urgencia: autoScores.urgencia,
+        tendencia: autoScores.tendencia,
+        total: autoScores.gravidade * autoScores.urgencia * autoScores.tendencia,
+      },
+      final: {
+        gravidade: finalScores.gravidade,
+        urgencia: finalScores.urgencia,
+        tendencia: finalScores.tendencia,
+        total: finalScores.gravidade * finalScores.urgencia * finalScores.tendencia,
+      },
+    });
+  });
+
+  return items;
+}
+
+function aggregateGutThemes(insights) {
+  const themeEntries = new Map();
+
+  insights.forEach((insight) => {
+    const theme = resolveGutTheme(insight);
+    const themeId = theme.id;
+    if (!themeEntries.has(themeId)) {
+      themeEntries.set(themeId, {
+        id: `gut-${themeId}`,
+        themeId,
+        label: theme.label || null,
+        definition: theme,
+        insights: [],
+        insightIds: [],
+        stakeholderIdSet: new Set(),
+        tags: new Set(),
+        categoryCounts: new Map(),
+      });
+    }
+    const entry = themeEntries.get(themeId);
+    entry.insights.push(insight);
+    entry.insightIds.push(insight._id);
+    if (Number.isFinite(insight.stakeholder_id)) {
+      entry.stakeholderIdSet.add(insight.stakeholder_id);
+    }
+    (insight.tags || []).forEach((tag) => {
+      if (tag) {
+        entry.tags.add(tag);
+      }
+    });
+    const categoryKey = insight.categoria && insight.categoria.trim() ? insight.categoria : 'Sem categoria';
+    entry.categoryCounts.set(categoryKey, (entry.categoryCounts.get(categoryKey) || 0) + 1);
+  });
+
+  themeEntries.forEach((entry) => finalizeGutThemeEntry(entry));
+  return themeEntries;
+}
+
+function finalizeGutThemeEntry(entry) {
+  const stakeholderIds = Array.from(entry.stakeholderIdSet);
+  const uniqueStakeholders = stakeholderIds.filter((id) => Number.isFinite(id));
+  entry.stakeholderIds = uniqueStakeholders;
+  entry.stakeholderCount = uniqueStakeholders.length;
+
+  const teamSet = new Set();
+  uniqueStakeholders.forEach((id) => {
+    const team = state.stakeholderMap.get(id);
+    if (typeof team === 'string' && team.trim().length > 0) {
+      teamSet.add(team);
+    }
+  });
+  entry.teamNames = Array.from(teamSet).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+  entry.teamCount = entry.teamNames.length;
+
+  entry.tags = Array.from(entry.tags);
+
+  const categoryEntries = Array.from(entry.categoryCounts.entries()).sort((a, b) => b[1] - a[1]);
+  entry.topCategories = categoryEntries.slice(0, 3).map(([category]) => formatCategoryLabel(category));
+  entry.categoriesSummary =
+    entry.topCategories.length > 0 ? entry.topCategories.join(' • ') : 'Categorias diversas';
+
+  const excludeSet = new Set(entry.tags.map((tag) => normalizeKeyword(tag)));
+  entry.keywords = extractKeywordsFromInsights(entry.insights, excludeSet, 3);
+
+  entry.summary = entry.label || buildFallbackThemeSummary(entry);
+  entry.mentionCount = entry.insightIds.length;
+
+  delete entry.stakeholderIdSet;
+  delete entry.categoryCounts;
+}
+
+function resolveGutTheme(insight) {
+  const themesByTag = [];
+  (insight.tags || [])
+    .map((tag) => normalizeKeyword(tag))
+    .filter(Boolean)
+    .forEach((tag) => {
+      const matches = GUT_THEME_TAG_LOOKUP.get(tag);
+      if (matches && matches.length) {
+        matches.forEach((theme) => themesByTag.push(theme));
+      }
+    });
+
+  if (themesByTag.length > 0) {
+    return themesByTag[0];
+  }
+
+  const normalizedText = normalizeText(insight.descricao || '');
+  for (let index = 0; index < GUT_THEME_DEFINITIONS.length; index += 1) {
+    const theme = GUT_THEME_DEFINITIONS[index];
+    if (theme.normalizedKeywords.some((keyword) => keyword && normalizedText.includes(keyword))) {
+      return theme;
+    }
+  }
+
+  return GUT_THEME_BY_ID.get('outros');
+}
+
+function buildFallbackThemeSummary(entry) {
+  const keywords = entry.keywords || [];
+  if (keywords.length > 0) {
+    const formatted = keywords
+      .slice(0, 2)
+      .map((word) => word.toLowerCase())
+      .join(' e ');
+    return capitalizeFirst(`Questões recorrentes sobre ${formatted}`);
+  }
+  if (entry.topCategories && entry.topCategories.length > 0) {
+    return `Questões diversas em ${entry.topCategories[0].toLowerCase()}`;
+  }
+  return 'Questões diversas sobre o Design System';
+}
+
+function computeGutScores(cluster) {
+  const { insights } = cluster;
+  if (!insights.length) {
+    return { gravidade: 1, urgencia: 1, tendencia: 1 };
+  }
+  const gravidadeValues = insights.map(scoreInsightGravidade);
+  const urgenciaValues = insights.map(scoreInsightUrgencia);
+  const gravidade = clampGutScore(Math.round(average(gravidadeValues)));
+  const urgencia = clampGutScore(Math.round(average(urgenciaValues)));
+  const tendencia = clampGutScore(computeTrendScore(cluster));
+  return { gravidade, urgencia, tendencia };
+}
+
+function scoreInsightGravidade(insight) {
+  const normalized = normalizeText(buildInsightText(insight));
+  let score = 3;
+  score = Math.max(score, scoreByKeywordLevel(normalized, GUT_TEXT_KEYWORDS.gravidade, [5, 4]));
+  const lowScore = scoreByKeywordLevel(normalized, GUT_TEXT_KEYWORDS.gravidade, [2, 1]);
+  if (lowScore && score === 3) {
+    score = lowScore;
+  }
+  const tagBoost = getTagWeight(insight.tags || [], GUT_TAG_WEIGHTS.gravidade);
+  if (tagBoost) {
+    score = Math.max(score, tagBoost);
+  }
+  return clampGutScore(score);
+}
+
+function scoreInsightUrgencia(insight) {
+  const normalized = normalizeText(buildInsightText(insight));
+  let score = 3;
+  score = Math.max(score, scoreByKeywordLevel(normalized, GUT_TEXT_KEYWORDS.urgencia, [5, 4]));
+  const lowScore = scoreByKeywordLevel(normalized, GUT_TEXT_KEYWORDS.urgencia, [2, 1]);
+  if (lowScore && score === 3) {
+    score = lowScore;
+  }
+  const tagBoost = getTagWeight(insight.tags || [], GUT_TAG_WEIGHTS.urgencia);
+  if (tagBoost) {
+    score = Math.max(score, tagBoost);
+  }
+  return clampGutScore(score);
+}
+
+function scoreByKeywordLevel(normalizedText, dictionary, levels) {
+  for (let index = 0; index < levels.length; index += 1) {
+    const level = levels[index];
+    const keywords = dictionary[level] || [];
+    if (keywords.length > 0 && keywords.some((keyword) => normalizedText.includes(keyword))) {
+      return level;
+    }
+  }
+  return null;
+}
+
+function getTagWeight(tags, weightsMap) {
+  if (!Array.isArray(tags) || tags.length === 0) return null;
+  let maxWeight = null;
+  tags.forEach((tag) => {
+    const normalized = normalizeKeyword(tag);
+    const value = weightsMap[normalized];
+    if (typeof value === 'number') {
+      maxWeight = maxWeight === null ? value : Math.max(maxWeight, value);
+    }
+  });
+  return maxWeight;
+}
+
+function computeTrendScore(cluster) {
+  const mentionCount = cluster.insightIds.length;
+  const stakeholderCount = cluster.stakeholderIds.length;
+  const teamCount = cluster.teamNames.length;
+  const tagCount = cluster.tags.length;
+
+  if (stakeholderCount >= 4 && teamCount >= 3 && (tagCount >= 4 || mentionCount >= 8)) {
+    return 5;
+  }
+  if (stakeholderCount >= 3 && teamCount >= 2 && (tagCount >= 3 || mentionCount >= 6)) {
+    return 4;
+  }
+  if ((stakeholderCount >= 2 && teamCount >= 2) || mentionCount >= 4) {
+    return 3;
+  }
+  if (mentionCount >= 2) {
+    return 2;
+  }
+  return 1;
+}
+
+function buildInsightText(insight) {
+  const tagsText = Array.isArray(insight.tags) ? insight.tags.join(' ') : '';
+  return `${insight.descricao || ''} ${tagsText}`.trim();
+}
+
+function extractKeywordsFromInsights(insights, excludeSet, limit) {
+  const frequencies = new Map();
+  const originals = new Map();
+
+  insights.forEach((insight) => {
+    const text = insight.descricao || '';
+    const tokens = text.match(/\b[\p{L}\d]{3,}\b/gu);
+    if (!tokens) return;
+    tokens.forEach((token) => {
+      const normalized = normalizeKeyword(token);
+      if (!normalized) return;
+      if (GUT_STOPWORDS.has(normalized)) return;
+      if (excludeSet && excludeSet.has(normalized)) return;
+      frequencies.set(normalized, (frequencies.get(normalized) || 0) + 1);
+      if (!originals.has(normalized)) {
+        originals.set(normalized, token);
+      }
+    });
+  });
+
+  return Array.from(frequencies.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit || 3)
+    .map(([normalized]) => originals.get(normalized) || normalized);
+}
+
+function average(values) {
+  if (!Array.isArray(values) || values.length === 0) return 0;
+  const sum = values.reduce((acc, value) => acc + (Number.isFinite(value) ? value : 0), 0);
+  return values.length ? sum / values.length : 0;
+}
+
+function capitalizeFirst(text) {
+  if (!text) return '';
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function parseOverrideScore(value) {
+  if (value === null || value === undefined || value === '') return null;
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return null;
+  if (numeric < 1 || numeric > 5) return null;
+  return numeric;
+}
+
+function clampGutScore(value) {
+  if (!Number.isFinite(value)) return 3;
+  return Math.min(5, Math.max(1, Math.round(value)));
+}
+
+function normalizeText(text) {
+  return (text || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+function normalizeKeyword(value) {
+  return normalizeText(value)
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .replace(/\s+/g, '_');
+}
+
+function createGutThemeDefinitions() {
+  const rawDefinitions = [
+    {
+      id: 'padronizacao',
+      label: 'Falta de padronização consistente entre produtos e experiências',
+      tags: ['padronizacao', 'consistencia', 'padrao', 'unificacao', 'despadronizacao'],
+      keywords: ['padroniz', 'consistenc', 'sem padrao', 'quebra de padrao'],
+    },
+    {
+      id: 'componentes',
+      label: 'Componentes essenciais incompletos ou inconsistentes',
+      tags: ['componentes', 'biblioteca_componentes', 'library', 'designsystem_componentes'],
+      keywords: ['componente', 'componentiz', 'library'],
+    },
+    {
+      id: 'documentacao',
+      label: 'Documentação do design system desatualizada ou inacessível',
+      tags: ['documentacao', 'documentação', 'guideline', 'doc'],
+      keywords: ['documentac', 'guia', 'manual', 'documento'],
+    },
+    {
+      id: 'comunicacao',
+      label: 'Comunicação fragmentada entre squads e Design System',
+      tags: ['comunicacao', 'comunicação', 'isolamento', 'comunicacao_cross', 'alinhamento'],
+      keywords: ['comunic', 'desalinh', 'alinhament', 'sincroniz'],
+    },
+    {
+      id: 'retrabalho',
+      label: 'Retrabalho recorrente para reconstruir interfaces',
+      tags: ['retrabalho', 'refatoracao', 'refazer', 'rework'],
+      keywords: ['retrabalh', 'refazer', 'refator', 'refacao'],
+    },
+    {
+      id: 'priorizacao',
+      label: 'Baixa priorização do Design System nas entregas de produto',
+      tags: ['priorizacao', 'prioridade', 'foco', 'velocidade', 'roadmap'],
+      keywords: ['prioriz', 'pouca entrega', 'desleix', 'falta de foco'],
+    },
+    {
+      id: 'navegacao',
+      label: 'Fluxos de navegação confusos e pouco orientados',
+      tags: ['navegacao', 'arquitetura_informacao'],
+      keywords: ['naveg', 'arquitetur', 'menu confuso', 'fluxo confus'],
+    },
+    {
+      id: 'usabilidade',
+      label: 'Experiência difícil de usar e pouco intuitiva',
+      tags: ['usabilidade', 'experiencia_usuario', 'ux'],
+      keywords: ['usabil', 'dificil de usar', 'intuitiv'],
+    },
+    {
+      id: 'webview',
+      label: 'Dependência de webviews comprometendo a experiência',
+      tags: ['webview'],
+      keywords: ['webview', 'web view'],
+    },
+    {
+      id: 'acessibilidade',
+      label: 'Pontos críticos de acessibilidade sem cobertura',
+      tags: ['acessibilidade', 'a11y'],
+      keywords: ['acessibil'],
+    },
+    {
+      id: 'colaboracao',
+      label: 'Colaboração fraca entre times de produto e DS',
+      tags: ['colaboracao', 'colaboração', 'adocao', 'isolamento'],
+      keywords: ['colabor', 'isolad', 'adocao do ds'],
+    },
+    {
+      id: 'tecnologia',
+      label: 'Padrões técnicos incompatíveis com o design system',
+      tags: ['compatibilidade', 'stack_tecnologica', 'vue', 'tecnologia'],
+      keywords: ['compatibil', 'stack', 'vue', 'tecnolog'],
+    },
+    {
+      id: 'processo',
+      label: 'Processos e ritos desalinhados com o Design System',
+      tags: ['processo', 'processos', 'handoff', 'rituais'],
+      keywords: ['process', 'ritual', 'handoff', 'governanca'],
+    },
+    {
+      id: 'outros',
+      label: null,
+      tags: [],
+      keywords: [],
+    },
+  ];
+
+  rawDefinitions.forEach((theme) => {
+    theme.normalizedTags = (theme.tags || []).map((tag) => normalizeKeyword(tag)).filter(Boolean);
+    theme.normalizedKeywords = (theme.keywords || [])
+      .map((keyword) => normalizeText(keyword))
+      .filter(Boolean);
+  });
+
+  return rawDefinitions;
+}
+
+function buildGutThemeTagLookup(definitions) {
+  const lookup = new Map();
+  definitions.forEach((theme) => {
+    (theme.normalizedTags || []).forEach((tag) => {
+      if (!lookup.has(tag)) {
+        lookup.set(tag, []);
+      }
+      lookup.get(tag).push(theme);
+    });
+  });
+  return lookup;
+}
+
+function toTitleCase(value) {
+  return value
+    .toLowerCase()
+    .replace(/\b\p{L}/gu, (letter) => letter.toUpperCase());
+}
+
+function formatCategoryLabel(value) {
+  if (!value) return 'Sem categoria';
+  const normalized = normalizeKeyword(value);
+  const override =
+    GUT_DISPLAY_OVERRIDES[normalized] || GUT_DISPLAY_OVERRIDES[`${normalized}_categoria`];
+  const base = override || value;
+  return toTitleCase(base.replace(/_/g, ' '));
+}
+
 
 function populateDetailFilters() {
   const detail = elements.detail;
