@@ -11,6 +11,7 @@ const state = {
   selections: {
     category: null,
     expectationCategory: null,
+    tag: null,
   },
   detailFilters: {
     type: 'all',
@@ -52,6 +53,8 @@ const elements = {
     categoryTitle: document.getElementById('dimension-category-title'),
     teamTitle: document.getElementById('dimension-team-title'),
     tagsTitle: document.getElementById('dimension-tags-title'),
+    tagsCaption: document.getElementById('dimension-tags-caption'),
+    clearTag: document.getElementById('dimension-tag-clear'),
   },
   typeFilter: document.getElementById('type-filter'),
   typeFilterGroup: document.getElementById('type-filter-group'),
@@ -382,6 +385,7 @@ if (elements.teamFilter) {
     state.filters.team = event.target.value;
     state.selections.category = null;
     state.selections.expectationCategory = null;
+    state.selections.tag = null;
     state.detailFilters.team = 'all';
     state.detailFilters.stakeholder = 'all';
     state.selectedDetailId = null;
@@ -393,6 +397,7 @@ if (elements.typeFilter) {
   elements.typeFilter.addEventListener('change', (event) => {
     state.filters.insightType = event.target.value;
     state.selections.category = null;
+    state.selections.tag = null;
     renderDashboard();
   });
 }
@@ -404,6 +409,14 @@ if (elements.exportButton) {
 if (elements.dimension.clearFilter) {
   elements.dimension.clearFilter.addEventListener('click', () => {
     state.selections.category = null;
+    state.selections.tag = null;
+    renderDashboard();
+  });
+}
+
+if (elements.dimension.clearTag) {
+  elements.dimension.clearTag.addEventListener('click', () => {
+    state.selections.tag = null;
     renderDashboard();
   });
 }
@@ -745,10 +758,35 @@ function renderDimension(_stakeholders, insights) {
       ? filteredInsights
       : filteredInsights.filter((insight) => (insight.categoria || '') === selectedCategory);
 
-  renderDimensionTeamDistribution(categoryInsights);
-  renderDimensionMentionsTable(categoryInsights);
-  renderDimensionTagsTable(categoryInsights);
-  updateDimensionFilterUI(selectedCategory, filteredInsights.length, categoryInsights.length, insightType);
+  let selectedTag = state.selections.tag;
+  if (
+    selectedTag &&
+    !categoryInsights.some((insight) =>
+      (insight.tags || []).some((tag) => tag && tag.trim() === selectedTag),
+    )
+  ) {
+    selectedTag = null;
+    state.selections.tag = null;
+  }
+  const tagInsights =
+    selectedTag === null
+      ? categoryInsights
+      : categoryInsights.filter((insight) =>
+          (insight.tags || []).some((tag) => tag && tag.trim() === selectedTag),
+        );
+
+  renderDimensionTeamDistribution(tagInsights);
+  renderDimensionMentionsTable(tagInsights);
+  renderDimensionTagsTable(categoryInsights, selectedTag);
+  updateDimensionFilterUI(
+    selectedCategory,
+    selectedTag,
+    filteredInsights.length,
+    categoryInsights.length,
+    tagInsights.length,
+    insightType,
+  );
+  updateDimensionTagUI(selectedTag, categoryInsights.length, tagInsights.length);
 }
 
 function renderExpectations(_stakeholders, insights) {
@@ -2273,6 +2311,12 @@ function renderDimensionCategoryChart(insights) {
 function handleDimensionCategorySelect(category) {
   state.selections.category =
     state.selections.category === category ? null : category;
+  state.selections.tag = null;
+  renderDashboard();
+}
+
+function handleDimensionTagSelect(tag) {
+  state.selections.tag = state.selections.tag === tag ? null : tag;
   renderDashboard();
 }
 
@@ -2363,7 +2407,7 @@ function renderDimensionMentionsTable(insights) {
   });
 }
 
-function renderDimensionTagsTable(insights) {
+function renderDimensionTagsTable(insights, selectedTag) {
   const tbody = elements.dimension.tagsBody;
   tbody.innerHTML = '';
 
@@ -2387,6 +2431,7 @@ function renderDimensionTagsTable(insights) {
   }, new Map());
 
   const entries = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
+  const activeTag = selectedTag && counts.has(selectedTag) ? selectedTag : null;
 
   entries.forEach(([tag, count]) => {
     const row = document.createElement('tr');
@@ -2395,28 +2440,70 @@ function renderDimensionTagsTable(insights) {
     const valueCell = document.createElement('td');
     setCellText(valueCell, count.toString());
     row.append(nameCell, valueCell);
+    row.addEventListener('click', () => handleDimensionTagSelect(tag));
+    if (activeTag === tag) {
+      row.classList.add('selected');
+    }
     tbody.appendChild(row);
   });
 }
 
-function updateDimensionFilterUI(selectedCategory, total, filtered, insightType) {
+function updateDimensionFilterUI(
+  selectedCategory,
+  selectedTag,
+  totalAvailable,
+  categoryCount,
+  tagCount,
+  insightType,
+) {
   const caption = elements.dimension.categoryCaption;
   const clearButton = elements.dimension.clearFilter;
   if (!caption || !clearButton) return;
 
   const typeText = insightType === 'all' ? 'todos os tipos de insight' : `o tipo ${insightType}`;
 
-  if (!total) {
+  if (!totalAvailable) {
     caption.textContent = `Nenhum registro relacionado a ${typeText} com os filtros atuais.`;
     clearButton.classList.add('is-hidden');
     return;
   }
 
-  if (selectedCategory) {
-    caption.textContent = `${filtered} menções encontradas em “${selectedCategory}” relacionadas a ${typeText}.`;
+  const hasCategory = Boolean(selectedCategory);
+  const hasTag = Boolean(selectedTag);
+
+  if (hasCategory && hasTag) {
+    caption.textContent = `${categoryCount} menções em “${selectedCategory}”, sendo ${tagCount} com a tag “${selectedTag}”.`;
+  } else if (hasCategory) {
+    caption.textContent = `${categoryCount} menções encontradas em “${selectedCategory}” relacionadas a ${typeText}.`;
+  } else if (hasTag) {
+    caption.textContent = `${tagCount} menções contendo a tag “${selectedTag}” relacionadas a ${typeText}.`;
+  } else {
+    caption.textContent = `Selecione uma categoria ou tag para explorar detalhes relacionados a ${typeText}.`;
+  }
+
+  if (hasCategory || hasTag) {
     clearButton.classList.remove('is-hidden');
   } else {
-    caption.textContent = `Selecione uma categoria para explorar detalhes relacionados a ${typeText}.`;
+    clearButton.classList.add('is-hidden');
+  }
+}
+
+function updateDimensionTagUI(selectedTag, totalInsights, filteredInsights) {
+  const caption = elements.dimension.tagsCaption;
+  const clearButton = elements.dimension.clearTag;
+  if (!caption || !clearButton) return;
+
+  if (!totalInsights) {
+    caption.textContent = 'Nenhuma tag disponível para os filtros atuais.';
+    clearButton.classList.add('is-hidden');
+    return;
+  }
+
+  if (selectedTag) {
+    caption.textContent = `${filteredInsights} menção(ões) contendo a tag “${selectedTag}”.`;
+    clearButton.classList.remove('is-hidden');
+  } else {
+    caption.textContent = 'Clique em uma tag para filtrar as menções.';
     clearButton.classList.add('is-hidden');
   }
 }

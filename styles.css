@@ -846,6 +846,15 @@ body {
   color: var(--gray-500);
 }
 
+.tag-table tbody tr {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.tag-table tbody tr.selected {
+  background: rgba(15, 107, 214, 0.16);
+}
+
 .tag-table th:first-child,
 .tag-table td:first-child {
   padding-right: 8px;

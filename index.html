@@ -229,9 +229,13 @@
           </article>
 
           <article class="card table-card table-narrow" id="dimension-tags-card">
-            <header>
-              <h2 id="dimension-tags-title">Tags relacionadas</h2>
-            </header>
+            <div class="card-header">
+              <div>
+                <h2 id="dimension-tags-title">Tags relacionadas</h2>
+                <p class="card-subtitle" id="dimension-tags-caption">Clique em uma tag para filtrar as menções.</p>
+              </div>
+              <button class="ghost-button is-hidden" id="dimension-tag-clear">Limpar tag</button>
+            </div>
             <div class="table-container overflow-x-auto">
               <table class="tag-table">
                 <thead>
