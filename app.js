@@ -29,6 +29,9 @@ const elements = {
   teamFilter: document.getElementById('team-filter'),
   navItems: Array.from(document.querySelectorAll('.nav-item')),
   pages: Array.from(document.querySelectorAll('[data-view]')),
+  topBar: {
+    title: document.getElementById('page-title'),
+  },
   metrics: {
     stakeholders: document.getElementById('metric-stakeholders'),
     insights: document.getElementById('metric-insights'),
@@ -102,6 +105,15 @@ const elements = {
   gut: {
     tableBody: document.getElementById('gut-table-body'),
   },
+};
+
+const VIEW_TITLES = {
+  overview: 'Visão geral',
+  dimension: 'Dimensão',
+  expectations: 'Expectativas & Engajamento',
+  gut: 'Matriz GUT',
+  detail: 'Detalhamento',
+  final: 'Panorama final',
 };
 
 const GUT_STOPWORDS = new Set([
@@ -379,6 +391,7 @@ if (navOverflowController) {
 tooltipController = initTooltip();
 updateNavigation();
 updateViewVisibility();
+updatePageHeader();
 
 if (elements.teamFilter) {
   elements.teamFilter.addEventListener('change', (event) => {
@@ -499,6 +512,7 @@ function setView(view) {
   state.currentView = view;
   updateNavigation();
   updateViewVisibility();
+  updatePageHeader();
   renderDashboard();
   if (navOverflowController) {
     navOverflowController.close();
@@ -2839,6 +2853,14 @@ function updateFilterVisibility() {
       elements.teamFilterGroup.classList.remove('is-hidden');
     }
   }
+}
+
+function updatePageHeader() {
+  if (!elements.topBar || !elements.topBar.title) {
+    return;
+  }
+  const nextTitle = VIEW_TITLES[state.currentView] || 'Pesquisa de Stakeholders';
+  elements.topBar.title.textContent = nextTitle;
 }
 
 function setSelectOptions(select, values, allLabel, getValue, getLabel) {
