@@ -8,6 +8,8 @@ const state = {
     insightType: 'all',
   },
   currentView: 'overview',
+  themePreference: 'system',
+  appliedTheme: 'light',
   selections: {
     category: null,
     expectationCategory: null,
@@ -26,6 +28,8 @@ const state = {
 };
 
 const elements = {
+  brandLogo: document.getElementById('brand-logo'),
+  themeToggle: document.getElementById('theme-toggle'),
   teamFilter: document.getElementById('team-filter'),
   navItems: Array.from(document.querySelectorAll('.nav-item')),
   pages: Array.from(document.querySelectorAll('[data-view]')),
@@ -106,6 +110,12 @@ const elements = {
     tableBody: document.getElementById('gut-table-body'),
   },
 };
+
+const THEME_STORAGE_KEY = 'stakeholder-dashboard-theme';
+const themeMediaQuery =
+  typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-color-scheme: dark)')
+    : null;
 
 const VIEW_TITLES = {
   overview: 'Visão geral',
@@ -383,6 +393,7 @@ const GUT_THEME_TAG_LOOKUP = buildGutThemeTagLookup(GUT_THEME_DEFINITIONS);
 let navOverflowController = null;
 let tooltipController = null;
 
+initTheme();
 setupNavigation();
 navOverflowController = setupNavOverflow();
 if (navOverflowController) {
@@ -2851,6 +2862,116 @@ function updateFilterVisibility() {
       elements.teamFilterGroup.classList.add('is-hidden');
     } else {
       elements.teamFilterGroup.classList.remove('is-hidden');
+    }
+  }
+}
+
+function getStoredThemePreference() {
+  try {
+    const storedPreference = window.localStorage?.getItem(THEME_STORAGE_KEY);
+    if (storedPreference === 'light' || storedPreference === 'dark' || storedPreference === 'system') {
+      return storedPreference;
+    }
+  } catch (error) {
+    // Ignore storage errors and fall back to system
+  }
+  return 'system';
+}
+
+function storeThemePreference(preference) {
+  try {
+    if (preference === 'system') {
+      window.localStorage?.removeItem(THEME_STORAGE_KEY);
+    } else {
+      window.localStorage?.setItem(THEME_STORAGE_KEY, preference);
+    }
+  } catch (error) {
+    // Ignore storage errors
+  }
+}
+
+function resolveTheme(preference) {
+  if (preference === 'dark' || preference === 'light') {
+    return preference;
+  }
+  if (themeMediaQuery && themeMediaQuery.matches) {
+    return 'dark';
+  }
+  return 'light';
+}
+
+function updateBrandLogo(resolvedTheme) {
+  const { brandLogo } = elements;
+  if (!brandLogo) {
+    return;
+  }
+  const targetSrc = resolvedTheme === 'dark' ? brandLogo.dataset.logoDark : brandLogo.dataset.logoLight;
+  if (targetSrc && brandLogo.getAttribute('src') !== targetSrc) {
+    brandLogo.setAttribute('src', targetSrc);
+  }
+}
+
+function updateThemeToggle() {
+  const { themeToggle } = elements;
+  if (!themeToggle) {
+    return;
+  }
+  const isDark = state.appliedTheme === 'dark';
+  themeToggle.setAttribute('aria-pressed', String(isDark));
+  const toggleTitle = isDark ? 'Tema atual: escuro. Clique para mudar para claro.' : 'Tema atual: claro. Clique para mudar para escuro.';
+  themeToggle.setAttribute('title', toggleTitle);
+  themeToggle.setAttribute('aria-label', toggleTitle);
+}
+
+function applyTheme(preference) {
+  const resolvedTheme = resolveTheme(preference);
+  state.appliedTheme = resolvedTheme;
+  if (resolvedTheme === 'dark') {
+    document.body.dataset.theme = 'dark';
+  } else {
+    delete document.body.dataset.theme;
+  }
+  document.documentElement.style.colorScheme = resolvedTheme === 'dark' ? 'dark' : 'light';
+  updateBrandLogo(resolvedTheme);
+  updateThemeToggle();
+}
+
+function setThemePreference(preference) {
+  const allowed = new Set(['system', 'light', 'dark']);
+  const nextPreference = allowed.has(preference) ? preference : 'system';
+  state.themePreference = nextPreference;
+  storeThemePreference(nextPreference);
+  applyTheme(nextPreference);
+}
+
+function handleSystemThemeChange() {
+  if (state.themePreference === 'system') {
+    applyTheme('system');
+  }
+}
+
+function initTheme() {
+  state.themePreference = getStoredThemePreference();
+  applyTheme(state.themePreference);
+  if (elements.themeToggle) {
+    elements.themeToggle.addEventListener('click', () => {
+      const targetTheme = state.appliedTheme === 'dark' ? 'light' : 'dark';
+      if (themeMediaQuery) {
+        const systemPrefersDark = themeMediaQuery.matches;
+        const systemTheme = systemPrefersDark ? 'dark' : 'light';
+        if (targetTheme === systemTheme) {
+          setThemePreference('system');
+          return;
+        }
+      }
+      setThemePreference(targetTheme);
+    });
+  }
+  if (themeMediaQuery) {
+    if (typeof themeMediaQuery.addEventListener === 'function') {
+      themeMediaQuery.addEventListener('change', handleSystemThemeChange);
+    } else if (typeof themeMediaQuery.addListener === 'function') {
+      themeMediaQuery.addListener(handleSystemThemeChange);
     }
   }
 }

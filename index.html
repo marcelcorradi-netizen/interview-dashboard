@@ -35,7 +35,14 @@
     <div class="dashboard">
       <aside class="sidebar">
         <div class="brand">
-          <img src="assets/logo onfly.svg" alt="Onfly" class="brand-logo" />
+          <img
+            src="assets/logo onfly.svg"
+            alt="Onfly"
+            class="brand-logo"
+            id="brand-logo"
+            data-logo-light="assets/logo onfly.svg"
+            data-logo-dark="assets/logo onfly-dark.svg"
+          />
         </div>
         <nav class="sidebar-nav">
           <ul>
@@ -112,6 +119,36 @@
             </li>
           </ul>
         </nav>
+        <div class="sidebar-footer">
+          <div class="sidebar-theme" id="theme-control">
+            <span class="sidebar-theme-label">Tema</span>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Alternar tema claro e escuro">
+              <span class="toggle-track" aria-hidden="true">
+                <span class="toggle-icon track-icon track-icon-sun" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2.5V5.5" />
+                    <path d="M12 18.5V21.5" />
+                    <path d="M4.22183 4.22158L6.34326 6.34299" />
+                    <path d="M17.6567 17.657L19.7781 19.7784" />
+                    <path d="M2.5 12H5.5" />
+                    <path d="M18.5 12H21.5" />
+                    <path d="M4.22183 19.7784L6.34326 17.657" />
+                    <path d="M17.6567 6.34299L19.7781 4.22158" />
+                  </svg>
+                </span>
+                <span class="toggle-icon track-icon track-icon-moon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <path d="M21 12.78A9 9 0 1 1 11.22 3a6.7 6.7 0 0 0 9.78 9.78Z" />
+                    <path d="M17.5 6.75l.4.96.98.14-.74.65.18 1.04-.92-.51-.92.51.18-1.04-.74-.65.98-.14z" />
+                  </svg>
+                </span>
+              </span>
+              <span class="toggle-thumb" aria-hidden="true">
+              </span>
+            </button>
+          </div>
+        </div>
       </aside>
       <main class="main">
         <header class="top-bar">
