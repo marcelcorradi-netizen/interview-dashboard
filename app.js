@@ -14,6 +14,7 @@ const state = {
     category: null,
     expectationCategory: null,
     tag: null,
+    expectationTag: null,
   },
 };
 
@@ -71,9 +72,10 @@ const elements = {
     clearFilter: document.getElementById('expectation-clear-filter'),
     highlightsBody: document.getElementById('expectation-highlights-body'),
     tagsBody: document.getElementById('expectation-tags-body'),
+    tagsCaption: document.getElementById('expectation-tags-caption'),
+    clearTag: document.getElementById('expectation-tag-clear'),
     teamDonut: document.getElementById('engagement-team-donut'),
     teamLegend: document.getElementById('engagement-team-legend'),
-    rankingList: document.getElementById('engagement-ranking-list'),
   },
   final: {
     totalStakeholders: document.getElementById('final-total-stakeholders'),
@@ -121,6 +123,7 @@ if (elements.teamFilter) {
     state.selections.category = null;
     state.selections.expectationCategory = null;
     state.selections.tag = null;
+    state.selections.expectationTag = null;
     renderDashboard();
   });
 }
@@ -130,6 +133,7 @@ if (elements.typeFilter) {
     state.filters.insightType = event.target.value;
     state.selections.category = null;
     state.selections.tag = null;
+    state.selections.expectationTag = null;
     renderDashboard();
   });
 }
@@ -156,6 +160,14 @@ if (elements.dimension.clearTag) {
 if (elements.expectations.clearFilter) {
   elements.expectations.clearFilter.addEventListener('click', () => {
     state.selections.expectationCategory = null;
+    state.selections.expectationTag = null;
+    renderDashboard();
+  });
+}
+
+if (elements.expectations.clearTag) {
+  elements.expectations.clearTag.addEventListener('click', () => {
+    state.selections.expectationTag = null;
     renderDashboard();
   });
 }
@@ -417,10 +429,8 @@ function renderDimension(_stakeholders, insights) {
 
   updateDimensionTitles(insightType);
 
-  renderDimensionCategoryChart(filteredInsights);
-
   const selectedCategory = state.selections.category;
-  const categoryInsights =
+  const categoryBaseInsights =
     selectedCategory === null
       ? filteredInsights
       : filteredInsights.filter((insight) => (insight.categoria || '') === selectedCategory);
@@ -428,32 +438,42 @@ function renderDimension(_stakeholders, insights) {
   let selectedTag = state.selections.tag;
   if (
     selectedTag &&
-    !categoryInsights.some((insight) =>
+    !categoryBaseInsights.some((insight) =>
       (insight.tags || []).some((tag) => tag && tag.trim() === selectedTag),
     )
   ) {
     selectedTag = null;
     state.selections.tag = null;
   }
+
+  const categoryChartInsights =
+    selectedTag === null
+      ? filteredInsights
+      : filteredInsights.filter((insight) =>
+          (insight.tags || []).some((tag) => tag && tag.trim() === selectedTag),
+        );
+
+  renderDimensionCategoryChart(categoryChartInsights);
+
   const tagInsights =
     selectedTag === null
-      ? categoryInsights
-      : categoryInsights.filter((insight) =>
+      ? categoryBaseInsights
+      : categoryBaseInsights.filter((insight) =>
           (insight.tags || []).some((tag) => tag && tag.trim() === selectedTag),
         );
 
   renderDimensionTeamDistribution(tagInsights);
   renderDimensionMentionsTable(tagInsights);
-  renderDimensionTagsTable(categoryInsights, selectedTag);
+  renderDimensionTagsTable(categoryBaseInsights, selectedTag);
   updateDimensionFilterUI(
     selectedCategory,
     selectedTag,
     filteredInsights.length,
-    categoryInsights.length,
+    categoryBaseInsights.length,
     tagInsights.length,
     insightType,
   );
-  updateDimensionTagUI(selectedTag, categoryInsights.length, tagInsights.length);
+  updateDimensionTagUI(selectedTag, categoryBaseInsights.length, tagInsights.length);
 }
 
 function renderExpectations(_stakeholders, insights) {
@@ -507,21 +527,58 @@ function renderExpectations(_stakeholders, insights) {
     expectations.metrics.engagementCount.textContent = engagementInsights.length.toString();
   }
 
-  renderExpectationsCategoryChart(expectationInsights);
-
   const selectedCategory = state.selections.expectationCategory;
-  const filteredExpectations =
+  const categoryExpectations =
     selectedCategory === null
       ? expectationInsights
       : expectationInsights.filter(
           (insight) => (insight.categoria || 'Não classificado') === selectedCategory,
         );
 
-  renderExpectationHighlights(filteredExpectations);
-  renderExpectationTags(filteredExpectations);
-  renderEngagementTeamDonut(engagementInsights);
-  renderEngagementRanking(engagementInsights);
-  updateExpectationCaption(selectedCategory, expectationInsights.length, filteredExpectations.length);
+  let selectedTag = state.selections.expectationTag;
+  if (
+    selectedTag &&
+    !categoryExpectations.some((insight) =>
+      (insight.tags || []).some((tag) => tag && tag.trim() === selectedTag),
+    )
+  ) {
+    selectedTag = null;
+    state.selections.expectationTag = null;
+  }
+
+  const expectationsForChart =
+    selectedTag === null
+      ? expectationInsights
+      : expectationInsights.filter((insight) =>
+          (insight.tags || []).some((tag) => tag && tag.trim() === selectedTag),
+        );
+
+  renderExpectationsCategoryChart(expectationsForChart);
+
+  const tagFilteredExpectations =
+    selectedTag === null
+      ? categoryExpectations
+      : categoryExpectations.filter((insight) =>
+          (insight.tags || []).some((tag) => tag && tag.trim() === selectedTag),
+        );
+
+  renderExpectationHighlights(tagFilteredExpectations);
+  renderExpectationTags(categoryExpectations, selectedTag);
+  const engagementForDonut =
+    selectedTag === null
+      ? engagementInsights
+      : engagementInsights.filter((insight) =>
+          (insight.tags || []).some((tag) => tag && tag.trim() === selectedTag),
+        );
+  renderEngagementTeamDonut(engagementForDonut);
+  updateExpectationCaption(
+    selectedCategory,
+    selectedTag,
+    expectationInsights.length,
+    categoryExpectations.length,
+    tagFilteredExpectations.length,
+  );
+  updateExpectationTagUI(selectedTag, categoryExpectations.length, tagFilteredExpectations.length);
 }
 
 function renderExpectationsCategoryChart(insights) {
@@ -566,6 +623,7 @@ function renderExpectationsCategoryChart(insights) {
 function handleExpectationCategorySelect(category) {
   state.selections.expectationCategory =
     state.selections.expectationCategory === category ? null : category;
+  state.selections.expectationTag = null;
   renderDashboard();
 }
 
@@ -577,7 +635,7 @@ function renderExpectationHighlights(insights) {
   if (!insights.length) {
     const row = document.createElement('tr');
     const cell = document.createElement('td');
-    cell.colSpan = 2;
+    cell.colSpan = 1;
     cell.textContent = 'Nenhuma expectativa disponível para os filtros atuais.';
     row.appendChild(cell);
     tbody.appendChild(row);
@@ -596,24 +654,12 @@ function renderExpectationHighlights(insights) {
     const row = document.createElement('tr');
     const descriptionCell = document.createElement('td');
     setCellText(descriptionCell, insight.descricao || '(Sem descrição registrada)');
-
-    const stakeholderCell = document.createElement('td');
-    const details = state.stakeholderDetails.get(insight.stakeholder_id);
-    const name = details?.nome || `Stakeholder ${insight.stakeholder_id || '-'}`;
-    const team = details?.time || 'Sem time';
-    const role = details?.cargo;
-    const metaParts = [team];
-    if (role) metaParts.push(role);
-    const metaLabel = metaParts.join(' · ') || 'Sem informações adicionais';
-    stakeholderCell.innerHTML = `<strong>${name}</strong><br><small>${metaLabel}</small>`;
-    applyTooltip(stakeholderCell, `${name} · ${metaLabel}`);
-
-    row.append(descriptionCell, stakeholderCell);
+    row.append(descriptionCell);
     tbody.appendChild(row);
   });
 }
 
-function renderExpectationTags(insights) {
+function renderExpectationTags(insights, selectedTag) {
   const tbody = elements.expectations.tagsBody;
   if (!tbody) return;
   tbody.innerHTML = '';
@@ -638,6 +684,7 @@ function renderExpectationTags(insights) {
   }, new Map());
 
   const entries = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
+  const activeTag = selectedTag && counts.has(selectedTag) ? selectedTag : null;
 
   entries.forEach(([tag, count]) => {
     const row = document.createElement('tr');
@@ -646,6 +693,10 @@ function renderExpectationTags(insights) {
     const valueCell = document.createElement('td');
     setCellText(valueCell, count.toString());
     row.append(nameCell, valueCell);
+    row.addEventListener('click', () => handleExpectationTagSelect(tag));
+    if (activeTag === tag) {
+      row.classList.add('selected');
+    }
     tbody.appendChild(row);
   });
 }
@@ -715,90 +766,64 @@ function renderEngagementTeamDonut(insights) {
   });
 }
 
-function renderEngagementRanking(insights) {
-  const list = elements.expectations.rankingList;
-  if (!list) return;
-  list.innerHTML = '';
-
-  if (!insights.length) {
-    const item = document.createElement('li');
-    item.className = 'chart-placeholder';
-    item.textContent = 'Nenhuma menção de engajamento para exibir.';
-    list.appendChild(item);
-    return;
-  }
-
-  const counts = insights.reduce((acc, insight) => {
-    const key = insight.stakeholder_id;
-    if (!key) return acc;
-    const record = acc.get(key) || { count: 0, tags: new Map() };
-    record.count += 1;
-    (insight.tags || []).forEach((tag) => {
-      const label = tag?.trim();
-      if (!label) return;
-      record.tags.set(label, (record.tags.get(label) || 0) + 1);
-    });
-    acc.set(key, record);
-    return acc;
-  }, new Map());
-
-  const ranking = Array.from(counts.entries()).sort((a, b) => b[1].count - a[1].count);
-
-  const maxCount = ranking[0]?.[1].count || 1;
-
-  ranking.forEach(([stakeholderId, data], index) => {
-    const { count, tags } = data;
-    const li = document.createElement('li');
-    const rankIndex = document.createElement('span');
-    rankIndex.className = 'rank-index';
-    rankIndex.textContent = String(index + 1);
-
-    const content = document.createElement('div');
-    content.className = 'rank-content';
-
-    const details = state.stakeholderDetails.get(stakeholderId);
-    const name = details?.nome || `Stakeholder ${stakeholderId}`;
-    const team = details?.time || 'Sem time';
-    const role = details?.cargo ? ` · ${details.cargo}` : '';
-    const topTag =
-      Array.from(tags.entries()).sort((a, b) => b[1] - a[1])[0]?.[0] || 'Sem tag destaque';
-
-    const nameEl = document.createElement('div');
-    nameEl.className = 'rank-name';
-    nameEl.textContent = name;
-
-    const metaEl = document.createElement('div');
-    metaEl.className = 'rank-meta';
-    metaEl.textContent = `${count} menção(ões) · ${team}${role} · destaque: ${topTag}`;
-
-    const bar = document.createElement('div');
-    bar.className = 'rank-bar';
-    const fill = document.createElement('span');
-    fill.style.width = `${Math.max(10, (count / maxCount) * 100)}%`;
-    bar.appendChild(fill);
-
-    content.append(nameEl, metaEl, bar);
-    li.append(rankIndex, content);
-    list.appendChild(li);
-  });
-}
-
-function updateExpectationCaption(selectedCategory, total, filtered) {
+function updateExpectationCaption(
+  selectedCategory,
+  selectedTag,
+  totalAvailable,
+  categoryCount,
+  tagCount,
+) {
   const caption = elements.expectations.categoryCaption;
   const clearButton = elements.expectations.clearFilter;
   if (!caption || !clearButton) return;
 
-  if (!total) {
+  if (!totalAvailable) {
     caption.textContent = 'Nenhuma expectativa encontrada para os filtros atuais.';
     clearButton.classList.add('is-hidden');
     return;
   }
 
-  if (selectedCategory) {
-    caption.textContent = `${filtered} expectativa(s) encontradas em “${selectedCategory}”.`;
+  const hasCategory = Boolean(selectedCategory);
+  const hasTag = Boolean(selectedTag);
+
+  if (hasCategory && hasTag) {
+    caption.textContent = `${tagCount} expectativa(s) em “${selectedCategory}” contendo a tag “${selectedTag}”.`;
+    clearButton.classList.remove('is-hidden');
+    return;
+  }
+
+  if (hasCategory) {
+    caption.textContent = `${categoryCount} expectativa(s) encontradas em “${selectedCategory}”.`;
+    clearButton.classList.remove('is-hidden');
+    return;
+  }
+
+  if (hasTag) {
+    caption.textContent = `${tagCount} expectativa(s) contendo a tag “${selectedTag}”.`;
+    clearButton.classList.remove('is-hidden');
+    return;
+  }
+
+  caption.textContent = 'Clique para filtrar os detalhes por categoria.';
+  clearButton.classList.add('is-hidden');
+}
+
+function updateExpectationTagUI(selectedTag, totalAvailable, filteredCount) {
+  const caption = elements.expectations.tagsCaption;
+  const clearButton = elements.expectations.clearTag;
+  if (!caption || !clearButton) return;
+
+  if (!totalAvailable) {
+    caption.textContent = 'Nenhuma tag disponível para os filtros atuais.';
+    clearButton.classList.add('is-hidden');
+    return;
+  }
+
+  if (selectedTag) {
+    caption.textContent = `${filteredCount} expectativa(s) contendo a tag “${selectedTag}”.`;
     clearButton.classList.remove('is-hidden');
   } else {
-    caption.textContent = 'Clique para filtrar os detalhes por categoria.';
+    caption.textContent = 'Clique em uma tag para filtrar as expectativas.';
     clearButton.classList.add('is-hidden');
   }
 }
@@ -1078,6 +1103,12 @@ function handleDimensionCategorySelect(category) {
 
 function handleDimensionTagSelect(tag) {
   state.selections.tag = state.selections.tag === tag ? null : tag;
+  renderDashboard();
+}
+
+function handleExpectationTagSelect(tag) {
+  state.selections.expectationTag =
+    state.selections.expectationTag === tag ? null : tag;
   renderDashboard();
 }
 

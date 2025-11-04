@@ -654,10 +654,6 @@ body {
   grid-column: span 7;
 }
 
-.cards-grid.expectations-grid #engagement-ranking-card {
-  grid-column: span 5;
-}
-
 .cards-grid.expectations-grid #expectation-tags-card {
   grid-column: span 5;
 }
@@ -1425,7 +1421,6 @@ body {
   .cards-grid.expectations-grid #expectation-category-card,
   .cards-grid.expectations-grid #engagement-team-card,
   .cards-grid.expectations-grid #expectation-highlights-card,
-  .cards-grid.expectations-grid #engagement-ranking-card,
   .cards-grid.expectations-grid #expectation-tags-card,
   .cards-grid.gut-grid .gut-legend-card,
   .cards-grid.gut-grid .gut-table-card,

@@ -321,7 +321,6 @@
                 <thead>
                   <tr>
                     <th>Expectativa</th>
-                    <th>Stakeholder</th>
                   </tr>
                 </thead>
                 <tbody id="expectation-highlights-body"></tbody>
@@ -329,19 +328,16 @@
             </div>
           </article>
 
-          <article class="card ranking-card" id="engagement-ranking-card">
-            <header>
-              <h2>Stakeholders mais engajados</h2>
-            </header>
-            <ul class="engagement-list" id="engagement-ranking-list">
-              <li class="chart-placeholder">Carregando ranking...</li>
-            </ul>
-          </article>
-
           <article class="card table-card table-narrow" id="expectation-tags-card">
-            <header>
-              <h2>Tags de expectativas</h2>
-            </header>
+            <div class="card-header">
+              <div>
+                <h2>Tags de expectativas</h2>
+                <p class="card-subtitle" id="expectation-tags-caption">
+                  Clique em uma tag para filtrar as expectativas.
+                </p>
+              </div>
+              <button class="ghost-button is-hidden" id="expectation-tag-clear">Limpar tag</button>
+            </div>
             <div class="table-container overflow-x-auto">
               <table class="tag-table">
                 <thead>
