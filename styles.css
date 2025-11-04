@@ -8,6 +8,11 @@
   --gray-300: #dfe6f6;
   --gray-500: #5b6c8f;
   --card-shadow: 0 12px 30px rgba(15, 107, 214, 0.08);
+  --border-card: rgba(15, 107, 214, 0.14);
+  --border-strong: rgba(15, 107, 214, 0.22);
+  --shadow-soft: 0 10px 22px rgba(15, 107, 214, 0.08);
+  --shadow-soft-hover: 0 14px 26px rgba(15, 107, 214, 0.12);
+  --shadow-badge: 0 4px 10px rgba(15, 107, 214, 0.1);
   --surface: #ffffff;
   --surface-alt: #f7f9ff;
   --nav-hover-bg: rgba(15, 107, 214, 0.08);
@@ -54,20 +59,25 @@ body[data-theme='dark'] {
   --surface: #131b2c;
   --surface-alt: #1a2436;
   --card-shadow: 0 24px 52px rgba(3, 7, 18, 0.72);
+  --border-card: rgba(143, 168, 255, 0.26);
+  --border-strong: rgba(143, 168, 255, 0.36);
+  --shadow-soft: 0 24px 46px rgba(3, 7, 18, 0.68);
+  --shadow-soft-hover: 0 28px 54px rgba(3, 7, 18, 0.76);
+  --shadow-badge: 0 8px 18px rgba(3, 7, 18, 0.65);
   --nav-hover-bg: rgba(134, 170, 255, 0.14);
   --nav-active-bg: rgba(134, 170, 255, 0.22);
   --nav-icon-bg: rgba(134, 170, 255, 0.2);
   --nav-icon-active-bg: rgba(134, 170, 255, 0.3);
-  --ghost-bg: rgba(134, 170, 255, 0.2);
-  --ghost-hover-bg: rgba(134, 170, 255, 0.28);
+  --ghost-bg: rgba(143, 168, 255, 0.14);
+  --ghost-hover-bg: rgba(143, 168, 255, 0.22);
   --select-background: #1a2436;
   --select-text: #f6f8ff;
   --table-row-alt-bg: rgba(255, 255, 255, 0.04);
-  --table-row-hover-bg: rgba(134, 170, 255, 0.16);
+  --table-row-hover-bg: rgba(143, 168, 255, 0.18);
   --tooltip-background: rgba(7, 11, 20, 0.94);
   --tooltip-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
-  --tag-background: rgba(134, 170, 255, 0.22);
-  --tag-hover-background: rgba(134, 170, 255, 0.3);
+  --tag-background: rgba(143, 168, 255, 0.18);
+  --tag-hover-background: rgba(143, 168, 255, 0.26);
   --donut-ring-shadow-color: rgba(19, 27, 44, 0.92);
   --donut-center-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
   --theme-block-bg: rgba(134, 170, 255, 0.16);
@@ -79,10 +89,10 @@ body[data-theme='dark'] {
   --toggle-icon-muted: rgba(198, 211, 246, 0.6);
   --toggle-icon-active-light: #f6f8ff;
   --toggle-icon-active-dark: #f6f8ff;
-  --chart-track-bg: rgba(134, 170, 255, 0.2);
-  --row-selected-background: rgba(134, 170, 255, 0.24);
-  --list-item-background: rgba(134, 170, 255, 0.14);
-  --list-item-track: rgba(134, 170, 255, 0.32);
+  --chart-track-bg: rgba(143, 168, 255, 0.16);
+  --row-selected-background: rgba(143, 168, 255, 0.22);
+  --list-item-background: rgba(143, 168, 255, 0.12);
+  --list-item-track: rgba(143, 168, 255, 0.26);
   --accent-strong: #8fa8ff;
   --accent-contrast: #f6f8ff;
 }
@@ -328,7 +338,7 @@ body {
 }
 
 .theme-toggle:focus-visible {
-  outline: 2px solid var(--blue-500);
+  outline: 2px solid var(--accent-strong);
   outline-offset: 4px;
   border-radius: 16px;
 }
@@ -464,7 +474,7 @@ body {
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid var(--blue-500);
+  border-top: 6px solid var(--accent-strong);
   pointer-events: none;
 }
 
@@ -530,7 +540,7 @@ body {
 .ghost-button {
   border: none;
   background: var(--ghost-bg);
-  color: var(--blue-500);
+  color: var(--accent-strong);
   padding: 8px 14px;
   border-radius: 16px;
   font-size: 13px;
@@ -596,14 +606,14 @@ body {
 
 .highlight-icon {
   font-size: 28px;
-  color: var(--blue-500);
+  color: var(--accent-strong);
 }
 
 .highlight-value {
   margin: 12px 0 0;
   font-size: 36px;
   font-weight: 600;
-  color: var(--blue-500);
+  color: var(--accent-strong);
 }
 
 .highlight-subtitle {
@@ -768,7 +778,7 @@ body {
 }
 
 .horizontal-bars .bar.selected .bar-label {
-  color: var(--blue-500);
+  color: var(--accent-strong);
 }
 
 .horizontal-bars .bar.selected .bar-fill {
@@ -793,7 +803,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: conic-gradient(var(--blue-500) 0deg 360deg);
+  background: conic-gradient(var(--accent-strong) 0deg 360deg);
   box-shadow: inset 0 0 0 10px var(--donut-ring-shadow-color);
 }
 
@@ -812,7 +822,7 @@ body {
 
 .donut-center strong {
   font-size: 22px;
-  color: var(--blue-500);
+  color: var(--accent-strong);
 }
 
 .donut-center span {
@@ -866,7 +876,7 @@ body {
   flex: 1;
   overflow: auto;
   border-radius: 18px;
-  border: 1px solid rgba(15, 107, 214, 0.14);
+  border: 1px solid var(--border-card);
   max-height: 380px;
 }
 
@@ -963,7 +973,7 @@ body {
   height: 32px;
   border-radius: 12px;
   background: var(--tag-background);
-  color: var(--blue-500);
+  color: var(--accent-strong);
   font-weight: 600;
   flex-shrink: 0;
 }
@@ -1004,7 +1014,7 @@ body {
   padding: 4px 10px;
   border-radius: 999px;
   background: var(--tag-background);
-  color: var(--blue-500);
+  color: var(--accent-strong);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -1038,7 +1048,7 @@ body {
 }
 
 .gut-score-cell.is-overridden {
-  color: var(--blue-500);
+  color: var(--accent-strong);
 }
 
 .gut-score-cell.is-overridden::after {
@@ -1060,7 +1070,7 @@ body {
   padding: 6px 12px;
   border-radius: 999px;
   background: var(--tag-background);
-  color: var(--blue-500);
+  color: var(--accent-strong);
   font-weight: 700;
   font-size: 15px;
 }
@@ -1133,8 +1143,8 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  color: var(--blue-500);
-  box-shadow: 0 4px 10px rgba(15, 107, 214, 0.1);
+  color: var(--accent-strong);
+  box-shadow: var(--shadow-badge);
 }
 
 .engagement-list .rank-content {
@@ -1196,7 +1206,7 @@ body {
   height: 56px;
   border-radius: 18px;
   background: var(--row-selected-background);
-  color: var(--blue-500);
+  color: var(--accent-strong);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1231,7 +1241,7 @@ body {
 .profile-stats .stat strong {
   display: block;
   font-size: 18px;
-  color: var(--blue-500);
+  color: var(--accent-strong);
 }
 
 .profile-stats .stat span {
@@ -1309,14 +1319,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border: 1px solid rgba(15, 107, 214, 0.18);
-  box-shadow: 0 10px 22px rgba(15, 107, 214, 0.08);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-soft);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .theme-block:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 26px rgba(15, 107, 214, 0.12);
+  box-shadow: var(--shadow-soft-hover);
 }
 
 .theme-block strong {
