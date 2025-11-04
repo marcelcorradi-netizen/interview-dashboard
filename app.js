@@ -15,16 +15,6 @@ const state = {
     expectationCategory: null,
     tag: null,
   },
-  detailFilters: {
-    type: 'all',
-    category: 'all',
-    team: 'all',
-    stakeholder: 'all',
-  },
-  selectedDetailId: null,
-  gut: {
-    overrides: {},
-  },
 };
 
 const elements = {
@@ -85,16 +75,6 @@ const elements = {
     teamLegend: document.getElementById('engagement-team-legend'),
     rankingList: document.getElementById('engagement-ranking-list'),
   },
-  detail: {
-    typeFilter: document.getElementById('detail-type-filter'),
-    categoryFilter: document.getElementById('detail-category-filter'),
-    teamFilter: document.getElementById('detail-team-filter'),
-    stakeholderFilter: document.getElementById('detail-stakeholder-filter'),
-    tableBody: document.getElementById('detail-table-body'),
-    profileContent: document.getElementById('detail-profile-content'),
-    timelineChart: document.getElementById('detail-timeline-chart'),
-    tagsBody: document.getElementById('detail-tags-body'),
-  },
   final: {
     totalStakeholders: document.getElementById('final-total-stakeholders'),
     totalInsights: document.getElementById('final-total-insights'),
@@ -105,9 +85,6 @@ const elements = {
     themeGrid: document.getElementById('final-theme-grid'),
     actionsBody: document.getElementById('final-actions-body'),
     influenceBody: document.getElementById('final-influence-body'),
-  },
-  gut: {
-    tableBody: document.getElementById('gut-table-body'),
   },
 };
 
@@ -121,274 +98,8 @@ const VIEW_TITLES = {
   overview: 'Visão geral',
   dimension: 'Dimensão',
   expectations: 'Expectativas & Engajamento',
-  gut: 'Matriz GUT',
-  detail: 'Detalhamento',
   final: 'Panorama final',
 };
-
-const GUT_STOPWORDS = new Set([
-  'a',
-  'agora',
-  'ainda',
-  'alguem',
-  'algum',
-  'alguma',
-  'alguns',
-  'algumas',
-  'ali',
-  'ao',
-  'aos',
-  'as',
-  'assim',
-  'ate',
-  'bem',
-  'cada',
-  'coisa',
-  'coisas',
-  'como',
-  'com',
-  'contra',
-  'da',
-  'das',
-  'de',
-  'depois',
-  'desde',
-  'dentro',
-  'desse',
-  'dessa',
-  'do',
-  'dos',
-  'e',
-  'ela',
-  'elas',
-  'ele',
-  'eles',
-  'em',
-  'entre',
-  'era',
-  'esse',
-  'essa',
-  'essas',
-  'esses',
-  'eu',
-  'faz',
-  'fazer',
-  'fez',
-  'foi',
-  'fora',
-  'gente',
-  'ha',
-  'isso',
-  'isto',
-  'ja',
-  'lhe',
-  'logo',
-  'maior',
-  'mais',
-  'mas',
-  'mesmo',
-  'mesma',
-  'mesmos',
-  'mesmas',
-  'menos',
-  'muito',
-  'muita',
-  'muitas',
-  'muitos',
-  'na',
-  'nas',
-  'nao',
-  'ne',
-  'nem',
-  'no',
-  'nos',
-  'nossa',
-  'nossas',
-  'nosso',
-  'nossos',
-  'nunca',
-  'o',
-  'os',
-  'ou',
-  'outra',
-  'outras',
-  'outro',
-  'outros',
-  'para',
-  'perto',
-  'pode',
-  'podem',
-  'poder',
-  'por',
-  'porque',
-  'pra',
-  'quais',
-  'quando',
-  'que',
-  'quem',
-  'se',
-  'sem',
-  'sera',
-  'seria',
-  'seu',
-  'seus',
-  'sob',
-  'sobre',
-  'sua',
-  'suas',
-  'tal',
-  'tambem',
-  'tem',
-  'tenho',
-  'tendo',
-  'ter',
-  'todo',
-  'toda',
-  'todas',
-  'todos',
-  'uma',
-  'umas',
-  'um',
-  'uns',
-  'vai',
-  'vendo',
-  'vez',
-  'vezes',
-  'voce',
-  'design',
-  'system',
-  'ds',
-  'simples',
-]);
-
-const GUT_TEXT_KEYWORDS = {
-  gravidade: {
-    5: [
-      'bloque',
-      'trav',
-      'parad',
-      'imposs',
-      'sem padrao',
-      'sem guideline',
-      'sem biblioteca',
-      'sem componentes',
-      'refazer',
-      'refazendo',
-      'nao consegue',
-      'inviavel',
-      'quebra geral',
-      'erro critico',
-      'falha critica',
-    ],
-    4: [
-      'retrabalho',
-      'inconsist',
-      'compromete',
-      'impacta',
-      'dificulta',
-      'quebra fluxo',
-      'sem suporte',
-      'sem visibilidade',
-      'manual demais',
-      'trabalho manual',
-      'cansativo',
-      'demora muito',
-      'recriar',
-    ],
-    2: [
-      'melhoria',
-      'melhorar',
-      'poderia',
-      'seria bom',
-      'seria legal',
-      'ajuste',
-      'ajustes',
-      'otimizar',
-      'otimizacao',
-    ],
-    1: ['estetica', 'estetico', 'visual', 'color', 'icone', 'cosmetico'],
-  },
-  urgencia: {
-    5: [
-      'bloque',
-      'trav',
-      'parad',
-      'urgente',
-      'urgencia',
-      'precisa agora',
-      'imediat',
-      'pra ontem',
-      'nao consegue entregar',
-      'sem conseguir entregar',
-      'sem conseguir usar',
-    ],
-    4: [
-      'precisa antes',
-      'proxima release',
-      'release',
-      'proxima sprint',
-      'precisamos logo',
-      'curto prazo',
-      'logo',
-      'pra proxima',
-    ],
-    2: ['planejar', 'planejamento', 'monitorar', 'avaliar depois'],
-    1: ['quando der', 'no futuro', 'eventual', 'visao futura', 'nice to have'],
-  },
-};
-
-const GUT_TAG_WEIGHTS = {
-  gravidade: {
-    padronizacao: 4,
-    biblioteca_componentes: 5,
-    componentes: 4,
-    retrabalho: 4,
-    acessibilidade: 4,
-    navegacao: 3,
-    usabilidade: 3,
-    webview: 4,
-    documentacao: 3,
-    comunicacao: 3,
-    arquitetura: 4,
-  },
-  urgencia: {
-    retrabalho: 4,
-    handoff: 4,
-    comunicacao: 3,
-    padronizacao: 4,
-    componentes: 4,
-    webview: 4,
-    versao: 4,
-  },
-};
-
-const GUT_DISPLAY_OVERRIDES = {
-  padronizacao: 'padronização',
-  biblioteca_componentes: 'biblioteca de componentes',
-  componentes: 'componentes',
-  retrabalho: 'retrabalho',
-  acessibilidade: 'acessibilidade',
-  navegacao: 'navegação',
-  usabilidade: 'usabilidade',
-  documentacao: 'documentação',
-  comunicacao: 'comunicação',
-  webview: 'webview',
-  arquitetura: 'arquitetura',
-  tecnologia: 'tecnologia',
-  processo: 'processo',
-  produto: 'produto',
-  colaboracao: 'colaboração',
-  eficiencia: 'eficiência',
-  interface: 'interface',
-  experiencia_usuario: 'experiência do usuário',
-  design_system: 'design system',
-  alinhamento: 'alinhamento',
-  documentacao_categoria: 'documentação',
-};
-
-const GUT_THEME_DEFINITIONS = createGutThemeDefinitions();
-const GUT_THEME_BY_ID = new Map(GUT_THEME_DEFINITIONS.map((theme) => [theme.id, theme]));
-const GUT_THEME_TAG_LOOKUP = buildGutThemeTagLookup(GUT_THEME_DEFINITIONS);
 
 let navOverflowController = null;
 let tooltipController = null;
@@ -410,9 +121,6 @@ if (elements.teamFilter) {
     state.selections.category = null;
     state.selections.expectationCategory = null;
     state.selections.tag = null;
-    state.detailFilters.team = 'all';
-    state.detailFilters.stakeholder = 'all';
-    state.selectedDetailId = null;
     renderDashboard();
   });
 }
@@ -452,39 +160,6 @@ if (elements.expectations.clearFilter) {
   });
 }
 
-const detailFiltersElements = elements.detail;
-if (detailFiltersElements.typeFilter) {
-  detailFiltersElements.typeFilter.addEventListener('change', (event) => {
-    state.detailFilters.type = event.target.value;
-    state.selectedDetailId = null;
-    renderDashboard();
-  });
-}
-
-if (detailFiltersElements.categoryFilter) {
-  detailFiltersElements.categoryFilter.addEventListener('change', (event) => {
-    state.detailFilters.category = event.target.value;
-    state.selectedDetailId = null;
-    renderDashboard();
-  });
-}
-
-if (detailFiltersElements.teamFilter) {
-  detailFiltersElements.teamFilter.addEventListener('change', (event) => {
-    state.detailFilters.team = event.target.value;
-    state.selectedDetailId = null;
-    renderDashboard();
-  });
-}
-
-if (detailFiltersElements.stakeholderFilter) {
-  detailFiltersElements.stakeholderFilter.addEventListener('change', (event) => {
-    state.detailFilters.stakeholder = event.target.value;
-    state.selectedDetailId = null;
-    renderDashboard();
-  });
-}
-
 loadData();
 
 function setupNavigation() {
@@ -503,23 +178,6 @@ function setView(view) {
     return;
   }
 
-  if (view === 'detail') {
-    if (state.filters.team !== 'all') {
-      state.filters.team = 'all';
-      if (elements.teamFilter) {
-        elements.teamFilter.value = 'all';
-      }
-    }
-    state.detailFilters = {
-      type: 'all',
-      category: 'all',
-      team: 'all',
-      stakeholder: 'all',
-    };
-    state.selectedDetailId = null;
-    populateDetailFilters();
-  }
-
   state.currentView = view;
   updateNavigation();
   updateViewVisibility();
@@ -533,11 +191,9 @@ function setView(view) {
 
 async function loadData() {
   try {
-    const overridesPromise = fetch('data/gut_overrides.json').catch(() => null);
-    const [stakeholdersResponse, insightsResponse, overridesResponse] = await Promise.all([
+    const [stakeholdersResponse, insightsResponse] = await Promise.all([
       fetch('data/stakeholders.json'),
       fetch('data/insights.json'),
-      overridesPromise,
     ]);
 
     if (!stakeholdersResponse.ok || !insightsResponse.ok) {
@@ -553,20 +209,8 @@ async function loadData() {
     state.stakeholderDetails = new Map(
       state.stakeholders.map((stakeholder) => [stakeholder.id, stakeholder]),
     );
-    let overrides = {};
-    if (overridesResponse && overridesResponse.ok) {
-      try {
-        const parsed = await overridesResponse.json();
-        overrides = parsed && typeof parsed === 'object' ? parsed : {};
-      } catch (overridesError) {
-        console.warn('Não foi possível interpretar data/gut_overrides.json', overridesError);
-      }
-    }
-    state.gut.overrides = overrides;
-
     populateTeamFilter();
     populateTypeFilter();
-    populateDetailFilters();
     renderDashboard();
   } catch (error) {
     console.error(error);
@@ -637,8 +281,6 @@ function renderDashboard() {
   renderOverview(stakeholders, insights);
   renderDimension(stakeholders, insights);
   renderExpectations(stakeholders, insights);
-  renderGut(stakeholders, insights);
-  renderDetail(insights);
   renderFinalView();
 }
 
@@ -1161,909 +803,6 @@ function updateExpectationCaption(selectedCategory, total, filtered) {
   }
 }
 
-function renderGut(_stakeholders, insights) {
-  const tableBody = elements.gut.tableBody;
-  if (!tableBody) return;
-
-  const dorInsights = insights.filter((insight) => (insight.tipo || '').toLowerCase() === 'dor');
-
-  tableBody.innerHTML = '';
-
-  if (dorInsights.length === 0) {
-    tableBody.appendChild(createGutPlaceholderRow('Nenhuma dor disponível para o filtro atual.', 5));
-    return;
-  }
-
-  const gutItems = buildGutItems(dorInsights);
-
-  if (gutItems.length === 0) {
-    tableBody.appendChild(
-      createGutPlaceholderRow('Nenhum agrupamento de dor foi identificado para gerar a matriz GUT.', 5),
-    );
-    return;
-  }
-
-  gutItems
-    .sort((a, b) => {
-      if (b.final.total !== a.final.total) return b.final.total - a.final.total;
-      if (b.final.gravidade !== a.final.gravidade) return b.final.gravidade - a.final.gravidade;
-      return b.mentionCount - a.mentionCount;
-    })
-    .forEach((item) => {
-      const row = document.createElement('tr');
-      row.dataset.gutId = item.id;
-      row.title = `ID: ${item.id}`;
-
-      const topicCell = document.createElement('td');
-      topicCell.className = 'gut-topic-cell';
-
-      const topicWrapper = document.createElement('div');
-      topicWrapper.className = 'gut-topic';
-
-      const summary = document.createElement('p');
-      summary.className = 'gut-topic-summary';
-      summary.textContent = item.summary;
-
-      const meta = document.createElement('span');
-      meta.className = 'gut-topic-meta';
-      const metaParts = [
-        `${item.mentionCount} ${item.mentionCount === 1 ? 'menção' : 'menções'}`,
-        `${item.stakeholderCount} ${item.stakeholderCount === 1 ? 'stakeholder' : 'stakeholders'}`,
-      ];
-      if (item.teamCount > 0) {
-        metaParts.push(`${item.teamCount} ${item.teamCount === 1 ? 'time' : 'times'}`);
-      }
-      meta.textContent = metaParts.join(' · ');
-
-      if (item.categoriesSummary) {
-        const categoriesBadge = document.createElement('span');
-        categoriesBadge.className = 'gut-topic-category';
-        categoriesBadge.textContent = item.categoriesSummary;
-        topicWrapper.appendChild(categoriesBadge);
-      }
-
-      topicWrapper.append(summary, meta);
-
-      if (item.keywords && item.keywords.length > 0) {
-        const keywordHint = document.createElement('span');
-        keywordHint.className = 'gut-topic-keywords';
-        keywordHint.textContent = `Principais termos: ${item.keywords
-          .slice(0, 3)
-          .map((word) => word.toLowerCase().replace(/_/g, ' '))
-          .join(', ')}`;
-        topicWrapper.appendChild(keywordHint);
-      }
-
-      topicCell.appendChild(topicWrapper);
-      row.appendChild(topicCell);
-
-      ['gravidade', 'urgencia', 'tendencia'].forEach((dimension) => {
-        const cell = document.createElement('td');
-        cell.className = 'gut-score-cell';
-        const value = item.final[dimension];
-        const autoValue = item.auto[dimension];
-        cell.textContent = value.toString();
-        if (value !== autoValue) {
-          cell.classList.add('is-overridden');
-          cell.title = `Valor ajustado manualmente (auto: ${autoValue})`;
-        } else {
-          cell.title = 'Valor automático';
-        }
-        row.appendChild(cell);
-      });
-
-      const totalCell = document.createElement('td');
-      totalCell.className = 'gut-score-total';
-      const totalBadge = document.createElement('span');
-      totalBadge.className = 'gut-total-badge';
-      totalBadge.textContent = item.final.total.toString();
-      totalCell.appendChild(totalBadge);
-      if (item.final.total !== item.auto.total) {
-        totalCell.title = `Produto GUT ajustado (auto: ${item.auto.total})`;
-      } else {
-        totalCell.title = 'Produto GUT automático';
-      }
-      row.appendChild(totalCell);
-
-      tableBody.appendChild(row);
-    });
-}
-
-function createGutPlaceholderRow(message, colSpan) {
-  const row = document.createElement('tr');
-  const cell = document.createElement('td');
-  cell.colSpan = colSpan;
-  cell.className = 'gut-empty-cell';
-  cell.textContent = message;
-  row.appendChild(cell);
-  return row;
-}
-
-function buildGutItems(dorInsights) {
-  const themes = aggregateGutThemes(dorInsights);
-  const items = [];
-
-  themes.forEach((entry) => {
-    if (!entry.mentionCount) return;
-    const autoScores = computeGutScores(entry);
-    const override = state.gut.overrides[entry.id] || {};
-    const overrideValues = {
-      gravidade: parseOverrideScore(override.gravidade),
-      urgencia: parseOverrideScore(override.urgencia),
-      tendencia: parseOverrideScore(override.tendencia),
-    };
-    const finalScores = {
-      gravidade: clampGutScore(
-        overrideValues.gravidade !== null ? overrideValues.gravidade : autoScores.gravidade,
-      ),
-      urgencia: clampGutScore(
-        overrideValues.urgencia !== null ? overrideValues.urgencia : autoScores.urgencia,
-      ),
-      tendencia: clampGutScore(
-        overrideValues.tendencia !== null ? overrideValues.tendencia : autoScores.tendencia,
-      ),
-    };
-    items.push({
-      id: entry.id,
-      themeId: entry.themeId,
-      summary: entry.summary,
-      mentionCount: entry.mentionCount,
-      stakeholderCount: entry.stakeholderCount,
-      teamNames: entry.teamNames,
-      teamCount: entry.teamCount,
-      categoriesSummary: entry.categoriesSummary,
-      topCategories: entry.topCategories,
-      keywords: entry.keywords,
-      auto: {
-        gravidade: autoScores.gravidade,
-        urgencia: autoScores.urgencia,
-        tendencia: autoScores.tendencia,
-        total: autoScores.gravidade * autoScores.urgencia * autoScores.tendencia,
-      },
-      final: {
-        gravidade: finalScores.gravidade,
-        urgencia: finalScores.urgencia,
-        tendencia: finalScores.tendencia,
-        total: finalScores.gravidade * finalScores.urgencia * finalScores.tendencia,
-      },
-    });
-  });
-
-  return items;
-}
-
-function aggregateGutThemes(insights) {
-  const themeEntries = new Map();
-
-  insights.forEach((insight) => {
-    const theme = resolveGutTheme(insight);
-    const themeId = theme.id;
-    if (!themeEntries.has(themeId)) {
-      themeEntries.set(themeId, {
-        id: `gut-${themeId}`,
-        themeId,
-        label: theme.label || null,
-        definition: theme,
-        insights: [],
-        insightIds: [],
-        stakeholderIdSet: new Set(),
-        tags: new Set(),
-        categoryCounts: new Map(),
-      });
-    }
-    const entry = themeEntries.get(themeId);
-    entry.insights.push(insight);
-    entry.insightIds.push(insight._id);
-    if (Number.isFinite(insight.stakeholder_id)) {
-      entry.stakeholderIdSet.add(insight.stakeholder_id);
-    }
-    (insight.tags || []).forEach((tag) => {
-      if (tag) {
-        entry.tags.add(tag);
-      }
-    });
-    const categoryKey = insight.categoria && insight.categoria.trim() ? insight.categoria : 'Sem categoria';
-    entry.categoryCounts.set(categoryKey, (entry.categoryCounts.get(categoryKey) || 0) + 1);
-  });
-
-  themeEntries.forEach((entry) => finalizeGutThemeEntry(entry));
-  return themeEntries;
-}
-
-function finalizeGutThemeEntry(entry) {
-  const stakeholderIds = Array.from(entry.stakeholderIdSet);
-  const uniqueStakeholders = stakeholderIds.filter((id) => Number.isFinite(id));
-  entry.stakeholderIds = uniqueStakeholders;
-  entry.stakeholderCount = uniqueStakeholders.length;
-
-  const teamSet = new Set();
-  uniqueStakeholders.forEach((id) => {
-    const team = state.stakeholderMap.get(id);
-    if (typeof team === 'string' && team.trim().length > 0) {
-      teamSet.add(team);
-    }
-  });
-  entry.teamNames = Array.from(teamSet).sort((a, b) => a.localeCompare(b, 'pt-BR'));
-  entry.teamCount = entry.teamNames.length;
-
-  entry.tags = Array.from(entry.tags);
-
-  const categoryEntries = Array.from(entry.categoryCounts.entries()).sort((a, b) => b[1] - a[1]);
-  entry.topCategories = categoryEntries.slice(0, 3).map(([category]) => formatCategoryLabel(category));
-  entry.categoriesSummary =
-    entry.topCategories.length > 0 ? entry.topCategories.join(' • ') : 'Categorias diversas';
-
-  const excludeSet = new Set(entry.tags.map((tag) => normalizeKeyword(tag)));
-  entry.keywords = extractKeywordsFromInsights(entry.insights, excludeSet, 3);
-
-  entry.summary = entry.label || buildFallbackThemeSummary(entry);
-  entry.mentionCount = entry.insightIds.length;
-
-  delete entry.stakeholderIdSet;
-  delete entry.categoryCounts;
-}
-
-function resolveGutTheme(insight) {
-  const themesByTag = [];
-  (insight.tags || [])
-    .map((tag) => normalizeKeyword(tag))
-    .filter(Boolean)
-    .forEach((tag) => {
-      const matches = GUT_THEME_TAG_LOOKUP.get(tag);
-      if (matches && matches.length) {
-        matches.forEach((theme) => themesByTag.push(theme));
-      }
-    });
-
-  if (themesByTag.length > 0) {
-    return themesByTag[0];
-  }
-
-  const normalizedText = normalizeText(insight.descricao || '');
-  for (let index = 0; index < GUT_THEME_DEFINITIONS.length; index += 1) {
-    const theme = GUT_THEME_DEFINITIONS[index];
-    if (theme.normalizedKeywords.some((keyword) => keyword && normalizedText.includes(keyword))) {
-      return theme;
-    }
-  }
-
-  return GUT_THEME_BY_ID.get('outros');
-}
-
-function buildFallbackThemeSummary(entry) {
-  const keywords = entry.keywords || [];
-  if (keywords.length > 0) {
-    const formatted = keywords
-      .slice(0, 2)
-      .map((word) => word.toLowerCase())
-      .join(' e ');
-    return capitalizeFirst(`Questões recorrentes sobre ${formatted}`);
-  }
-  if (entry.topCategories && entry.topCategories.length > 0) {
-    return `Questões diversas em ${entry.topCategories[0].toLowerCase()}`;
-  }
-  return 'Questões diversas sobre o Design System';
-}
-
-function computeGutScores(cluster) {
-  const { insights } = cluster;
-  if (!insights.length) {
-    return { gravidade: 1, urgencia: 1, tendencia: 1 };
-  }
-  const gravidadeValues = insights.map(scoreInsightGravidade);
-  const urgenciaValues = insights.map(scoreInsightUrgencia);
-  const gravidade = clampGutScore(Math.round(average(gravidadeValues)));
-  const urgencia = clampGutScore(Math.round(average(urgenciaValues)));
-  const tendencia = clampGutScore(computeTrendScore(cluster));
-  return { gravidade, urgencia, tendencia };
-}
-
-function scoreInsightGravidade(insight) {
-  const normalized = normalizeText(buildInsightText(insight));
-  let score = 3;
-  score = Math.max(score, scoreByKeywordLevel(normalized, GUT_TEXT_KEYWORDS.gravidade, [5, 4]));
-  const lowScore = scoreByKeywordLevel(normalized, GUT_TEXT_KEYWORDS.gravidade, [2, 1]);
-  if (lowScore && score === 3) {
-    score = lowScore;
-  }
-  const tagBoost = getTagWeight(insight.tags || [], GUT_TAG_WEIGHTS.gravidade);
-  if (tagBoost) {
-    score = Math.max(score, tagBoost);
-  }
-  return clampGutScore(score);
-}
-
-function scoreInsightUrgencia(insight) {
-  const normalized = normalizeText(buildInsightText(insight));
-  let score = 3;
-  score = Math.max(score, scoreByKeywordLevel(normalized, GUT_TEXT_KEYWORDS.urgencia, [5, 4]));
-  const lowScore = scoreByKeywordLevel(normalized, GUT_TEXT_KEYWORDS.urgencia, [2, 1]);
-  if (lowScore && score === 3) {
-    score = lowScore;
-  }
-  const tagBoost = getTagWeight(insight.tags || [], GUT_TAG_WEIGHTS.urgencia);
-  if (tagBoost) {
-    score = Math.max(score, tagBoost);
-  }
-  return clampGutScore(score);
-}
-
-function scoreByKeywordLevel(normalizedText, dictionary, levels) {
-  for (let index = 0; index < levels.length; index += 1) {
-    const level = levels[index];
-    const keywords = dictionary[level] || [];
-    if (keywords.length > 0 && keywords.some((keyword) => normalizedText.includes(keyword))) {
-      return level;
-    }
-  }
-  return null;
-}
-
-function getTagWeight(tags, weightsMap) {
-  if (!Array.isArray(tags) || tags.length === 0) return null;
-  let maxWeight = null;
-  tags.forEach((tag) => {
-    const normalized = normalizeKeyword(tag);
-    const value = weightsMap[normalized];
-    if (typeof value === 'number') {
-      maxWeight = maxWeight === null ? value : Math.max(maxWeight, value);
-    }
-  });
-  return maxWeight;
-}
-
-function computeTrendScore(cluster) {
-  const mentionCount = cluster.insightIds.length;
-  const stakeholderCount = cluster.stakeholderIds.length;
-  const teamCount = cluster.teamNames.length;
-  const tagCount = cluster.tags.length;
-
-  if (stakeholderCount >= 4 && teamCount >= 3 && (tagCount >= 4 || mentionCount >= 8)) {
-    return 5;
-  }
-  if (stakeholderCount >= 3 && teamCount >= 2 && (tagCount >= 3 || mentionCount >= 6)) {
-    return 4;
-  }
-  if ((stakeholderCount >= 2 && teamCount >= 2) || mentionCount >= 4) {
-    return 3;
-  }
-  if (mentionCount >= 2) {
-    return 2;
-  }
-  return 1;
-}
-
-function buildInsightText(insight) {
-  const tagsText = Array.isArray(insight.tags) ? insight.tags.join(' ') : '';
-  return `${insight.descricao || ''} ${tagsText}`.trim();
-}
-
-function extractKeywordsFromInsights(insights, excludeSet, limit) {
-  const frequencies = new Map();
-  const originals = new Map();
-
-  insights.forEach((insight) => {
-    const text = insight.descricao || '';
-    const tokens = text.match(/\b[\p{L}\d]{3,}\b/gu);
-    if (!tokens) return;
-    tokens.forEach((token) => {
-      const normalized = normalizeKeyword(token);
-      if (!normalized) return;
-      if (GUT_STOPWORDS.has(normalized)) return;
-      if (excludeSet && excludeSet.has(normalized)) return;
-      frequencies.set(normalized, (frequencies.get(normalized) || 0) + 1);
-      if (!originals.has(normalized)) {
-        originals.set(normalized, token);
-      }
-    });
-  });
-
-  return Array.from(frequencies.entries())
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, limit || 3)
-    .map(([normalized]) => originals.get(normalized) || normalized);
-}
-
-function average(values) {
-  if (!Array.isArray(values) || values.length === 0) return 0;
-  const sum = values.reduce((acc, value) => acc + (Number.isFinite(value) ? value : 0), 0);
-  return values.length ? sum / values.length : 0;
-}
-
-function capitalizeFirst(text) {
-  if (!text) return '';
-  return text.charAt(0).toUpperCase() + text.slice(1);
-}
-
-function parseOverrideScore(value) {
-  if (value === null || value === undefined || value === '') return null;
-  const numeric = Number(value);
-  if (!Number.isFinite(numeric)) return null;
-  if (numeric < 1 || numeric > 5) return null;
-  return numeric;
-}
-
-function clampGutScore(value) {
-  if (!Number.isFinite(value)) return 3;
-  return Math.min(5, Math.max(1, Math.round(value)));
-}
-
-function normalizeText(text) {
-  return (text || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase();
-}
-
-function normalizeKeyword(value) {
-  return normalizeText(value)
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim()
-    .replace(/\s+/g, '_');
-}
-
-function createGutThemeDefinitions() {
-  const rawDefinitions = [
-    {
-      id: 'padronizacao',
-      label: 'Falta de padronização consistente entre produtos e experiências',
-      tags: ['padronizacao', 'consistencia', 'padrao', 'unificacao', 'despadronizacao'],
-      keywords: ['padroniz', 'consistenc', 'sem padrao', 'quebra de padrao'],
-    },
-    {
-      id: 'componentes',
-      label: 'Componentes essenciais incompletos ou inconsistentes',
-      tags: ['componentes', 'biblioteca_componentes', 'library', 'designsystem_componentes'],
-      keywords: ['componente', 'componentiz', 'library'],
-    },
-    {
-      id: 'documentacao',
-      label: 'Documentação do design system desatualizada ou inacessível',
-      tags: ['documentacao', 'documentação', 'guideline', 'doc'],
-      keywords: ['documentac', 'guia', 'manual', 'documento'],
-    },
-    {
-      id: 'comunicacao',
-      label: 'Comunicação fragmentada entre squads e Design System',
-      tags: ['comunicacao', 'comunicação', 'isolamento', 'comunicacao_cross', 'alinhamento'],
-      keywords: ['comunic', 'desalinh', 'alinhament', 'sincroniz'],
-    },
-    {
-      id: 'retrabalho',
-      label: 'Retrabalho recorrente para reconstruir interfaces',
-      tags: ['retrabalho', 'refatoracao', 'refazer', 'rework'],
-      keywords: ['retrabalh', 'refazer', 'refator', 'refacao'],
-    },
-    {
-      id: 'priorizacao',
-      label: 'Baixa priorização do Design System nas entregas de produto',
-      tags: ['priorizacao', 'prioridade', 'foco', 'velocidade', 'roadmap'],
-      keywords: ['prioriz', 'pouca entrega', 'desleix', 'falta de foco'],
-    },
-    {
-      id: 'navegacao',
-      label: 'Fluxos de navegação confusos e pouco orientados',
-      tags: ['navegacao', 'arquitetura_informacao'],
-      keywords: ['naveg', 'arquitetur', 'menu confuso', 'fluxo confus'],
-    },
-    {
-      id: 'usabilidade',
-      label: 'Experiência difícil de usar e pouco intuitiva',
-      tags: ['usabilidade', 'experiencia_usuario', 'ux'],
-      keywords: ['usabil', 'dificil de usar', 'intuitiv'],
-    },
-    {
-      id: 'webview',
-      label: 'Dependência de webviews comprometendo a experiência',
-      tags: ['webview'],
-      keywords: ['webview', 'web view'],
-    },
-    {
-      id: 'acessibilidade',
-      label: 'Pontos críticos de acessibilidade sem cobertura',
-      tags: ['acessibilidade', 'a11y'],
-      keywords: ['acessibil'],
-    },
-    {
-      id: 'colaboracao',
-      label: 'Colaboração fraca entre times de produto e DS',
-      tags: ['colaboracao', 'colaboração', 'adocao', 'isolamento'],
-      keywords: ['colabor', 'isolad', 'adocao do ds'],
-    },
-    {
-      id: 'tecnologia',
-      label: 'Padrões técnicos incompatíveis com o design system',
-      tags: ['compatibilidade', 'stack_tecnologica', 'vue', 'tecnologia'],
-      keywords: ['compatibil', 'stack', 'vue', 'tecnolog'],
-    },
-    {
-      id: 'processo',
-      label: 'Processos e ritos desalinhados com o Design System',
-      tags: ['processo', 'processos', 'handoff', 'rituais'],
-      keywords: ['process', 'ritual', 'handoff', 'governanca'],
-    },
-    {
-      id: 'outros',
-      label: null,
-      tags: [],
-      keywords: [],
-    },
-  ];
-
-  rawDefinitions.forEach((theme) => {
-    theme.normalizedTags = (theme.tags || []).map((tag) => normalizeKeyword(tag)).filter(Boolean);
-    theme.normalizedKeywords = (theme.keywords || [])
-      .map((keyword) => normalizeText(keyword))
-      .filter(Boolean);
-  });
-
-  return rawDefinitions;
-}
-
-function buildGutThemeTagLookup(definitions) {
-  const lookup = new Map();
-  definitions.forEach((theme) => {
-    (theme.normalizedTags || []).forEach((tag) => {
-      if (!lookup.has(tag)) {
-        lookup.set(tag, []);
-      }
-      lookup.get(tag).push(theme);
-    });
-  });
-  return lookup;
-}
-
-function toTitleCase(value) {
-  return value
-    .toLowerCase()
-    .replace(/\b\p{L}/gu, (letter) => letter.toUpperCase());
-}
-
-function formatCategoryLabel(value) {
-  if (!value) return 'Sem categoria';
-  const normalized = normalizeKeyword(value);
-  const override =
-    GUT_DISPLAY_OVERRIDES[normalized] || GUT_DISPLAY_OVERRIDES[`${normalized}_categoria`];
-  const base = override || value;
-  return toTitleCase(base.replace(/_/g, ' '));
-}
-
-
-function populateDetailFilters() {
-  const detail = elements.detail;
-  if (!detail.typeFilter) return;
-
-  const types = Array.from(
-    new Set(state.insights.map((insight) => insight.tipo || 'Não classificado')),
-  ).sort((a, b) => a.localeCompare(b, 'pt-BR'));
-  setSelectOptions(detail.typeFilter, types, 'Todos', (value) => value, (value) => value);
-  if (detail.typeFilter) {
-    detail.typeFilter.value = types.includes(state.detailFilters.type) ? state.detailFilters.type : 'all';
-    state.detailFilters.type = detail.typeFilter.value;
-  }
-
-  const categories = Array.from(
-    new Set(state.insights.map((insight) => insight.categoria || 'Não classificado')),
-  ).sort((a, b) => a.localeCompare(b, 'pt-BR'));
-  setSelectOptions(
-    detail.categoryFilter,
-    categories,
-    'Todas',
-    (value) => value,
-    (value) => value,
-  );
-  if (detail.categoryFilter) {
-    detail.categoryFilter.value = categories.includes(state.detailFilters.category)
-      ? state.detailFilters.category
-      : 'all';
-    state.detailFilters.category = detail.categoryFilter.value;
-  }
-
-  const teams = Array.from(new Set(state.stakeholders.map((stakeholder) => stakeholder.time || 'Sem time'))).sort(
-    (a, b) => a.localeCompare(b, 'pt-BR'),
-  );
-  setSelectOptions(detail.teamFilter, teams, 'Todos', (value) => value, (value) => value);
-  if (detail.teamFilter) {
-    detail.teamFilter.value = teams.includes(state.detailFilters.team) ? state.detailFilters.team : 'all';
-    state.detailFilters.team = detail.teamFilter.value;
-  }
-
-  const stakeholders = state.stakeholders.slice().sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
-  setSelectOptions(
-    detail.stakeholderFilter,
-    stakeholders,
-    'Todos',
-    (stakeholder) => String(stakeholder.id),
-    (stakeholder) => stakeholder.nome,
-  );
-  if (detail.stakeholderFilter) {
-    const ids = stakeholders.map((s) => String(s.id));
-    detail.stakeholderFilter.value = ids.includes(state.detailFilters.stakeholder)
-      ? state.detailFilters.stakeholder
-      : 'all';
-    state.detailFilters.stakeholder = detail.stakeholderFilter.value;
-  }
-}
-
-function renderDetail(insights) {
-  const detailElements = elements.detail;
-  if (!detailElements.tableBody) return;
-
-  const filtered = applyDetailFilters(insights);
-  if (filtered.length > 0) {
-    const exists = filtered.some((insight) => insight._id === state.selectedDetailId);
-    if (!exists) {
-      state.selectedDetailId = filtered[0]._id;
-    }
-  } else {
-    state.selectedDetailId = null;
-  }
-
-  renderDetailTable(filtered);
-  renderDetailProfile(filtered);
-  renderDetailTimeline(filtered);
-  renderDetailTags(filtered);
-}
-
-function applyDetailFilters(insights) {
-  const { type, category, team, stakeholder } = state.detailFilters;
-  return insights.filter((insight) => {
-    const insightType = insight.tipo || 'Não classificado';
-    const insightCategory = insight.categoria || 'Não classificado';
-    const insightTeam = state.stakeholderMap.get(insight.stakeholder_id) || 'Sem time';
-    const stakeholderId = insight.stakeholder_id ? String(insight.stakeholder_id) : null;
-
-    if (type !== 'all' && insightType !== type) return false;
-    if (category !== 'all' && insightCategory !== category) return false;
-    if (team !== 'all' && insightTeam !== team) return false;
-    if (stakeholder !== 'all' && stakeholderId !== stakeholder) return false;
-    return true;
-  });
-}
-
-function renderDetailTable(insights) {
-  const tbody = elements.detail.tableBody;
-  if (!tbody) return;
-  tbody.innerHTML = '';
-
-  if (!insights.length) {
-    const row = document.createElement('tr');
-    const cell = document.createElement('td');
-    cell.colSpan = 6;
-    cell.textContent = 'Nenhum insight encontrado com os filtros atuais.';
-    row.appendChild(cell);
-    tbody.appendChild(row);
-    return;
-  }
-
-  insights.forEach((insight) => {
-    const row = document.createElement('tr');
-    row.dataset.id = String(insight._id);
-    if (insight._id === state.selectedDetailId) {
-      row.classList.add('selected');
-    }
-
-    const dateCell = document.createElement('td');
-    setCellText(dateCell, formatDate(insight.data_entrevista));
-
-    const typeCell = document.createElement('td');
-    setCellText(typeCell, insight.tipo || 'Não classificado');
-
-    const categoryCell = document.createElement('td');
-    setCellText(categoryCell, insight.categoria || 'Não classificado');
-
-    const stakeholderCell = document.createElement('td');
-    const details = state.stakeholderDetails.get(insight.stakeholder_id);
-    if (details) {
-      const metaParts = [details.time || 'Sem time'];
-      if (details.cargo) metaParts.push(details.cargo);
-      const metaLabel = metaParts.join(' · ');
-      stakeholderCell.innerHTML = `<strong>${details.nome}</strong><br><small>${metaLabel}</small>`;
-      applyTooltip(stakeholderCell, `${details.nome} · ${metaLabel}`);
-    } else {
-      setCellText(stakeholderCell, `Stakeholder ${insight.stakeholder_id || '-'}`);
-    }
-
-    const descriptionCell = document.createElement('td');
-    setCellText(descriptionCell, insight.descricao || '(Sem descrição registrada)');
-
-    const tagsCell = document.createElement('td');
-    const tagsText = (insight.tags || []).join(', ') || '—';
-    setCellText(tagsCell, tagsText);
-
-    row.append(dateCell, typeCell, categoryCell, stakeholderCell, descriptionCell, tagsCell);
-    row.addEventListener('click', () => {
-      state.selectedDetailId = insight._id;
-      Array.from(tbody.querySelectorAll('tr')).forEach((tr) => {
-        tr.classList.toggle('selected', tr.dataset.id === String(insight._id));
-      });
-      renderDetailProfile(insights);
-    });
-
-    tbody.appendChild(row);
-  });
-}
-
-function renderDetailProfile(filteredInsights) {
-  const container = elements.detail.profileContent;
-  if (!container) return;
-
-  if (state.selectedDetailId === null || state.selectedDetailId === undefined) {
-    container.innerHTML = '<p class="chart-placeholder">Selecione um insight para ver detalhes do stakeholder.</p>';
-    return;
-  }
-
-  const selected =
-    filteredInsights.find((insight) => insight._id === state.selectedDetailId) ||
-    state.insights.find((insight) => insight._id === state.selectedDetailId);
-
-  if (!selected) {
-    container.innerHTML = '<p class="chart-placeholder">Seleção indisponível para os filtros atuais.</p>';
-    return;
-  }
-
-  const details = state.stakeholderDetails.get(selected.stakeholder_id);
-  if (!details) {
-    container.innerHTML = '<p class="chart-placeholder">Dados do stakeholder não encontrados.</p>';
-    return;
-  }
-
-  const stakeholderInsights = state.insights.filter(
-    (insight) => insight.stakeholder_id === selected.stakeholder_id,
-  );
-  const countsByType = stakeholderInsights.reduce((acc, insight) => {
-    const type = insight.tipo || 'Não classificado';
-    acc.set(type, (acc.get(type) || 0) + 1);
-    return acc;
-  }, new Map());
-
-  const topTags = stakeholderInsights.reduce((acc, insight) => {
-    (insight.tags || []).forEach((tag) => {
-      const label = tag?.trim();
-      if (!label) return;
-      acc.set(label, (acc.get(label) || 0) + 1);
-    });
-    return acc;
-  }, new Map());
-
-  const topTagEntries = Array.from(topTags.entries()).sort((a, b) => b[1] - a[1]).slice(0, 4);
-
-  const topTypes = Array.from(countsByType.entries())
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3)
-    .map(([type, count]) => `${type} (${count})`);
-
-  container.innerHTML = `
-    <div class="profile-header">
-      <div class="profile-avatar">${getInitials(details.nome)}</div>
-      <div class="profile-info">
-        <h3>${details.nome}</h3>
-        <span>${details.cargo || 'Cargo não informado'}</span>
-        <span>${details.time || 'Sem time'} · ${details.area || 'Sem área'}</span>
-      </div>
-    </div>
-    <div class="profile-stats">
-      <div class="stat">
-        <strong>${stakeholderInsights.length}</strong>
-        <span>Total de insights</span>
-      </div>
-      <div class="stat">
-        <strong>${countsByType.get('Dor') || 0}</strong>
-        <span>Dores reportadas</span>
-      </div>
-      <div class="stat">
-        <strong>${countsByType.get('Engajamento') || 0}</strong>
-        <span>Menções de engajamento</span>
-      </div>
-      <div class="stat">
-        <strong>${Math.round(details.tempo_meses || 0)}</strong>
-        <span>Meses na empresa</span>
-      </div>
-    </div>
-    <ul class="profile-summary">
-      <li><strong>Categoria atual:</strong> ${selected.categoria || 'Não classificado'}</li>
-      <li><strong>Última menção:</strong> ${formatDate(selected.data_entrevista)}</li>
-      <li><strong>Principais tipos:</strong> ${
-        topTypes.length ? topTypes.join(', ') : 'Sem histórico registrado'
-      }</li>
-      <li><strong>Tags frequentes:</strong> ${
-        topTagEntries.length ? topTagEntries.map(([tag]) => tag).join(', ') : 'Sem tags registradas'
-      }</li>
-    </ul>
-  `;
-}
-
-function renderDetailTimeline(insights) {
-  const container = elements.detail.timelineChart;
-  if (!container) return;
-  container.innerHTML = '';
-
-  if (!insights.length) {
-    container.appendChild(createPlaceholder('Nenhum insight para compor a timeline.'));
-    return;
-  }
-
-  const counts = insights.reduce((acc, insight) => {
-    const key = insight.data_entrevista ? insight.data_entrevista.slice(0, 7) : 'Sem data';
-    acc.set(key, (acc.get(key) || 0) + 1);
-    return acc;
-  }, new Map());
-
-  const entries = Array.from(counts.entries()).sort((a, b) => a[0].localeCompare(b[0]));
-  const maxValue = Math.max(...entries.map(([, value]) => value));
-
-  entries.forEach(([month, value]) => {
-    const bar = document.createElement('div');
-    bar.className = 'timeline-bar';
-
-    const label = document.createElement('span');
-    label.className = 'timeline-label';
-    label.textContent = month === 'Sem data' ? 'Sem data' : formatMonthLabel(month);
-
-    const track = document.createElement('div');
-    track.className = 'timeline-track';
-
-    const fill = document.createElement('div');
-    fill.className = 'timeline-fill';
-    fill.style.width = `${Math.max(8, (value / maxValue) * 100)}%`;
-
-    const valueEl = document.createElement('span');
-    valueEl.className = 'timeline-value';
-    valueEl.textContent = value.toString();
-
-    track.appendChild(fill);
-    bar.append(label, track, valueEl);
-    container.appendChild(bar);
-  });
-}
-
-function renderDetailTags(insights) {
-  const tbody = elements.detail.tagsBody;
-  if (!tbody) return;
-  tbody.innerHTML = '';
-
-  if (!insights.length) {
-    const row = document.createElement('tr');
-    const cell = document.createElement('td');
-    cell.colSpan = 2;
-    cell.textContent = 'Nenhuma tag encontrada para os filtros atuais.';
-    row.appendChild(cell);
-    tbody.appendChild(row);
-    return;
-  }
-
-  const counts = insights.reduce((acc, insight) => {
-    (insight.tags || []).forEach((tag) => {
-      const label = tag?.trim();
-      if (!label) return;
-      acc.set(label, (acc.get(label) || 0) + 1);
-    });
-    return acc;
-  }, new Map());
-
-  const entries = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
-
-  if (!entries.length) {
-    const row = document.createElement('tr');
-    const cell = document.createElement('td');
-    cell.colSpan = 2;
-    cell.textContent = 'Nenhuma tag encontrada para os filtros atuais.';
-    row.appendChild(cell);
-    tbody.appendChild(row);
-    return;
-  }
-
-  entries.forEach(([tag, count]) => {
-    const row = document.createElement('tr');
-    const tagCell = document.createElement('td');
-    setCellText(tagCell, tag);
-    const valueCell = document.createElement('td');
-    setCellText(valueCell, count.toString());
-    row.append(tagCell, valueCell);
-    tbody.appendChild(row);
-  });
-}
-
 function renderFinalView() {
   const final = elements.final;
   if (!final.totalStakeholders) return;
@@ -2225,6 +964,7 @@ function renderFinalInfluence() {
   state.insights.forEach((insight) => {
     const id = insight.stakeholder_id;
     if (!id) return;
+
     const entry =
       influenceMap.get(id) || {
         dores: 0,
@@ -2232,27 +972,51 @@ function renderFinalInfluence() {
         engajamento: 0,
         tags: new Map(),
       };
+
     const tipo = insight.tipo || '';
-    if (tipo.toLowerCase() === 'dor') entry.dores += 1;
+    if ((tipo || '').toLowerCase() === 'dor') entry.dores += 1;
     if (expectationTypes.includes(tipo)) entry.expectativas += 1;
     if (tipo === 'Engajamento') entry.engajamento += 1;
+
     (insight.tags || []).forEach((tag) => {
       const label = tag?.trim();
       if (!label) return;
       entry.tags.set(label, (entry.tags.get(label) || 0) + 1);
     });
+
     influenceMap.set(id, entry);
   });
 
-  const ranking = Array.from(influenceMap.entries())
+  const entries = Array.from(influenceMap.entries())
     .map(([stakeholderId, data]) => {
-      const total = data.dores + data.expectativas + data.engajamento;
-      return { stakeholderId, data, total };
+      const totals = data.dores + data.expectativas + data.engajamento;
+      if (totals === 0) return null;
+      const details = state.stakeholderDetails.get(stakeholderId);
+      const tagSummary = Array.from(data.tags.entries())
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'))
+        .slice(0, 3)
+        .map(([tag]) => tag)
+        .join(', ');
+      return {
+        stakeholderId,
+        details,
+        totals: {
+          dores: data.dores,
+          expectativas: data.expectativas,
+          engajamento: data.engajamento,
+        },
+        tagSummary,
+      };
     })
-    .filter((entry) => entry.total > 0)
-    .sort((a, b) => b.total - a.total);
+    .filter(Boolean)
+    .sort((a, b) => {
+      const totalA = a.totals.dores + a.totals.expectativas + a.totals.engajamento;
+      const totalB = b.totals.dores + b.totals.expectativas + b.totals.engajamento;
+      return totalB - totalA;
+    })
+    .slice(0, 15);
 
-  if (!ranking.length) {
+  if (!entries.length) {
     const row = document.createElement('tr');
     const cell = document.createElement('td');
     cell.colSpan = 3;
@@ -2262,8 +1026,7 @@ function renderFinalInfluence() {
     return;
   }
 
-  ranking.forEach(({ stakeholderId, data }) => {
-    const details = state.stakeholderDetails.get(stakeholderId);
+  entries.forEach(({ stakeholderId, details, totals, tagSummary }) => {
     const row = document.createElement('tr');
 
     const nameCell = document.createElement('td');
@@ -2276,20 +1039,15 @@ function renderFinalInfluence() {
       setCellText(nameCell, `Stakeholder ${stakeholderId}`);
     }
 
-    const insightsCell = document.createElement('td');
-    const insightsSummary = `Dores: ${data.dores} · Expectativas: ${data.expectativas} · Engajamento: ${data.engajamento}`;
-    setCellText(insightsCell, insightsSummary);
+    const summaryCell = document.createElement('td');
+    const summaryText = `Dores: ${totals.dores} · Expectativas: ${totals.expectativas} · Engajamento: ${totals.engajamento}`;
+    setCellText(summaryCell, summaryText);
 
-    const tags = Array.from(data.tags.entries())
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 3)
-      .map(([tag]) => tag)
-      .join(', ');
-    const observationsCell = document.createElement('td');
-    const observationText = tags ? `Tags recorrentes: ${tags}` : 'Sem tags destacadas.';
-    setCellText(observationsCell, observationText);
+    const tagsCell = document.createElement('td');
+    const tagsText = tagSummary ? `Tags recorrentes: ${tagSummary}` : 'Sem tags destacadas.';
+    setCellText(tagsCell, tagsText);
 
-    row.append(nameCell, insightsCell, observationsCell);
+    row.append(nameCell, summaryCell, tagsCell);
     tbody.appendChild(row);
   });
 }
@@ -2858,7 +1616,7 @@ function updateFilterVisibility() {
   }
 
   if (elements.teamFilterGroup) {
-    if (state.currentView === 'detail' || state.currentView === 'final') {
+    if (state.currentView === 'final') {
       elements.teamFilterGroup.classList.add('is-hidden');
     } else {
       elements.teamFilterGroup.classList.remove('is-hidden');
@@ -3031,12 +1789,6 @@ function formatDate(isoString) {
   return new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }).format(date);
 }
 
-function formatMonthLabel(monthKey) {
-  const [year, month] = monthKey.split('-');
-  const date = new Date(Number(year), Number(month) - 1, 1);
-  return new Intl.DateTimeFormat('pt-BR', { month: 'short', year: 'numeric' }).format(date);
-}
-
 function formatPercentage(part, total) {
   if (!total || total === 0) return '0%';
   return `${Math.round((part / total) * 100)}%`;
@@ -3069,19 +1821,16 @@ function handleExportSnapshot() {
 
 function collectDashboardSnapshot() {
   const { stakeholders, insights } = getFilteredData();
-  const detailInsights = applyDetailFilters(insights);
   return {
     generatedAt: new Date().toISOString(),
     filters: {
       global: { ...state.filters },
-      detail: { ...state.detailFilters },
       selections: { ...state.selections },
       currentView: state.currentView,
     },
     overview: buildOverviewSection(stakeholders, insights),
     dimension: buildDimensionSection(),
     expectations: buildExpectationsSection(stakeholders, insights),
-    detail: buildDetailSection(detailInsights),
     final: buildFinalSection(),
     rawData: {
       stakeholders: stakeholders.map((stakeholder) => ({ ...stakeholder })),
@@ -3351,108 +2100,6 @@ function buildExpectationsSection(stakeholders, insights) {
     tags,
     engagementTeam,
     ranking,
-  };
-}
-
-function buildDetailSection(detailInsights) {
-  const timelineCounts = detailInsights.reduce((acc, insight) => {
-    const key = insight.data_entrevista ? insight.data_entrevista.slice(0, 7) : 'Sem data';
-    acc.set(key, (acc.get(key) || 0) + 1);
-    return acc;
-  }, new Map());
-
-  const timeline = Array.from(timelineCounts.entries())
-    .sort((a, b) => {
-      if (a[0] === 'Sem data') return 1;
-      if (b[0] === 'Sem data') return -1;
-      return a[0].localeCompare(b[0]);
-    })
-    .map(([key, count]) => ({
-      key,
-      label: key === 'Sem data' ? 'Sem data' : formatMonthLabel(key),
-      count,
-    }));
-
-  const tagsCounts = detailInsights.reduce((acc, insight) => {
-    (insight.tags || []).forEach((tag) => {
-      const normalized = tag?.trim();
-      if (!normalized) return;
-      acc.set(normalized, (acc.get(normalized) || 0) + 1);
-    });
-    return acc;
-  }, new Map());
-  const totalTagMentions = Array.from(tagsCounts.values()).reduce((sum, value) => sum + value, 0);
-  const tags = mapCountsToArray(tagsCounts, totalTagMentions, 'tag');
-
-  const insightsData = detailInsights.map((insight) => {
-    const stakeholder = state.stakeholderDetails.get(insight.stakeholder_id);
-    return {
-      id: insight._id,
-      dataEntrevista: insight.data_entrevista || null,
-      tipo: insight.tipo || 'Não classificado',
-      categoria: insight.categoria || 'Não classificado',
-      descricao: insight.descricao || null,
-      tags: (insight.tags || []).filter(Boolean),
-      stakeholder: stakeholder ? buildStakeholderReference(stakeholder) : null,
-    };
-  });
-
-  let selectedSummary = null;
-  if (state.selectedDetailId !== null && state.selectedDetailId !== undefined) {
-    const selectedInsight =
-      detailInsights.find((insight) => insight._id === state.selectedDetailId) ||
-      state.insights.find((insight) => insight._id === state.selectedDetailId);
-
-    if (selectedInsight) {
-      const stakeholderDetails = state.stakeholderDetails.get(selectedInsight.stakeholder_id);
-      if (stakeholderDetails) {
-        const stakeholderInsights = state.insights.filter(
-          (insight) => insight.stakeholder_id === selectedInsight.stakeholder_id,
-        );
-        const typeCounts = stakeholderInsights.reduce((acc, insight) => {
-          const type = insight.tipo || 'Não classificado';
-          acc.set(type, (acc.get(type) || 0) + 1);
-          return acc;
-        }, new Map());
-        const tagsCountsProfile = stakeholderInsights.reduce((acc, insight) => {
-          (insight.tags || []).forEach((tag) => {
-            const normalized = tag?.trim();
-            if (!normalized) return;
-            acc.set(normalized, (acc.get(normalized) || 0) + 1);
-          });
-          return acc;
-        }, new Map());
-        const totalProfileTags = Array.from(tagsCountsProfile.values()).reduce(
-          (sum, value) => sum + value,
-          0,
-        );
-
-        selectedSummary = {
-          stakeholder: buildStakeholderReference(stakeholderDetails),
-          totalInsights: stakeholderInsights.length,
-          dores: typeCounts.get('Dor') || 0,
-          engajamento: typeCounts.get('Engajamento') || 0,
-          tempoMeses: stakeholderDetails.tempo_meses ?? null,
-          selectedInsight: {
-            id: selectedInsight._id,
-            categoria: selectedInsight.categoria || 'Não classificado',
-            dataEntrevista: selectedInsight.data_entrevista || null,
-          },
-          topTipos: mapCountsToArray(typeCounts, stakeholderInsights.length, 'type').slice(0, 3),
-          topTags: mapCountsToArray(tagsCountsProfile, totalProfileTags, 'tag').slice(0, 5),
-        };
-      }
-    }
-  }
-
-  return {
-    filters: { ...state.detailFilters },
-    totalInsights: detailInsights.length,
-    selectedDetailId: state.selectedDetailId,
-    insights: insightsData,
-    timeline,
-    tags,
-    selectedSummary,
   };
 }
 

@@ -9,7 +9,7 @@
 1. **Visão geral**
    - KPIs agregados (stakeholders, insights, tempo médio).
    - Gráficos básicos: distribuição por time (barras horizontais), tipos de insight, insight mais frequente.
-   - Filtro global de time (aplica a esta e a outras páginas, exceto Detalhamento/Panorama).
+   - Filtro global de time (aplica a esta e a outras páginas, exceto Panorama final).
 
 2. **Dimensão**
    - Filtro extra de tipo (ex.: Dor, Observacao etc.).
@@ -23,14 +23,7 @@
   - Tabela com todas as expectativas e tags agregadas.
    - Ranking dos stakeholders mais engajados (usa somente insights `Engajamento`).
 
-4. **Detalhamento**
-   - Filtros combináveis (tipo/categoria/time/stakeholder) independentes do filtro global.
-   - Tabela completa de insights (seleção destaca perfil) com:
-     - Perfil do stakeholder (avatar, dados, stats, tags frequentes).
-     - Timeline mensal do conjunto filtrado.
-     - Tags recorrentes no contexto atual.
-
-5. **Panorama final**
+4. **Panorama final**
    - KPIs executivos (totais, percentuais de expectativa/engajamento).
    - Temas críticos por tipo (resumo das categorias de Dor, Expectativa, Engajamento).
    - Recomendações automáticas baseadas em tags.
