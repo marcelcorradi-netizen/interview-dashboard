@@ -694,9 +694,12 @@ body {
   grid-column: span 6;
 }
 
-.cards-grid.panorama-grid #final-actions-card,
-.cards-grid.panorama-grid #final-influence-card {
+.cards-grid.panorama-grid #final-actions-card {
   grid-column: span 6;
+}
+
+.cards-grid.panorama-grid #final-influence-card {
+  grid-column: span 12;
 }
 
 .chart {

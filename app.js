@@ -959,95 +959,73 @@ function renderFinalInfluence() {
   tbody.innerHTML = '';
 
   const expectationTypes = ['Impacto_Esperado', 'Necessidade', 'Sugestao'];
-  const influenceMap = new Map();
+  const keyTagCounts = new Map();
 
   state.insights.forEach((insight) => {
-    const id = insight.stakeholder_id;
-    if (!id) return;
-
-    const entry =
-      influenceMap.get(id) || {
-        dores: 0,
-        expectativas: 0,
-        engajamento: 0,
-        tags: new Map(),
-      };
-
     const tipo = insight.tipo || '';
-    if ((tipo || '').toLowerCase() === 'dor') entry.dores += 1;
-    if (expectationTypes.includes(tipo)) entry.expectativas += 1;
-    if (tipo === 'Engajamento') entry.engajamento += 1;
+    const normalized = tipo.toLowerCase();
+    const isKeyInsight =
+      normalized === 'dor' || tipo === 'Engajamento' || expectationTypes.includes(tipo);
+    if (!isKeyInsight) return;
 
-    (insight.tags || []).forEach((tag) => {
-      const label = tag?.trim();
-      if (!label) return;
-      entry.tags.set(label, (entry.tags.get(label) || 0) + 1);
+    (insight.tags || []).forEach((rawTag) => {
+      const tag = rawTag?.trim();
+      if (!tag) return;
+      const entry =
+        keyTagCounts.get(tag) || {
+          dores: 0,
+          expectativas: 0,
+          engajamento: 0,
+        };
+
+      if (normalized === 'dor') entry.dores += 1;
+      if (expectationTypes.includes(tipo)) entry.expectativas += 1;
+      if (tipo === 'Engajamento') entry.engajamento += 1;
+
+      keyTagCounts.set(tag, entry);
     });
-
-    influenceMap.set(id, entry);
   });
 
-  const entries = Array.from(influenceMap.entries())
-    .map(([stakeholderId, data]) => {
-      const totals = data.dores + data.expectativas + data.engajamento;
-      if (totals === 0) return null;
-      const details = state.stakeholderDetails.get(stakeholderId);
-      const tagSummary = Array.from(data.tags.entries())
-        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'pt-BR'))
-        .slice(0, 3)
-        .map(([tag]) => tag)
-        .join(', ');
+  const entries = Array.from(keyTagCounts.entries())
+    .map(([tag, totals]) => {
+      const total = totals.dores + totals.expectativas + totals.engajamento;
+      if (total === 0) return null;
       return {
-        stakeholderId,
-        details,
-        totals: {
-          dores: data.dores,
-          expectativas: data.expectativas,
-          engajamento: data.engajamento,
-        },
-        tagSummary,
+        tag,
+        totals,
+        total,
       };
     })
     .filter(Boolean)
-    .sort((a, b) => {
-      const totalA = a.totals.dores + a.totals.expectativas + a.totals.engajamento;
-      const totalB = b.totals.dores + b.totals.expectativas + b.totals.engajamento;
-      return totalB - totalA;
-    })
-    .slice(0, 15);
+    .sort((a, b) => b.total - a.total || a.tag.localeCompare(b.tag, 'pt-BR'));
 
   if (!entries.length) {
     const row = document.createElement('tr');
     const cell = document.createElement('td');
-    cell.colSpan = 3;
-    cell.textContent = 'Nenhum stakeholder com dados suficientes para análise de influência.';
+    cell.colSpan = 2;
+    cell.textContent = 'Nenhuma tag com insights chave disponível.';
     row.appendChild(cell);
     tbody.appendChild(row);
     return;
   }
 
-  entries.forEach(({ stakeholderId, details, totals, tagSummary }) => {
+  entries.forEach(({ tag, totals, total }) => {
     const row = document.createElement('tr');
 
-    const nameCell = document.createElement('td');
-    if (details) {
-      const metaParts = [details.time || 'Sem time', details.cargo || 'Sem cargo'];
-      const metaLabel = metaParts.join(' · ');
-      nameCell.innerHTML = `<strong>${details.nome}</strong><br><small>${metaLabel}</small>`;
-      applyTooltip(nameCell, `${details.nome} · ${metaLabel}`);
-    } else {
-      setCellText(nameCell, `Stakeholder ${stakeholderId}`);
-    }
+    const tagCell = document.createElement('td');
+    tagCell.innerHTML = `<strong>${tag}</strong>`;
+    applyTooltip(tagCell, tag);
 
     const summaryCell = document.createElement('td');
-    const summaryText = `Dores: ${totals.dores} · Expectativas: ${totals.expectativas} · Engajamento: ${totals.engajamento}`;
+    const parts = [];
+    if (totals.dores) parts.push(`Dores: ${totals.dores}`);
+    if (totals.expectativas) parts.push(`Expectativas: ${totals.expectativas}`);
+    if (totals.engajamento) parts.push(`Engajamento: ${totals.engajamento}`);
+    const detail = parts.length ? ` (${parts.join(' · ')})` : '';
+    const summaryText = `${total} insight${total === 1 ? '' : 's'} chave${detail}`;
     setCellText(summaryCell, summaryText);
 
-    const tagsCell = document.createElement('td');
-    const tagsText = tagSummary ? `Tags recorrentes: ${tagSummary}` : 'Sem tags destacadas.';
-    setCellText(tagsCell, tagsText);
-
-    row.append(nameCell, summaryCell, tagsCell);
+    row.append(tagCell, summaryCell);
     tbody.appendChild(row);
   });
 }
